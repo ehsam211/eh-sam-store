@@ -17,5 +17,5 @@ collections:
       - {label: "Base Price (USD)", name: "price", widget: "number"}
       - {label: "Image URL or Upload", name: "image", widget: "image"}
       - {label: "Category", name: "category", widget: "select", options: ["T-Shirts", "Hoodies", "Pants", "Accessories"]}
-      - {label: "Sizes", name: "sizes", widget: "list", default: ["M", "L", "XL"]}
+      - {label: "Sizes", name: "sizes", widget: "list", default: ["M", "L"]}
       - {label: "Description", name: "body", widget: "markdown"}
