@@ -16,4 +16,3 @@ collections:
       - {label: "Base Price (USD)", name: "price", widget: "number", value_type: "float"}
       - {label: "Image URL or Upload", name: "image", widget: "image"}
       - {label: "Category", name: "category", widget: "select", options: ["T-Shirts", "Hoodies", "Posters", "Cases"]}
-- {label: "Sizes", name: "sizes", widget: "list", default: ["M", "L", "XL"]}
