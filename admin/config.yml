@@ -1,18 +1,21 @@
 backend:
-  name: git-gateway
-  branch: main # Branch to update (change if your branch is named 'master')
+  name: github
+  repo: ehsam211/ehlitestore
+  branch: main
 
-media_folder: "images" # Folder where your uploaded product photos go
+media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "products"
     label: "Products"
-    folder: "products" # The folder where the CMS will save product data files
+    folder: "products"
     create: true
-    format: "json"
+    slug: "{{slug}}"
     fields:
       - {label: "Product Name", name: "title", widget: "string"}
-      - {label: "Base Price (USD)", name: "price", widget: "number", value_type: "float"}
+      - {label: "Base Price (USD)", name: "price", widget: "number"}
       - {label: "Image URL or Upload", name: "image", widget: "image"}
-      - {label: "Category", name: "category", widget: "select", options: ["T-Shirts", "Hoodies", "Posters", "Cases"]}
+      - {label: "Category", name: "category", widget: "select", options: ["T-Shirts", "Hoodies", "Pants", "Accessories"]}
+      - {label: "Sizes", name: "sizes", widget: "list", default: ["M", "L", "XL"]}
+      - {label: "Description", name: "body", widget: "markdown"}
