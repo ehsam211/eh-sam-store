@@ -1,6 +1,8 @@
-lbackend:
+backend:
   name: git-gateway
   branch: main
+
+local_backend: true
 
 media_folder: "images"
 public_folder: "/images"
@@ -16,4 +18,4 @@ collections:
       - {label: "Base Price (USD)", name: "price", widget: "number", value_type: "float"}
       - {label: "Image URL or Upload", name: "image", widget: "image"}
       - {label: "Category", name: "category", widget: "select", options: ["T-Shirts", "Hoodies", "Posters", "Cases"]}
-      - {label: "Available Sizes", name: "sizes", widget: "list", default: ["M", "L"]}
+      - {label: "Available Sizes", name: "sizes", widget: "select", options: ["M", "L", "XL", "M and L"]}
