@@ -38,6 +38,7 @@
         .text-muted { color: var(--text-muted); }
         .text-center { text-align: center; }
         .mb-2 { margin-bottom: 8px; } .mb-4 { margin-bottom: 16px; } .mb-6 { margin-bottom: 24px; } .mb-8 { margin-bottom: 32px; } .mb-12 { margin-bottom: 64px; }
+        .mt-8 { margin-top: 32px; }
         
         .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; border-bottom: 1px solid var(--border-light); padding-bottom: 12px;}
         .view-all { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
@@ -60,13 +61,11 @@
         .btn-gold:disabled { background: #555; color: #888; cursor: not-allowed; box-shadow: none; transform: none; }
         .btn-outline { border: 1px solid var(--border-light); color: var(--text-main); background: rgba(255,255,255,0.02); }
         .btn-outline:hover { border-color: var(--text-main); background: var(--text-main); color: #000; }
-        .btn-whatsapp { background: #25D366; color: #000; }
-        .btn-whatsapp:hover { background: #1EBE5D; transform: translateY(-2px); }
+        .btn-whatsapp { background: #25D366; color: #000; font-weight: 700; }
+        .btn-whatsapp:hover { background: #1EBE5D; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
 
         /* Image Wrappers */
-        .img-wrapper {
-            position: relative; width: 100%; overflow: hidden; background: var(--bg-surface); border-radius: 8px;
-        }
+        .img-wrapper { position: relative; width: 100%; overflow: hidden; background: var(--bg-surface); border-radius: 8px; }
         .img-wrapper img {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; display: block; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -144,6 +143,8 @@
         
         .pill { padding: 10px 20px; border: 1px solid var(--border-light); border-radius: 30px; font-size: 13px; font-weight: 600; white-space: nowrap; color: var(--text-main); background: transparent;}
         .pill.active { background: var(--text-main); color: #000; border-color: var(--text-main); }
+        .size-pill { cursor: pointer; transition: var(--transition); }
+        .size-pill:hover { border-color: var(--text-main); }
 
         .testimonial-card { background: var(--bg-surface); padding: 30px 24px; border-radius: 12px; border: 1px solid var(--border-light); min-width: 300px; scroll-snap-align: center;}
 
@@ -243,7 +244,7 @@
                 <span>Subtotal</span>
                 <span class="text-gold" id="cartTotalValue" data-dynamic-price="0.00">$0.00</span>
             </div>
-            <button class="btn btn-gold" id="checkoutBtn" onclick="nav('checkout')" disabled>Checkout</button>
+            <button class="btn btn-gold" id="checkoutBtn" onclick="checkoutThroughProvider()" disabled>Checkout via Store</button>
         </div>
     </div>
 
@@ -299,22 +300,8 @@
                     <h2>Trending Drops</h2>
                     <button class="view-all" onclick="nav('shop')">View All →</button>
                 </div>
-                <div class="carousel">
-                    <div class="carousel-item card" onclick="openProduct('Heavyweight Logo Hoodie', 65.00, 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop')">
-                        <div class="img-wrapper ratio-portrait"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop" alt="Product"></div>
-                        <div class="card-body">
-                            <div class="card-title">Heavyweight Logo Hoodie</div>
-                            <div class="card-price" data-base-price="65.00">$65.00</div>
-                        </div>
+                <div class="carousel" id="trendingCarousel">
                     </div>
-                    <div class="carousel-item card" onclick="openProduct('Nocturnal Graphic Tee', 35.00, 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop')">
-                        <div class="img-wrapper ratio-portrait"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop" alt="Product"></div>
-                        <div class="card-body">
-                            <div class="card-title">Nocturnal Graphic Tee</div>
-                            <div class="card-price" data-base-price="35.00">$35.00</div>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section class="mb-12">
@@ -352,30 +339,7 @@
             </div>
 
             <div class="grid-2" id="shopGrid">
-                <div class="card product-item" data-category="T-Shirts" onclick="openProduct('Classic Logo Tee', 35.00, 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop')">
-                    <div class="img-wrapper ratio-portrait"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop" alt="Tee"></div>
-                    <div class="card-body"><div class="card-title">Classic Logo Tee</div><div class="card-price" data-base-price="35.00">$35.00</div></div>
                 </div>
-                <div class="card product-item" data-category="T-Shirts" onclick="openProduct('Essential Blank Tee', 28.00, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop')">
-                    <div class="img-wrapper ratio-portrait"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop" alt="Tee"></div>
-                    <div class="card-body"><div class="card-title">Essential Blank Tee</div><div class="card-price" data-base-price="28.00">$28.00</div></div>
-                </div>
-
-                <div class="card product-item" data-category="Hoodies" onclick="openProduct('Heavyweight Logo Hoodie', 65.00, 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop')">
-                    <div class="img-wrapper ratio-portrait"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop" alt="Hoodie"></div>
-                    <div class="card-body"><div class="card-title">Heavyweight Logo Hoodie</div><div class="card-price" data-base-price="65.00">$65.00</div></div>
-                </div>
-
-                <div class="card product-item" data-category="Posters" onclick="openProduct('Abstract Canvas Poster', 45.00, 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=600&auto=format&fit=crop')">
-                    <div class="img-wrapper ratio-portrait"><img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=600&auto=format&fit=crop" alt="Poster"></div>
-                    <div class="card-body"><div class="card-title">Abstract Canvas Poster</div><div class="card-price" data-base-price="45.00">$45.00</div></div>
-                </div>
-
-                <div class="card product-item" data-category="Cases" onclick="openProduct('Matte Black Case', 22.00, 'https://images.unsplash.com/photo-1603313011101-320f26a4f6f6?q=80&w=600&auto=format&fit=crop')">
-                    <div class="img-wrapper ratio-portrait"><img src="https://images.unsplash.com/photo-1603313011101-320f26a4f6f6?q=80&w=600&auto=format&fit=crop" alt="Case"></div>
-                    <div class="card-body"><div class="card-title">Matte Black Case</div><div class="card-price" data-base-price="22.00">$22.00</div></div>
-                </div>
-            </div>
         </div>
     </main>
 
@@ -391,59 +355,20 @@
                 <div>
                     <h1 class="mb-2" style="font-size: 28px;" id="targetProductTitle">Product Title</h1>
                     <div class="text-gold mb-4" style="font-size: 24px; font-weight: 800;" id="targetProductPrice" data-dynamic-price="0.00">$0.00</div>
-                    <p class="text-muted mb-8">Premium quality processing and construction. Built standard for comfort and high durability, managed efficiently using Printify automation setups.</p>
+                    <p class="text-muted mb-8">Premium quality processing and construction. Built standard for comfort and high durability, managed efficiently using automated print provider logic pipelines.</p>
                     
                     <div class="mb-8">
                         <div class="text-sm text-muted mb-2" style="font-weight: 600; text-transform: uppercase;">Select Variant Size</div>
-                        <div style="display: flex; gap: 10px;">
-                            <button class="pill">S</button>
-                            <button class="pill active">M</button>
-                            <button class="pill">L</button>
-                        </div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;" id="targetProductSizesContainer">
+                            </div>
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 16px;">
                         <button class="btn btn-outline" onclick="triggerItemAdd()">Add item to Bag</button>
-                        <button class="btn btn-gold" onclick="triggerItemAdd(); nav('checkout');">Buy Immediately</button>
+                        <button class="btn btn-gold" onclick="buyImmediately()">Buy Securely via Store</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <main id="checkout" class="page-view">
-        <div class="container" style="max-width: 600px; padding-bottom: 80px;">
-            <button class="text-muted text-sm mb-4" onclick="toggleDrawer('cartDrawer')" style="font-weight:600;">← REVIEW CART</button>
-            <h1 class="mb-4" style="font-size: 32px;">Secure Checkout</h1>
-            <p class="text-muted mb-8">Complete your shipping and payment details below.</p>
-            
-            <div style="background: var(--bg-surface); padding: 24px; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 30px;">
-                <h3 class="mb-4 text-gold">Order Summary</h3>
-                <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 20px;">
-                    <span>Total to Pay:</span>
-                    <span id="checkoutTotalValue" data-dynamic-price="0.00">$0.00</span>
-                </div>
-            </div>
-
-            <form onsubmit="processCheckout(event)">
-                <h3 class="mb-4" style="font-size: 18px;">Shipping Information</h3>
-                <input type="email" placeholder="Email Address" required>
-                <input type="text" placeholder="Full Name" required>
-                <input type="text" placeholder="Street Address" required>
-                <div style="display: flex; gap: 16px;">
-                    <input type="text" placeholder="City" required>
-                    <input type="text" placeholder="Zip/Postal Code" required>
-                </div>
-                
-                <h3 class="mb-4 mt-8" style="font-size: 18px; margin-top: 24px;">Payment Method</h3>
-                <input type="text" placeholder="Card Number" pattern="\d{16}" title="16 digit card number" required>
-                <div style="display: flex; gap: 16px;">
-                    <input type="text" placeholder="MM/YY" required>
-                    <input type="text" placeholder="CVC" required>
-                </div>
-                
-                <button type="submit" class="btn btn-gold" style="margin-top: 20px;">Complete Order</button>
-            </form>
         </div>
     </main>
 
@@ -454,7 +379,7 @@
             </div>
             <h1 class="text-gold mb-2" style="font-size: 36px;">The Vision</h1>
             <h3 class="text-muted mb-6" style="font-weight: 500;">Founded by Ejeh O. Samuel</h3>
-            <p class="mb-6" style="font-size: 16px;">Eh Sam sits at the intersection of modern aesthetic and raw streetwear culture. We engineer premium, print-on-demand apparel utilizing the global Printify network, ensuring that no matter where you are in the world, you receive uncompromised quality.</p>
+            <p class="mb-6" style="font-size: 16px;">Eh Sam sits at the intersection of modern aesthetic and raw streetwear culture. We engineer premium, print-on-demand apparel utilizing global networks, ensuring that no matter where you are in the world, you receive uncompromised quality.</p>
             <p class="text-muted" style="font-size: 16px;">Beyond clothing, our Design Studio operates as a creative powerhouse. We deliver bespoke visual identities, event flyers, and digital art for brands, musicians, and creators worldwide.</p>
         </div>
     </main>
@@ -464,21 +389,23 @@
             <h1 class="mb-4 text-gold" style="font-size: 32px;">Customer Care Hub</h1>
             <p class="text-muted mb-8">Having an issue with an order, or need to file a direct complaint? Reach out through the form below or DM me directly.</p>
             
-            <form onsubmit="event.preventDefault(); alert('Your ticket has been logged successfully. We will resolve this within 24 hours!'); nav('home');">
-                <select required>
+            <form action="https://formsubmit.co/ehsam8345@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Customer Care Ticket!">
+                
+                <select name="Issue_Type" required>
                     <option value="" disabled selected>Nature of Inquiry...</option>
                     <option>File a Complaint / Issue</option>
                     <option>Order Tracking & Delay</option>
                     <option>Return & Refund Request</option>
                     <option>General Inquiry</option>
                 </select>
-                <input type="text" placeholder="Full Name or Order ID" required>
-                <input type="email" placeholder="Your Contact Email" required>
-                <textarea rows="5" placeholder="Describe the issue or inquiry in detail..." required></textarea>
+                <input type="text" name="Name_or_Order_ID" placeholder="Full Name or Order ID" required>
+                <input type="email" name="Customer_Email" placeholder="Your Contact Email" required>
+                <textarea name="Message" rows="5" placeholder="Describe the issue or inquiry in detail..." required></textarea>
                 
                 <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px;">
-                    <button type="submit" class="btn btn-gold" style="flex: 1; min-width: 200px;">Submit Ticket</button>
-                    <a href="https://wa.me/2348137187742" target="_blank" class="btn btn-whatsapp" style="flex: 1; min-width: 200px;">Direct WhatsApp DM</a>
+                    <button type="submit" class="btn btn-gold" style="flex: 1; min-width: 200px;">Submit Ticket via Email</button>
+                    <a href="https://wa.me/2348137187742" target="_blank" class="btn btn-whatsapp" style="flex: 1; min-width: 200px; display:inline-flex; align-items:center; justify-content:center;">Direct WhatsApp DM</a>
                 </div>
             </form>
         </div>
@@ -487,15 +414,30 @@
     <main id="custom" class="page-view">
         <div class="container" style="max-width: 700px; padding-bottom:80px;">
             <h1 class="text-gold mb-2" style="font-size: 32px;">Design Studio Services</h1>
-            <p class="text-muted mb-8">Bespoke graphic design operations directly from the studio core.</p>
-            <form onsubmit="event.preventDefault(); alert('Brief filed successfully! We will analyze your metrics shortly.'); nav('home');">
-                <select required>
+            <p class="text-muted mb-8">Bespoke graphic design operations directly from the studio core. Submit your brief to my WhatsApp DM instantly or through Email.</p>
+            
+            <form action="https://formsubmit.co/ehsam8345@gmail.com" method="POST" id="designStudioForm">
+                <input type="hidden" name="_subject" value="New Custom Design Request!">
+                
+                <input type="email" name="Client_Email" id="customEmail" placeholder="Your Email Address" required>
+                
+                <select name="Service_Type" id="customService" required>
                     <option value="" disabled selected>Choose a design service metric...</option>
-                    <option>Flyer & Promotional Design</option>
-                    <option>Complete Brand Identity & Logo Suite</option>
+                    <option value="Flyer & Promotional Design">Flyer & Promotional Design</option>
+                    <option value="Complete Brand Identity & Logo Suite">Complete Brand Identity & Logo Suite</option>
                 </select>
-                <textarea rows="5" placeholder="Provide design specific brief instructions here..." required></textarea>
-                <button type="submit" class="btn btn-gold mb-4">Submit Brief Structure</button>
+                
+                <textarea name="Design_Brief" id="customBrief" rows="5" placeholder="Provide design specific brief instructions here..." required></textarea>
+                
+                <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 10px;">
+                    <button type="button" class="btn btn-whatsapp" onclick="sendDesignToWhatsApp()">
+                        💬 Send Order directly to WhatsApp DM
+                    </button>
+                    
+                    <button type="submit" class="btn btn-outline">
+                        ✉️ Submit Order via Email
+                    </button>
+                </div>
             </form>
         </div>
     </main>
@@ -548,6 +490,7 @@
         // Shopping System Architecture
         let shoppingCart = [];
         let currentlySelectedProduct = null;
+        let selectedProductSize = "";
         
         // Currency Toggle Architecture
         let activeCurrency = 'USD';
@@ -563,7 +506,119 @@
         const searchResultsContainer = document.getElementById('searchResultsContainer');
         const searchHits = document.getElementById('searchHits');
 
-        // ==== SEARCH ENGINE FIX ====
+        // ==== GOOGLE SHEETS CORE CONTROLLER PARSER ====
+        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1RkrxzeTEpbLXAcK_HRAWaSJ_h9yhMFBg9dvhh16iysw/export?format=csv";
+
+        // FALLBACK DEFAULT PRODUCTS (Loaded if Google Sheet is empty or fails)
+        const DEFAULT_FALLBACK_PRODUCTS = [
+            { title: "Heavyweight Luxury Hoodie", price: 65.00, sizes: "S, M, L, XL", imgUrl: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "Hoodies" },
+            { title: "Nocturnal Graphic Tee", price: 35.00, sizes: "S, M, L", imgUrl: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "T-Shirts" },
+            { title: "Essential Core Tee", price: 28.00, sizes: "M, L, XL", imgUrl: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "T-Shirts" },
+            { title: "Abstract Canvas Poster", price: 45.00, sizes: "OS", imgUrl: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "Posters" },
+            { title: "Matte Black Core Case", price: 22.00, sizes: "OS", imgUrl: "https://images.unsplash.com/photo-1603313011101-320f26a4f6f6?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "Cases" }
+        ];
+
+        async function loadProductsFromSheets() {
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const data = await response.text();
+                
+                const lines = data.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+                
+                if (lines.length <= 1) {
+                    renderDynamicProducts(DEFAULT_FALLBACK_PRODUCTS);
+                    return;
+                }
+
+                const products = [];
+                for(let i = 1; i < lines.length; i++) {
+                    const columns = parseCSVLine(lines[i]);
+                    
+                    if(columns.length >= 5 && columns[3].includes('http')) {
+                        let safeLink = columns[4].trim();
+                        if (!safeLink.includes('.') && !safeLink.includes('http')) {
+                            safeLink = "https://ehlitestore-2.creator-spring.com/"; 
+                        }
+
+                        products.push({
+                            title: columns[0].trim() || "Eh Sam Item",
+                            price: parseFloat(columns[1].replace(/[^0-9.]/g, '')) || 0,
+                            sizes: columns[2].trim() || "OS",
+                            imgUrl: columns[3].trim(),
+                            productLink: safeLink,
+                            category: columns[0].toLowerCase().includes('hoodie') ? 'Hoodies' : 
+                                      columns[0].toLowerCase().includes('tee') || columns[0].toLowerCase().includes('shirt') ? 'T-Shirts' :
+                                      columns[0].toLowerCase().includes('poster') ? 'Posters' : 'Cases'
+                        });
+                    }
+                }
+                
+                if (products.length === 0) {
+                    renderDynamicProducts(DEFAULT_FALLBACK_PRODUCTS);
+                } else {
+                    renderDynamicProducts(products);
+                }
+            } catch (error) {
+                console.error("Failed to read Google Sheets. Loading defaults.", error);
+                renderDynamicProducts(DEFAULT_FALLBACK_PRODUCTS);
+            }
+        }
+
+        function parseCSVLine(text) {
+            let p = '', r = [];
+            let q = false;
+            for (let i = 0; i < text.length; i++) {
+                let c = text[i];
+                if (c === '"') { q = !q; }
+                else if (c === ',' && !q) { r.push(p); p = ''; }
+                else { p += c; }
+            }
+            r.push(p);
+            return r;
+        }
+
+        function renderDynamicProducts(products) {
+            const shopGrid = document.getElementById('shopGrid');
+            const trendingCarousel = document.getElementById('trendingCarousel');
+            
+            shopGrid.innerHTML = '';
+            trendingCarousel.innerHTML = '';
+
+            products.forEach((product, idx) => {
+                const cleanImg = product.imgUrl.replace(/['"]/g, "");
+                const cleanTitle = product.title.replace(/['"]/g, "");
+                const cleanSizes = product.sizes.replace(/['"]/g, "");
+                const cleanProductLink = product.productLink.replace(/['"]/g, "");
+
+                const productCardHTML = `
+                <div class="card product-item" data-category="${product.category}" onclick="openProduct('${cleanTitle}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
+                    <div class="img-wrapper ratio-portrait"><img src="${cleanImg}" alt="${cleanTitle}"></div>
+                    <div class="card-body">
+                        <div class="card-title">${cleanTitle}</div>
+                        <div class="card-price" data-base-price="${product.price}">${formatPrice(product.price)}</div>
+                    </div>
+                </div>`;
+                
+                shopGrid.innerHTML += productCardHTML;
+
+                if(idx < 2) {
+                    const trendingHTML = `
+                    <div class="carousel-item card" onclick="openProduct('${cleanTitle}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
+                        <div class="img-wrapper ratio-portrait"><img src="${cleanImg}" alt="${cleanTitle}"></div>
+                        <div class="card-body">
+                            <div class="card-title">${cleanTitle}</div>
+                            <div class="card-price" data-base-price="${product.price}">${formatPrice(product.price)}</div>
+                        </div>
+                    </div>`;
+                    trendingCarousel.innerHTML += trendingHTML;
+                }
+            });
+            updateAllDisplayedPrices();
+        }
+
+        window.addEventListener('DOMContentLoaded', loadProductsFromSheets);
+
+        // ==== SEARCH ENGINE AUTOMATION ====
         searchInput.addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase();
             const allProducts = Array.from(document.querySelectorAll('.product-item'));
@@ -579,12 +634,11 @@
                     searchHits.innerHTML = filtered.map(item => {
                         const title = item.querySelector('.card-title').innerText;
                         const priceStr = item.querySelector('.card-price').innerText;
-                        const basePrice = item.querySelector('.card-price').getAttribute('data-base-price');
                         const img = item.querySelector('img').src;
-                        // Build an inline button to open the product directly from search
+                        
                         return `
                         <div style="display:flex; align-items:center; gap:12px; padding:10px; background:var(--bg-elevated); border-radius:6px; cursor:pointer;"
-                             onclick="openProduct('${title}', ${basePrice}, '${img}')">
+                             onclick="document.querySelector('[alt=\\'${title}\\']').parentElement.parentElement.click()">
                             <img src="${img}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;">
                             <div>
                                 <div style="font-weight:700; font-size:14px;">${title}</div>
@@ -600,7 +654,6 @@
                 searchHits.innerHTML = '';
             }
         });
-
 
         // ==== CURRENCY ENGINE ====
         function formatPrice(usdPriceValue) {
@@ -686,18 +739,44 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ==== E-COMMERCE LOGIC ====
-        function openProduct(title, price, imgUrl) {
-            currentlySelectedProduct = { title, price, imgUrl };
+        // ==== E-COMMERCE LOGIC & SIZE SELECTION MODULES ====
+        function openProduct(title, price, imgUrl, sizesString, productLink) {
+            currentlySelectedProduct = { title, price, imgUrl, sizesString, productLink };
             document.getElementById('targetProductTitle').innerText = title;
             document.getElementById('targetProductPrice').innerText = formatPrice(price);
             document.getElementById('targetProductImg').src = imgUrl;
+            
+            const sizesContainer = document.getElementById('targetProductSizesContainer');
+            sizesContainer.innerHTML = '';
+            
+            if(sizesString && sizesString.trim().length > 0) {
+                const sizesArray = sizesString.split(',').map(s => s.trim());
+                selectedProductSize = sizesArray[0]; 
+                
+                sizesArray.forEach((size, index) => {
+                    const isActiveClass = index === 0 ? 'active' : '';
+                    sizesContainer.innerHTML += `<button class="pill size-pill ${isActiveClass}" onclick="selectSizeMetric(this, '${size}')">${size}</button>`;
+                });
+            } else {
+                sizesContainer.innerHTML = `<button class="pill size-pill active">OS</button>`;
+                selectedProductSize = "OS";
+            }
+
             nav('product');
+        }
+
+        function selectSizeMetric(buttonElement, sizeValue) {
+            document.querySelectorAll('#targetProductSizesContainer .size-pill').forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+            selectedProductSize = sizeValue;
         }
 
         function triggerItemAdd() {
             if(currentlySelectedProduct) {
-                shoppingCart.push({...currentlySelectedProduct});
+                shoppingCart.push({
+                    ...currentlySelectedProduct,
+                    size: selectedProductSize
+                });
                 synchronizeCartUI();
                 toggleDrawer('cartDrawer');
             }
@@ -713,7 +792,6 @@
             const itemsListContainer = document.getElementById('cartItemsList');
             const emptyMessageFrame = document.getElementById('cartEmptyMessage');
             const totalValueDisplay = document.getElementById('cartTotalValue');
-            const checkoutTotalDisplay = document.getElementById('checkoutTotalValue');
             const checkoutButton = document.getElementById('checkoutBtn');
 
             badgeElement.innerText = shoppingCart.length;
@@ -722,9 +800,7 @@
             if (shoppingCart.length === 0) {
                 itemsListContainer.innerHTML = '';
                 emptyMessageFrame.style.display = 'block';
-                const zeroVal = formatPrice(0);
-                totalValueDisplay.innerText = zeroVal;
-                if(checkoutTotalDisplay) checkoutTotalDisplay.innerText = zeroVal;
+                totalValueDisplay.innerText = formatPrice(0);
                 checkoutButton.disabled = true;
             } else {
                 emptyMessageFrame.style.display = 'none';
@@ -739,7 +815,7 @@
                                 <img src="${item.imgUrl}" alt="Cart Item">
                             </div>
                             <div style="flex: 1;">
-                                <div style="font-size: 14px; font-weight: 700; color:#FFF;">${item.title}</div>
+                                <div style="font-size: 14px; font-weight: 700; color:#FFF;">${item.title} (${item.size})</div>
                                 <div class="text-gold" style="font-weight: 800; margin-top: 4px;">${formatPrice(item.price)}</div>
                                 <button onclick="removeItemFromCart(${index})" style="color: #FF4444; font-size: 12px; font-weight:600; margin-top: 6px; display:block;">Remove Item</button>
                             </div>
@@ -747,18 +823,34 @@
                     `;
                 }).join('');
                 
-                const formattedTotal = formatPrice(combinedRunningCostUsd);
-                totalValueDisplay.innerText = formattedTotal;
-                if(checkoutTotalDisplay) checkoutTotalDisplay.innerText = formattedTotal;
+                totalValueDisplay.innerText = formatPrice(combinedRunningCostUsd);
             }
         }
 
-        function processCheckout(event) {
-            event.preventDefault();
-            alert('Payment Successful! Your order has been placed and will be processed immediately.');
-            shoppingCart = [];
-            synchronizeCartUI();
-            nav('home'); 
+        // ==== EXTERNAL STORE ROUTING AUTOMATION ====
+        function forceRedirectToStore(url) {
+            let finalUrl = url && url.trim() !== "" ? url : "https://ehlitestore-2.creator-spring.com/";
+            if (!finalUrl.startsWith('http')) {
+                finalUrl = 'https://' + finalUrl;
+            }
+            window.location.href = finalUrl;
+        }
+
+        document.getElementById('designStudioForm').addEventListener('submit', function() {
+             alert('Your design request metric has been logged! Your details are being securely dispatched to the main email registry server.');
+        });
+
+        function buyImmediately() {
+            forceRedirectToStore(currentlySelectedProduct ? currentlySelectedProduct.productLink : "");
+        }
+
+        function checkoutThroughProvider() {
+            if (shoppingCart.length > 0) {
+                const primaryItem = shoppingCart[shoppingCart.length - 1];
+                forceRedirectToStore(primaryItem.productLink);
+            } else {
+                forceRedirectToStore("");
+            }
         }
 
         function applyFilter(categoryValue, actionButtonElement) {
@@ -785,6 +877,30 @@
         function navAndFilter(targetCategory) {
             nav('shop');
             applyFilter(targetCategory);
+        }
+
+        // DYNAMIC WHATSAPP DISPATCH MODULE FOR DESIGN STUDIO
+        function sendDesignToWhatsApp() {
+            const clientEmail = document.getElementById('customEmail').value.trim();
+            const serviceType = document.getElementById('customService').value;
+            const designBrief = document.getElementById('customBrief').value.trim();
+
+            if (!clientEmail || !serviceType || !designBrief) {
+                alert('Please complete all form inputs (Email, Service Metric, and Brief Description) before pushing to WhatsApp DM.');
+                return;
+            }
+
+            // Constructing a beautifully formatted message for your WhatsApp DM
+            const formattedMessage = `⚡ *NEW DESIGN STUDIO BRIEF* ⚡\n\n` +
+                                     `• *Service Requested:* ${serviceType}\n` +
+                                     `• *Client Contact Email:* ${clientEmail}\n\n` +
+                                     `📝 *Design Details Brief:* \n${designBrief}`;
+
+            const encodedURLMessage = encodeURIComponent(formattedMessage);
+            const whatsappEndpoint = `https://wa.me/2348137187742?text=${encodedURLMessage}`;
+            
+            // Instantly route client to your WhatsApp with pre-filled layout info
+            window.open(whatsappEndpoint, '_blank');
         }
     </script>
 </body>
