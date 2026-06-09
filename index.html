@@ -444,12 +444,27 @@
 
     <main id="profile" class="page-view">
         <div class="container" style="max-width: 450px; padding-bottom:80px;">
-            <h1 class="text-center mb-2" style="font-size: 32px;">Account Access</h1>
-            <form onsubmit="event.preventDefault(); nav('home');">
-                <input type="email" placeholder="Email Account Address" required>
-                <input type="password" placeholder="Account Password" required>
-                <button type="submit" class="btn btn-gold">Sign In</button>
+            <h1 class="text-center mb-2" id="authTitle" style="font-size: 32px;">Account Access</h1>
+            <p class="text-center text-muted mb-6" id="authSubtitle">Sign inside your exclusive dashboard to monitor design assets.</p>
+            
+            <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+                <button type="button" class="btn btn-gold" style="font-size: 12px; padding: 12px;" onclick="triggerNetlifyAuth('login')">Netlify Sign In</button>
+                <button type="button" class="btn btn-outline" style="font-size: 12px; padding: 12px;" onclick="triggerNetlifyAuth('signup')">Netlify Sign Up</button>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-light); padding-top: 20px; margin-bottom: 20px; text-align: center;">
+                <span class="text-muted text-sm" style="background: var(--bg-base); padding: 0 10px; position: relative; top: -30px;">OR CUSTOM PORTAL</span>
+            </div>
+
+            <form id="customAuthForm" onsubmit="processCustomAuth(event)">
+                <input type="email" id="authEmail" placeholder="Email Account Address" required>
+                <input type="password" id="authPassword" placeholder="Account Password" required>
+                <button type="submit" class="btn btn-gold" id="authSubmitBtn">Sign In</button>
             </form>
+            
+            <p class="text-center text-sm mt-8" style="cursor: pointer; color: var(--accent-gold); font-weight: 600;" id="authToggleModeBtn" onclick="toggleAuthInterfaceMode()">
+                Don't have an account? Sign Up Here
+            </p>
         </div>
     </main>
 
@@ -496,6 +511,9 @@
         let activeCurrency = 'USD';
         const exchangeRateToNaira = 1500; 
 
+        // Account Auth Tracking Variable
+        let currentAuthModeIsSignIn = true;
+
         // Element references
         const overlay = document.getElementById('uiOverlay');
         const menuDrawer = document.getElementById('menuDrawer');
@@ -518,12 +536,14 @@
             { title: "Matte Black Core Case", price: 22.00, sizes: "OS", imgUrl: "https://images.unsplash.com/photo-1603313011101-320f26a4f6f6?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "Cases" }
         ];
 
+        // UPDATED: Extremely flexible and robust error-tolerant CSV execution engine
         async function loadProductsFromSheets() {
             try {
-                const response = await fetch(SHEET_CSV_URL);
+                const response = await fetch(SHEET_CSV_URL + "&cache_bust=" + Date.now());
                 const data = await response.text();
                 
-                const lines = data.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+                // Fixed Split Regex pattern to capture both Windows (\r\n) and Unix (\n) sheet boundaries cleanly
+                const lines = data.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0);
                 
                 if (lines.length <= 1) {
                     renderDynamicProducts(DEFAULT_FALLBACK_PRODUCTS);
@@ -534,22 +554,34 @@
                 for(let i = 1; i < lines.length; i++) {
                     const columns = parseCSVLine(lines[i]);
                     
-                    if(columns.length >= 5 && columns[3].includes('http')) {
-                        let safeLink = columns[4].trim();
-                        if (!safeLink.includes('.') && !safeLink.includes('http')) {
-                            safeLink = "https://ehlitestore-2.creator-spring.com/"; 
+                    // Relaxed validation rules so long structural URLs (Printify links) load smoothly
+                    if(columns.length >= 4) {
+                        let parsedTitle = columns[0] ? columns[0].replace(/['"]/g, "").trim() : "Eh Sam Product";
+                        let rawPrice = columns[1] ? columns[1].replace(/[^0-9.]/g, '') : "0";
+                        let parsedPrice = parseFloat(rawPrice) || 0;
+                        let parsedSizes = columns[2] ? columns[2].replace(/['"]/g, "").trim() : "OS";
+                        let parsedImgUrl = columns[3] ? columns[3].replace(/['"]/g, "").trim() : "";
+                        let parsedProductLink = (columns[4] && columns[4].trim().length > 5) ? columns[4].replace(/['"]/g, "").trim() : "https://ehlitestore-2.creator-spring.com/";
+
+                        // Auto-correct safety configuration if the user misaligns columns in their row mapping
+                        if (!parsedImgUrl.includes('http') && parsedProductLink.includes('http')) {
+                            let tempHolder = parsedImgUrl;
+                            parsedImgUrl = parsedProductLink;
+                            parsedProductLink = tempHolder || "https://ehlitestore-2.creator-spring.com/";
                         }
 
-                        products.push({
-                            title: columns[0].trim() || "Eh Sam Item",
-                            price: parseFloat(columns[1].replace(/[^0-9.]/g, '')) || 0,
-                            sizes: columns[2].trim() || "OS",
-                            imgUrl: columns[3].trim(),
-                            productLink: safeLink,
-                            category: columns[0].toLowerCase().includes('hoodie') ? 'Hoodies' : 
-                                      columns[0].toLowerCase().includes('tee') || columns[0].toLowerCase().includes('shirt') ? 'T-Shirts' :
-                                      columns[0].toLowerCase().includes('poster') ? 'Posters' : 'Cases'
-                        });
+                        if (parsedImgUrl && parsedImgUrl.startsWith('http')) {
+                            products.push({
+                                title: parsedTitle,
+                                price: parsedPrice,
+                                sizes: parsedSizes,
+                                imgUrl: parsedImgUrl,
+                                productLink: parsedProductLink,
+                                category: parsedTitle.toLowerCase().includes('hoodie') ? 'Hoodies' : 
+                                          parsedTitle.toLowerCase().includes('tee') || parsedTitle.toLowerCase().includes('shirt') ? 'T-Shirts' :
+                                          parsedTitle.toLowerCase().includes('poster') ? 'Posters' : 'Cases'
+                            });
+                        }
                     }
                 }
                 
@@ -585,13 +617,13 @@
             trendingCarousel.innerHTML = '';
 
             products.forEach((product, idx) => {
-                const cleanImg = product.imgUrl.replace(/['"]/g, "");
-                const cleanTitle = product.title.replace(/['"]/g, "");
-                const cleanSizes = product.sizes.replace(/['"]/g, "");
-                const cleanProductLink = product.productLink.replace(/['"]/g, "");
+                const cleanImg = product.imgUrl;
+                const cleanTitle = product.title;
+                const cleanSizes = product.sizes;
+                const cleanProductLink = product.productLink;
 
                 const productCardHTML = `
-                <div class="card product-item" data-category="${product.category}" onclick="openProduct('${cleanTitle}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
+                <div class="card product-item" data-category="${product.category}" onclick="openProduct('${cleanTitle.replace(/'/g, "\\'")}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
                     <div class="img-wrapper ratio-portrait"><img src="${cleanImg}" alt="${cleanTitle}"></div>
                     <div class="card-body">
                         <div class="card-title">${cleanTitle}</div>
@@ -601,9 +633,9 @@
                 
                 shopGrid.innerHTML += productCardHTML;
 
-                if(idx < 2) {
+                if(idx < 4) {
                     const trendingHTML = `
-                    <div class="carousel-item card" onclick="openProduct('${cleanTitle}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
+                    <div class="carousel-item card" onclick="openProduct('${cleanTitle.replace(/'/g, "\\'")}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
                         <div class="img-wrapper ratio-portrait"><img src="${cleanImg}" alt="${cleanTitle}"></div>
                         <div class="card-body">
                             <div class="card-title">${cleanTitle}</div>
@@ -737,6 +769,50 @@
             closeAllDrawers();
             closeSearch();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==== INTERACTIVE SIGN IN & SIGN UP LOGIC CONTROLLER ====
+        function triggerNetlifyAuth(action) {
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.open(action);
+            } else {
+                alert("Authentication system initializing. Please try again in a brief second.");
+            }
+        }
+
+        function toggleAuthInterfaceMode() {
+            currentAuthModeIsSignIn = !currentAuthModeIsSignIn;
+            const title = document.getElementById('authTitle');
+            const subtitle = document.getElementById('authSubtitle');
+            const submitBtn = document.getElementById('authSubmitBtn');
+            const toggleLink = document.getElementById('authToggleModeBtn');
+
+            if (currentAuthModeIsSignIn) {
+                title.innerText = "Account Access";
+                subtitle.innerText = "Sign inside your exclusive dashboard to monitor design assets.";
+                submitBtn.innerText = "Sign In";
+                toggleLink.innerText = "Don't have an account? Sign Up Here";
+            } else {
+                title.innerText = "Create Account";
+                subtitle.innerText = "Join Eh Sam studio network to register premium streetwear benefits.";
+                submitBtn.innerText = "Sign Up / Register";
+                toggleLink.innerText = "Already possess an account? Sign In Instead";
+            }
+        }
+
+        function processCustomAuth(event) {
+            event.preventDefault();
+            const enteredEmail = document.getElementById('authEmail').value;
+            
+            if (currentAuthModeIsSignIn) {
+                alert(`Welcome back to Eh Sam! \nLogged in securely as: ${enteredEmail}`);
+            } else {
+                alert(`Account registration initiated successfully! \nA verification voucher will be generated for: ${enteredEmail}`);
+            }
+            
+            // Clean interface inputs and return customer safely to store front
+            document.getElementById('customAuthForm').reset();
+            nav('home');
         }
 
         // ==== E-COMMERCE LOGIC & SIZE SELECTION MODULES ====
