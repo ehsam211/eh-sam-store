@@ -349,7 +349,7 @@
             <div class="split-view">
                 <div class="mb-8">
                     <div class="img-wrapper ratio-portrait" style="border-radius: 12px;">
-                        <img src="" id="targetProductImg" alt="Main Item Focus Image">
+                        <img src="" id="targetProductImg" alt="Main Item Focus Image" onerror="this.src='https://images.unsplash.com/photo-1523398002811-999aa8ffdd9a?q=80&w=600'">
                     </div>
                 </div>
                 <div>
@@ -433,7 +433,6 @@
                     <button type="button" class="btn btn-whatsapp" onclick="sendDesignToWhatsApp()">
                         💬 Send Order directly to WhatsApp DM
                     </button>
-                    
                     <button type="submit" class="btn btn-outline">
                         ✉️ Submit Order via Email
                     </button>
@@ -484,6 +483,7 @@
             <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 30px;">
                 <a href="https://www.facebook.com/profile.php?id=61589388628949" target="_blank" class="social-link">Facebook: Eh Sam</a>
                 <a href="https://x.com/Ehsam209" target="_blank" class="social-link">X: @Ehsam209</a>
+                <a href="https://www.instagram.com/EHSAM.211" target="_blank" class="social-link">Instagram: @EHSAM.211</a>
                 <a href="https://wa.me/2348137187742" target="_blank" class="social-link">WhatsApp: +234 813 718 7742</a>
             </div>
             <div style="border-top: 1px solid var(--border-light); padding-top: 30px;">
@@ -527,22 +527,19 @@
         // ==== GOOGLE SHEETS CORE CONTROLLER PARSER ====
         const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1RkrxzeTEpbLXAcK_HRAWaSJ_h9yhMFBg9dvhh16iysw/export?format=csv";
 
-        // FALLBACK DEFAULT PRODUCTS (Loaded if Google Sheet is empty or fails)
         const DEFAULT_FALLBACK_PRODUCTS = [
             { title: "Heavyweight Luxury Hoodie", price: 65.00, sizes: "S, M, L, XL", imgUrl: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "Hoodies" },
-            { title: "Nocturnal Graphic Tee", price: 35.00, sizes: "S, M, L", imgUrl: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "T-Shirts" },
+            { title: "Nocturnal Graphic Tee", price: 35.00, sizes: "S, M, L", imgUrl: "https://images.unsplash.com/photo-158343814966-8936f5b7be1a?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "T-Shirts" },
             { title: "Essential Core Tee", price: 28.00, sizes: "M, L, XL", imgUrl: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "T-Shirts" },
             { title: "Abstract Canvas Poster", price: 45.00, sizes: "OS", imgUrl: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "Posters" },
             { title: "Matte Black Core Case", price: 22.00, sizes: "OS", imgUrl: "https://images.unsplash.com/photo-1603313011101-320f26a4f6f6?q=80&w=600", productLink: "https://ehlitestore-2.creator-spring.com/", category: "Cases" }
         ];
 
-        // UPDATED: Extremely flexible and robust error-tolerant CSV execution engine
         async function loadProductsFromSheets() {
             try {
                 const response = await fetch(SHEET_CSV_URL + "&cache_bust=" + Date.now());
                 const data = await response.text();
                 
-                // Fixed Split Regex pattern to capture both Windows (\r\n) and Unix (\n) sheet boundaries cleanly
                 const lines = data.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0);
                 
                 if (lines.length <= 1) {
@@ -554,7 +551,6 @@
                 for(let i = 1; i < lines.length; i++) {
                     const columns = parseCSVLine(lines[i]);
                     
-                    // Relaxed validation rules so long structural URLs (Printify links) load smoothly
                     if(columns.length >= 4) {
                         let parsedTitle = columns[0] ? columns[0].replace(/['"]/g, "").trim() : "Eh Sam Product";
                         let rawPrice = columns[1] ? columns[1].replace(/[^0-9.]/g, '') : "0";
@@ -563,7 +559,6 @@
                         let parsedImgUrl = columns[3] ? columns[3].replace(/['"]/g, "").trim() : "";
                         let parsedProductLink = (columns[4] && columns[4].trim().length > 5) ? columns[4].replace(/['"]/g, "").trim() : "https://ehlitestore-2.creator-spring.com/";
 
-                        // Auto-correct safety configuration if the user misaligns columns in their row mapping
                         if (!parsedImgUrl.includes('http') && parsedProductLink.includes('http')) {
                             let tempHolder = parsedImgUrl;
                             parsedImgUrl = parsedProductLink;
@@ -624,7 +619,9 @@
 
                 const productCardHTML = `
                 <div class="card product-item" data-category="${product.category}" onclick="openProduct('${cleanTitle.replace(/'/g, "\\'")}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
-                    <div class="img-wrapper ratio-portrait"><img src="${cleanImg}" alt="${cleanTitle}"></div>
+                    <div class="img-wrapper ratio-portrait">
+                        <img src="${cleanImg}" alt="${cleanTitle}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600';">
+                    </div>
                     <div class="card-body">
                         <div class="card-title">${cleanTitle}</div>
                         <div class="card-price" data-base-price="${product.price}">${formatPrice(product.price)}</div>
@@ -636,7 +633,9 @@
                 if(idx < 4) {
                     const trendingHTML = `
                     <div class="carousel-item card" onclick="openProduct('${cleanTitle.replace(/'/g, "\\'")}', ${product.price}, '${cleanImg}', '${cleanSizes}', '${cleanProductLink}')">
-                        <div class="img-wrapper ratio-portrait"><img src="${cleanImg}" alt="${cleanTitle}"></div>
+                        <div class="img-wrapper ratio-portrait">
+                            <img src="${cleanImg}" alt="${cleanTitle}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600';">
+                        </div>
                         <div class="card-body">
                             <div class="card-title">${cleanTitle}</div>
                             <div class="card-price" data-base-price="${product.price}">${formatPrice(product.price)}</div>
@@ -671,7 +670,7 @@
                         return `
                         <div style="display:flex; align-items:center; gap:12px; padding:10px; background:var(--bg-elevated); border-radius:6px; cursor:pointer;"
                              onclick="document.querySelector('[alt=\\'${title}\\']').parentElement.parentElement.click()">
-                            <img src="${img}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;">
+                            <img src="${img}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;" onerror="this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=100';">
                             <div>
                                 <div style="font-weight:700; font-size:14px;">${title}</div>
                                 <div class="text-gold" style="font-size:13px; font-weight:800;">${priceStr}</div>
@@ -734,6 +733,38 @@
             document.body.style.overflow = 'auto';
         }
 
+        // ==== FIXED NETLIFY IDENTITY ROUTING CONTROLLER ====
+        function triggerNetlifyAuth(action) {
+            if (window.netlifyIdentity) {
+                try {
+                    const currentHost = window.location.hostname;
+                    // Detect if testing inside a code editor local webserver (like Acode, localhost, or 127.0.0.1)
+                    const isLocalTestingEnvironment = !currentHost.includes('netlify.app') && currentHost !== '';
+
+                    if (isLocalTestingEnvironment) {
+                        if (!localStorage.getItem('netlifySiteURL')) {
+                            let siteUrlInput = prompt("Local Testing Environment Found!\nPlease enter your live Netlify domain address to coordinate identity states securely\n(Example: https://yourdesignsite.netlify.app):");
+                            if (siteUrlInput) {
+                                localStorage.setItem('netlifySiteURL', siteUrlInput.trim().replace(/\/$/, ""));
+                            }
+                        }
+                        
+                        let assignedUrl = localStorage.getItem('netlifySiteURL');
+                        if (assignedUrl) {
+                            window.netlifyIdentity.init({ APIUrl: assignedUrl + '/.netlify/identity' });
+                        }
+                    }
+                    
+                    window.netlifyIdentity.open(action);
+                } catch (err) {
+                    console.log("Netlify setup bypass context executed successfully: ", err);
+                    window.netlifyIdentity.open(action);
+                }
+            } else {
+                alert("The Netlify Identity gateway system script is loading or blocked by your browser layout engine.");
+            }
+        }
+
         function toggleSearch() {
             const isActive = searchModal.style.display === 'block';
             closeAllDrawers();
@@ -771,15 +802,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ==== INTERACTIVE SIGN IN & SIGN UP LOGIC CONTROLLER ====
-        function triggerNetlifyAuth(action) {
-            if (window.netlifyIdentity) {
-                window.netlifyIdentity.open(action);
-            } else {
-                alert("Authentication system initializing. Please try again in a brief second.");
-            }
-        }
-
         function toggleAuthInterfaceMode() {
             currentAuthModeIsSignIn = !currentAuthModeIsSignIn;
             const title = document.getElementById('authTitle');
@@ -810,12 +832,11 @@
                 alert(`Account registration initiated successfully! \nA verification voucher will be generated for: ${enteredEmail}`);
             }
             
-            // Clean interface inputs and return customer safely to store front
             document.getElementById('customAuthForm').reset();
             nav('home');
         }
 
-        // ==== E-COMMERCE LOGIC & SIZE SELECTION MODULES ====
+        // ==== E-COMMERCE LOGIC MODULES ====
         function openProduct(title, price, imgUrl, sizesString, productLink) {
             currentlySelectedProduct = { title, price, imgUrl, sizesString, productLink };
             document.getElementById('targetProductTitle').innerText = title;
@@ -888,7 +909,7 @@
                     return `
                         <div style="display: flex; gap: 16px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light);">
                             <div class="img-wrapper ratio-square" style="width: 70px; height: 70px; border-radius: 6px;">
-                                <img src="${item.imgUrl}" alt="Cart Item">
+                                <img src="${item.imgUrl}" alt="Cart Item" onerror="this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=100';">
                             </div>
                             <div style="flex: 1;">
                                 <div style="font-size: 14px; font-weight: 700; color:#FFF;">${item.title} (${item.size})</div>
@@ -955,7 +976,6 @@
             applyFilter(targetCategory);
         }
 
-        // DYNAMIC WHATSAPP DISPATCH MODULE FOR DESIGN STUDIO
         function sendDesignToWhatsApp() {
             const clientEmail = document.getElementById('customEmail').value.trim();
             const serviceType = document.getElementById('customService').value;
@@ -966,7 +986,6 @@
                 return;
             }
 
-            // Constructing a beautifully formatted message for your WhatsApp DM
             const formattedMessage = `⚡ *NEW DESIGN STUDIO BRIEF* ⚡\n\n` +
                                      `• *Service Requested:* ${serviceType}\n` +
                                      `• *Client Contact Email:* ${clientEmail}\n\n` +
@@ -975,7 +994,6 @@
             const encodedURLMessage = encodeURIComponent(formattedMessage);
             const whatsappEndpoint = `https://wa.me/2348137187742?text=${encodedURLMessage}`;
             
-            // Instantly route client to your WhatsApp with pre-filled layout info
             window.open(whatsappEndpoint, '_blank');
         }
     </script>
