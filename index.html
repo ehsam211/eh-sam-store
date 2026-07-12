@@ -1127,25 +1127,27 @@
         <div style="color: var(--luxury-gold); font-family: var(--font-heading); letter-spacing: 4px; font-size: 10px; text-transform: uppercase; font-weight: 700;">EH SAM SYSTEM INTERFACE</div>
     </div>
 
+    <!-- Search Overlay Portal -->
     <div id="premiumSearchPortalOverlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.95); backdrop-filter:blur(25px); -webkit-backdrop-filter:blur(25px); z-index:5500; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
         <div style="width:90%; max-width:750px; text-align:center; position:relative; max-height: 90vh; display: flex; flex-direction: column; justify-content: center;">
-            <button onclick="toggleFullscreenSearchPortal(false)" style="position:absolute; top:-60px; right:0; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.1); color:#FFF; display:flex; align-items:center; justify-content:center; font-size:20px; transition:var(--transition-smooth); border:1px solid rgba(255,255,255,0.15); z-index: 10;">✕</button>
+            <button onclick="toggleFullscreenSearchPortal(false)" style="position:absolute; top:-60px; right:0; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.1); color:#FFF; display:flex; align-items:center; justify-content:center; font-size:20px; border:1px solid rgba(255,255,255,0.15); z-index: 10;">✕</button>
             
             <div style="margin-bottom: 20px;">
                 <h3 style="color:var(--luxury-gold); font-family:var(--font-heading); font-size:12px; text-transform:uppercase; letter-spacing:4px; margin-bottom:10px;">Search Master Inventory</h3>
-                <input type="text" id="premiumSearchInputField" placeholder="Type key phrases (e.g., Silk, Boot, Technology)..." style="width:100%; background:none; border:none; border-bottom:2px solid var(--luxury-gold); color:#FFF; font-size:26px; text-align:center; padding:16px 0; outline:none; font-family:var(--font-body); font-weight:500;" oninput="executeInteractiveSearch(this.value)">
-                <p style="color:#888; font-size:13px; margin-top:10px; font-weight:500; letter-spacing:0.5px;" id="premiumSearchResultCount">Type to filter live cataloged assets instantly.</p>
+                <input type="text" id="premiumSearchInputField" placeholder="Type key phrases (e.g., Silk, Boot, Case, Clothes)..." style="width:100%; background:none; border:none; border-bottom:2px solid var(--luxury-gold); color:#FFF; font-size:26px; text-align:center; padding:16px 0; outline:none; font-family:var(--font-body); font-weight:500;" oninput="executeInteractiveSearch(this.value)">
+                <p style="color:#888; font-size:13px; margin-top:10px; font-weight:500;" id="premiumSearchResultCount">Type to filter live cataloged assets instantly.</p>
             </div>
 
-            <div id="liveSearchResultsGrid" style="overflow-y: auto; max-height: 50vh; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); scrollbar-width: thin;">
+            <div id="liveSearchResultsGrid" style="overflow-y: auto; max-height: 50vh; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
                 <p style="color: #666; grid-column: 1/-1; padding: 20px;">Enter your keyword above to fetch assets.</p>
             </div>
         </div>
     </div>
 
+    <!-- Buying Guides Modal Window -->
     <div id="premiumBuyingGuidesOverlayModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); z-index:5600; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
         <div style="width:90%; max-width:850px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:12px; padding:40px; position:relative; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow-lg);">
-            <button onclick="toggleBuyingGuidesModal(false)" style="position:absolute; top:24px; right:24px; width:44px; height:44px; border-radius:50%; background:var(--bg-base); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--text-main); transition:var(--transition-smooth);">✕</button>
+            <button onclick="toggleBuyingGuidesModal(false)" style="position:absolute; top:24px; right:24px; width:44px; height:44px; border-radius:50%; background:var(--bg-base); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--text-main);">✕</button>
             <span style="color:var(--luxury-gold); font-size:11px; text-transform:uppercase; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">Curated Editorial Portfolio</span>
             <h2 style="font-size:32px; margin-bottom:24px;">Atelier Buying & Styling Guides</h2>
             
@@ -1194,6 +1196,9 @@
         </div>
     </div>
 
+    <!-- ==========================================================================
+       PRIMARY HOME CATALOG VIEWPORT
+       ========================================================================== -->
     <main class="app-route-view active-view" id="home-view">
         <section class="hero-runway-viewport" id="uiComponentHeroSectionFrame">
             <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1920&q=85" class="hero-background-media" id="uiVarHeroBackgroundImage" alt="Luxury Runway Concept Art">
@@ -1274,6 +1279,9 @@
         </section>
     </main>
 
+    <!-- ==========================================================================
+       BESPOKE CLIENT REQUESTS CENTER (CUSTOM DESIGN PANEL)
+       ========================================================================== -->
     <div class="app-route-view" id="custom-design-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1564,7 +1572,7 @@
         let isUserLoggedAsAdmin = false;
 
         /* ==========================================================================
-           GOOGLE SHEETS DATABASE REALTIME LINKAGE CONTROLLER
+           GOOGLE SHEETS DATABASE REALTIME LINKAGE CONTROLLER (FUZZY ADAPTIVE)
            ========================================================================== */
         const GOOGLE_SHEETS_VALUES_ENDPOINT = "https://sheets.googleapis.com/v4/spreadsheets/1RkrxzeTEpbLXAcK_HRAWaSJ_h9yhMFBg9dvhh16iysw/values/Sheet1!A:Z?key=AIzaSyDzkI-8ycnAcXh2h5AeWugJ5sMFZhvef2c";
 
@@ -1583,19 +1591,14 @@
                     const rows = data.values;
                     const headers = rows[0].map(h => h.trim().toLowerCase());
                     
-                    // Dynamic Index Column Detection with fallback matching definitions
-                    const titleIdx = headers.indexOf("title");
-                    const priceIdx = headers.indexOf("price");
-                    const sizeIdx = headers.indexOf("size");
-                    const imageIdx = headers.indexOf("image url") !== -1 ? headers.indexOf("image url") : headers.indexOf("image");
-                    const productIdx = headers.indexOf("product url") !== -1 ? headers.indexOf("product url") : headers.indexOf("url");
-                    const descIdx = headers.indexOf("description") !== -1 ? headers.indexOf("description") : headers.indexOf("desc");
-                    
-                    // Intelligent fallback grouping to solve the "everything showing in lifestyle" bug
-                    let catIdx = headers.indexOf("category");
-                    if (catIdx === -1) catIdx = headers.indexOf("categories");
-                    if (catIdx === -1) catIdx = headers.indexOf("type");
-                    if (catIdx === -1) catIdx = headers.indexOf("class");
+                    // Dynamic Index Column Detection (FUZZY ADAPTIVE MATCHING to eliminate setup errors)
+                    const titleIdx = headers.findIndex(h => h.includes("title") || h.includes("name") || h.includes("item") || h.includes("product"));
+                    const priceIdx = headers.findIndex(h => h.includes("price") || h.includes("cost") || h.includes("val") || h.includes("amount"));
+                    const sizeIdx = headers.findIndex(h => h.includes("size") || h.includes("dimension") || h.includes("measure"));
+                    const imageIdx = headers.findIndex(h => h.includes("image") || h.includes("img") || h.includes("photo") || h.includes("picture") || h.includes("pic"));
+                    const productIdx = headers.findIndex(h => h.includes("link") || h.includes("url") || h.includes("buy") || h.includes("checkout") || h.includes("acquire") || h === "href");
+                    const descIdx = headers.findIndex(h => h.includes("desc") || h.includes("info") || h.includes("detail") || h.includes("text") || h.includes("about"));
+                    const catIdx = headers.findIndex(h => h.includes("cat") || h.includes("class") || h.includes("type") || h.includes("group"));
 
                     // Validate that foundational headers exist
                     if (titleIdx === -1 || priceIdx === -1) {
@@ -1610,7 +1613,9 @@
                         const numericPriceVal = row[priceIdx] ? parseFloat(row[priceIdx].toString().replace(/[^0-9.]/g, '')) : 0;
                         const specObject = {};
                         if (sizeIdx !== -1 && row[sizeIdx]) specObject["Size Dimension"] = row[sizeIdx].toString();
-                        if (productIdx !== -1 && row[productIdx]) specObject["Link Reference"] = `<a href="${row[productIdx]}" target="_blank" style="color:var(--luxury-gold); text-decoration:underline;">Product Link</a>`;
+                        if (productIdx !== -1 && row[productIdx]) {
+                            specObject["Link Reference"] = `<a href="${row[productIdx]}" target="_blank" style="color:var(--luxury-gold); text-decoration:underline;">Product Link</a>`;
+                        }
                         specObject["Source Verification"] = "Direct Google Sheet Ingest";
 
                         parsedResultList.push({
@@ -1621,7 +1626,7 @@
                             description: (descIdx !== -1 && row[descIdx]) ? row[descIdx].toString() : "Premium structural asset retrieved from live external databases.",
                             image: (imageIdx !== -1 && row[imageIdx]) ? row[imageIdx].toString() : "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
                             specifications: specObject,
-                            productUrl: (productIdx !== -1 && row[productIdx]) ? row[productIdx].toString() : "",
+                            productUrl: (productIdx !== -1 && row[productIdx]) ? row[productIdx].toString().trim() : "",
                             stock: 12,
                             sales: 0
                         });
@@ -1712,7 +1717,7 @@
                             <p class="card-product-brief-snippet">${item.description}</p>
                             <div class="card-footer-pricing-row">
                                 <span class="card-price-ticker">$${item.price.toFixed(2)}</span>
-                                <button class="btn-card-conversion-gate" onclick="executeMockPurchaseGate(${item.id})">Acquire</button>
+                                <button class="btn-card-conversion-gate" onclick="event.stopPropagation(); executeMockPurchaseGate(${item.id})">Acquire</button>
                             </div>
                         </div>
                     </article>
@@ -1747,6 +1752,8 @@
             const item = runCoreInventoryArray.find(i => i.id === productId);
             if (!item) return;
 
+            pushSystemLogTrackingString(`[Checkout Initialized]: Attempting redirect on item ID #${productId}. Target checkout Link: "${item.productUrl}"`);
+
             // Direct route redirect to your external checkout URL mapping from Sheet if present
             if (item.productUrl && item.productUrl.trim() !== "" && item.productUrl.trim() !== "undefined") {
                 let targetUrl = item.productUrl.trim();
@@ -1756,9 +1763,12 @@
                 window.open(targetUrl, '_blank');
                 return;
             } else if (item.specifications && item.specifications["Link Reference"]) {
-                const linkMatch = item.specifications["Link Reference"].match(/href="([^"]+)"/);
-                if (linkMatch && linkMatch[1]) {
-                    window.open(linkMatch[1], '_blank');
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = item.specifications["Link Reference"];
+                const parsedUrl = tempDiv.querySelector('a') ? tempDiv.querySelector('a').getAttribute('href') : null;
+                
+                if (parsedUrl && parsedUrl.trim() !== "" && parsedUrl !== "undefined") {
+                    window.open(parsedUrl.trim(), '_blank');
                     return;
                 }
             }
@@ -1947,7 +1957,7 @@
             const specs = document.getElementById('customSpecifications').value.trim();
             const budget = document.getElementById('customBudget').value;
 
-            // Formulate standard structured custom request
+            // Append record to local database collection
             databaseCollectionCustomRequests.push({
                 id: databaseCollectionCustomRequests.length + 301,
                 name: name,
@@ -1979,7 +1989,7 @@
         }
 
         /* ==========================================================================
-           ADMIN SECURITY GATE & WORKSPACE CONSOLE
+           ADMIN PROPORTIONAL INTERFACE MODULES
            ========================================================================== */
         function executeAdminAuthenticationCheck() {
             const enteredUser = document.getElementById('adminUserKeyField').value.trim();
@@ -2188,7 +2198,7 @@
         }
 
         /* ==========================================================================
-           UTILITY INTERFACE HARDWARE CHANNELS & UX FEEDBACK
+           UTILITY INTERFACE HARDWARE CHANNELS & UX FEEDBACK (IMPROVED SEARCH)
            ========================================================================== */
         function toggleFullscreenSearchPortal(openState) {
             const overlay = document.getElementById('premiumSearchPortalOverlay');
