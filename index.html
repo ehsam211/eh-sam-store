@@ -10,9 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* ==========================================================================
-           LUXURY CORE DESIGN SYSTEM TOKENS & RESPONSIVE RESET
-           ========================================================================== */
         :root {
             --matte-black: #000000;
             --pure-white: #FFFFFF;
@@ -179,7 +176,6 @@
 
         .nav-links-desktop-deck {
             display: flex;
-            align-items: center;
             gap: 32px;
         }
         .desktop-nav-link {
@@ -205,33 +201,6 @@
             width: 100%;
         }
 
-        /* Responsive Integrated Search Bar */
-        .search-bar-inline-container {
-            display: flex;
-            align-items: center;
-            background: var(--bg-base);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 6px 14px;
-            width: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .search-bar-inline-container.active-search-bar {
-            width: 220px;
-            opacity: 1;
-            margin-right: 8px;
-        }
-        .search-bar-inline-container input {
-            font-size: 12px;
-            width: 100%;
-            color: var(--text-main);
-            background: none;
-            border: none;
-            outline: none;
-        }
-
         .nav-utilities-cluster {
             display: flex;
             align-items: center;
@@ -251,38 +220,6 @@
         .utility-icon-trigger:hover {
             background-color: var(--border-color);
             transform: scale(1.05);
-        }
-        .utility-counter-badge {
-            position: absolute;
-            top: 4px;
-            right: 4px;
-            background-color: var(--matte-black);
-            color: var(--pure-white);
-            font-size: 9px;
-            font-weight: 700;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        [data-theme="dark"] .utility-counter-badge {
-            background-color: var(--pure-white);
-            color: var(--matte-black);
-        }
-
-        .hamburger-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            width: 20px;
-        }
-        .hamburger-line {
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-main);
-            transition: var(--transition-smooth);
         }
 
         /* ==========================================================================
@@ -411,9 +348,6 @@
             transform: translateY(-2px);
         }
 
-        /* ==========================================================================
-           EDITORIAL CATALOG STRUCTURAL MATRIX
-           ========================================================================== */
         .section-whitespace-padding {
             padding: 100px 0;
         }
@@ -971,7 +905,6 @@
             display: block;
         }
 
-        /* Minimal Vector Analytics Layout Systems */
         .admin-chart-vector-strip {
             display: flex;
             align-items: flex-end;
@@ -1005,7 +938,6 @@
             white-space: nowrap;
         }
 
-        /* Interactive Moderation Tables */
         .admin-tabular-data-frame {
             width: 100%;
             border-collapse: collapse;
@@ -1038,7 +970,6 @@
         .system-pill-alert-badge.status-completed { background-color: rgba(212, 175, 55, 0.1); color: var(--luxury-gold); }
         .system-pill-alert-badge.status-cancelled { background-color: rgba(239, 68, 68, 0.1); color: var(--danger-red); }
 
-        /* Unified Notification Toast Interface */
         .global-system-toast-container {
             position: fixed;
             top: 32px;
@@ -1170,44 +1101,6 @@
             color: #555555;
         }
 
-        /* Custom Login Box Modal Overlay */
-        .custom-admin-login-overlay {
-            position: fixed;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 5500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .custom-admin-login-overlay.active-login-modal {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .login-inner-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 32px;
-            border-radius: 12px;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-        .login-close-btn {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 16px;
-            cursor: pointer;
-            color: var(--text-main);
-        }
-
         /* ==========================================================================
            RESPONSIVE VIEWPORT BREAKPOINTS
            ========================================================================== */
@@ -1229,59 +1122,71 @@
 <body>
     <div class="global-system-toast-container" id="globalToastInjectionTrack"></div>
 
-    <!-- PRELOADER -->
     <div id="global-premium-loader">
         <div class="spinner"></div>
-        <div style="color: var(--luxury-gold); font-family: var(--font-heading); letter-spacing: 4px; font-size: 10px; text-transform: uppercase; font-weight: 700; margin-top: 12px;">EH SAM SYSTEM INTERFACE</div>
+        <div style="color: var(--luxury-gold); font-family: var(--font-heading); letter-spacing: 4px; font-size: 10px; text-transform: uppercase; font-weight: 700;">EH SAM SYSTEM INTERFACE</div>
     </div>
 
-    <!-- MAIN STICKY NAVIGATION -->
+    <div id="premiumSearchPortalOverlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.95); backdrop-filter:blur(25px); -webkit-backdrop-filter:blur(25px); z-index:5500; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
+        <div style="width:90%; max-width:750px; text-align:center; position:relative; max-height: 90vh; display: flex; flex-direction: column; justify-content: center;">
+            <button onclick="toggleFullscreenSearchPortal(false)" style="position:absolute; top:-60px; right:0; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.1); color:#FFF; display:flex; align-items:center; justify-content:center; font-size:20px; transition:var(--transition-smooth); border:1px solid rgba(255,255,255,0.15); z-index: 10;">✕</button>
+            
+            <div style="margin-bottom: 20px;">
+                <h3 style="color:var(--luxury-gold); font-family:var(--font-heading); font-size:12px; text-transform:uppercase; letter-spacing:4px; margin-bottom:10px;">Search Master Inventory</h3>
+                <input type="text" id="premiumSearchInputField" placeholder="Type key phrases (e.g., Silk, Boot, Technology)..." style="width:100%; background:none; border:none; border-bottom:2px solid var(--luxury-gold); color:#FFF; font-size:26px; text-align:center; padding:16px 0; outline:none; font-family:var(--font-body); font-weight:500;" oninput="executeInteractiveSearch(this.value)">
+                <p style="color:#888; font-size:13px; margin-top:10px; font-weight:500; letter-spacing:0.5px;" id="premiumSearchResultCount">Type to filter live cataloged assets instantly.</p>
+            </div>
+
+            <div id="liveSearchResultsGrid" style="overflow-y: auto; max-height: 50vh; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); scrollbar-width: thin;">
+                <p style="color: #666; grid-column: 1/-1; padding: 20px;">Enter your keyword above to fetch assets.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="premiumBuyingGuidesOverlayModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); z-index:5600; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
+        <div style="width:90%; max-width:850px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:12px; padding:40px; position:relative; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow-lg);">
+            <button onclick="toggleBuyingGuidesModal(false)" style="position:absolute; top:24px; right:24px; width:44px; height:44px; border-radius:50%; background:var(--bg-base); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--text-main); transition:var(--transition-smooth);">✕</button>
+            <span style="color:var(--luxury-gold); font-size:11px; text-transform:uppercase; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">Curated Editorial Portfolio</span>
+            <h2 style="font-size:32px; margin-bottom:24px;">Atelier Buying & Styling Guides</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
+                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 01: The Art of Layering (Mulberry Silk & Wool)</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Learn the spatial coordination logic between soft silk foundation trenches and dense wool outerwear structures. Maintain structural lines while ensuring warmth and fluid silhouettes.</p>
+                </div>
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
+                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 02: Footwear Structural Protection (Full-Grain Calfskin)</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Preserve natural leather properties through small-batch organic oils. Protect the bespoke asymmetric zipper channels and natural wooden heel alignments from ambient degradation.</p>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 03: Minimalist Accessory Integration (Patina Brushed Brass)</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">How raw brutalist metals react with climate elements. Learn to balance heavy raw hand architecture alongside standard everyday streetwear compositions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="header-nav-wrapper" id="masterHeaderElement">
         <div class="container nav-inner-container">
             <a href="#" class="brand-monogram" onclick="switchActiveAppRouteView('home-view')">
                 <span class="main-title" id="brandingGlblHeaderTitle">EH SAM</span>
                 <span class="sub-platform" id="brandingGlblHeaderTagline">EH Lite Store</span>
             </a>
-            
-            <!-- Live On-Screen Search bar (Responsive & Integrated) -->
-            <div class="nav-links-desktop-deck">
-                <div class="search-bar-inline-container" id="inlineSearchWrapper">
-                    <input type="text" id="inlineSearchInputField" placeholder="Type to search..." oninput="handleInlineRealtimeSearch(this.value)">
-                </div>
+            <nav class="nav-links-desktop-deck">
                 <a href="#" class="desktop-nav-link active" id="link-home" onclick="switchActiveAppRouteView('home-view')">Home</a>
                 <a href="#catalog-runway" class="desktop-nav-link" id="link-fashion" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Fashion')">Fashion</a>
                 <a href="#catalog-runway" class="desktop-nav-link" id="link-lifestyle" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Lifestyle')">Lifestyle</a>
                 <a href="#" class="desktop-nav-link" id="link-custom" onclick="switchActiveAppRouteView('custom-design-view')">Custom Design</a>
-                <a href="#" class="desktop-nav-link" id="link-admin" onclick="switchActiveAdminLoginModal()">Admin Suite</a>
-            </div>
-
+                <a href="#" class="desktop-nav-link" id="link-admin" onclick="switchActiveAppRouteView('admin-dashboard-view')">Admin Suite</a>
+            </nav>
             <div class="nav-utilities-cluster">
-                <button class="utility-icon-trigger" onclick="toggleOnScreenSearchBar()" aria-label="Toggle Search">🔍</button>
+                <button class="utility-icon-trigger" onclick="toggleFullscreenSearchPortal(true)" aria-label="Search Platform">🔍</button>
                 <button class="utility-icon-trigger" onclick="executeSystemThemeToggle()" aria-label="Switch Theme">🌓</button>
-                <button class="utility-icon-trigger" onclick="switchActiveAdminLoginModal()" aria-label="Access Admin Panel">🔑</button>
+                <button class="utility-icon-trigger" onclick="switchActiveAppRouteView('admin-dashboard-view')" aria-label="Access Admin Panel">🔑</button>
             </div>
         </div>
     </header>
 
-    <!-- SECURE GATEWAY AUTHORIZATION MODAL (Replaces native prompts) -->
-    <div class="custom-admin-login-overlay" id="adminLoginModalOverlay">
-        <div class="login-inner-card">
-            <span class="login-close-btn" onclick="switchActiveAdminLoginModal()">✕</span>
-            <h3 style="margin-bottom: 20px; text-align: center; font-family: var(--font-heading);">Gateway Authorization</h3>
-            <div class="form-input-element-group">
-                <label for="adminUserKeyField">Operator Identity</label>
-                <input type="text" id="adminUserKeyField" class="form-native-field" value="admin">
-            </div>
-            <div class="form-input-element-group" style="margin-bottom: 24px;">
-                <label for="adminPassKeyField">Access Cipher</label>
-                <input type="password" id="adminPassKeyField" class="form-native-field" placeholder="••••••••">
-            </div>
-            <button class="btn-luxury-action solid-gold" style="width: 100%;" onclick="executeAdminAuthenticationCheck()">Verify Security Clearance</button>
-            <p style="text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 12px;">Developer Mode Note: Enter password <strong>admin</strong> to pass verification.</p>
-        </div>
-    </div>
-
-    <!-- DETAIL SPECIFICATION OVERLAY MODAL -->
     <div class="premium-details-modal-overlay" id="premiumProductDetailsViewModal">
         <div class="premium-details-modal-container">
             <button class="modal-close-trigger" onclick="closePremiumProductDetailsModal()">✕</button>
@@ -1289,7 +1194,6 @@
         </div>
     </div>
 
-    <!-- MAIN RUNWAY ROOT -->
     <main class="app-route-view active-view" id="home-view">
         <section class="hero-runway-viewport" id="uiComponentHeroSectionFrame">
             <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1920&q=85" class="hero-background-media" id="uiVarHeroBackgroundImage" alt="Luxury Runway Concept Art">
@@ -1304,13 +1208,12 @@
                     <p class="hero-supporting-subheadline" id="uiVarHeroSubHeadlineText">Discover handpicked fashion, accessories, gadgets, grooming products, home essentials, and lifestyle products selected for quality, value, and timeless style.</p>
                     <div class="hero-actions-dock">
                         <a href="#catalog-runway" class="btn-luxury-action solid-gold" id="uiVarHeroPrimaryButton">Shop Now</a>
-                        <button class="btn-luxury-action outline-white" id="guidesTriggerBtn">Explore Buying Guides</button>
+                        <button class="btn-luxury-action outline-white" onclick="toggleBuyingGuidesModal(true)">Explore Buying Guides</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- THE RUNWAY ARCHIVE MATRIX -->
         <section class="section-whitespace-padding" id="catalog-runway">
             <div class="container">
                 <div class="editorial-section-heading-block">
@@ -1329,7 +1232,6 @@
             </div>
         </section>
 
-        <!-- TESTIMONIAL FLOW DECK -->
         <section class="testimonials-editorial-track" style="background-color: var(--bg-card); padding: 80px 0; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
             <div class="container">
                 <div class="editorial-section-heading-block" style="margin-bottom:32px;">
@@ -1340,7 +1242,6 @@
             </div>
         </section>
 
-        <!-- FAQ TRACK -->
         <section class="section-whitespace-padding">
             <div class="container" style="max-width: 850px;">
                 <div class="editorial-section-heading-block">
@@ -1351,7 +1252,6 @@
             </div>
         </section>
 
-        <!-- FOUNDER MONOLOGUE BLOCK -->
         <section class="founder-brand-section-wrapper">
             <div class="container">
                 <div class="founder-alignment-flex-container">
@@ -1374,16 +1274,32 @@
         </section>
     </main>
 
-    <!-- CUSTOM DESIGN ATELIER COMMISSION VIEW -->
     <div class="app-route-view" id="custom-design-view">
         <section class="section-whitespace-padding">
             <div class="container">
                 <div class="custom-design-split-grid">
                     <div class="custom-design-editorial-showcase">
                         <div class="sticky-frame">
-                            <span style="color:var(--luxury-gold); text-transform:uppercase; font-size:11px; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">ATELIER ENROLLMENT</span>
-                            <h2>Bespoke Structural Request System</h2>
-                            <p style="color:var(--text-muted); margin-bottom:24px;">Can't find exactly what your lifestyle arrangement demands? Entrust our atelier pipeline to procure, design, or tailor elite pieces precisely to your dimensional metrics and premium specifications.</p>
+                            <span style="color:var(--luxury-gold); text-transform:uppercase; font-size:11px; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">Atelier Request Center</span>
+                            <h2>Bespoke Custom Media & Design Pipeline</h2>
+                            <p style="color:var(--text-muted); margin-bottom:24px;">Entrust us to bring your designs to life. Order bespoke flyers, high-end clothes, customized banners, or architectural lifestyle elements. Submit your details below to directly link with us via WhatsApp & X.</p>
+                            
+                            <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 16px;">
+                                <div style="display: flex; align-items: center; gap: 12px; background: var(--bg-card); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                    <span style="font-size: 24px;">💬</span>
+                                    <div>
+                                        <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Direct Secure WhatsApp</h4>
+                                        <a href="https://wa.me/2348147187742" target="_blank" style="color: var(--luxury-gold); font-size: 14px; font-weight: 600;">+234 814 718 7742</a>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 12px; background: var(--bg-card); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                    <span style="font-size: 24px;">🌐</span>
+                                    <div>
+                                        <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Atelier Broadcast on X</h4>
+                                        <a href="https://x.com/Ehsam209" target="_blank" style="color: var(--luxury-gold); font-size: 14px; font-weight: 600;">@Ehsam209</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -1399,25 +1315,25 @@
                             <div class="form-input-element-group">
                                 <label for="customItemCategory">Project Classification</label>
                                 <select id="customItemCategory" class="form-native-field" style="height:50px;">
-                                    <option value="Bespoke Outerwear">Bespoke Outerwear / Fashion</option>
-                                    <option value="Streetwear Architecture">Streetwear Customization</option>
-                                    <option value="Exclusive Accessories">High Jewellery / Accessories</option>
-                                    <option value="Lifestyle Automation">Lifestyle Space Artifacts</option>
+                                    <option value="Bespoke Flyers & Graphics">Premium Flyers & Graphic Art</option>
+                                    <option value="Custom Clothes & Apparel">Apparel & Custom Clothes Embroidery</option>
+                                    <option value="Banners & Signage">Large Scale Banners & Outdoor Prints</option>
+                                    <option value="Lifestyle Workspace Artifacts">Branding Material Kits</option>
                                 </select>
                             </div>
                             <div class="form-input-element-group">
-                                <label for="customSpecifications">Design Blueprint & Material Directives</label>
-                                <textarea id="customSpecifications" class="form-native-field" style="height:140px; resize:none;" placeholder="Describe preferred fits, color values, material weights..." required></textarea>
+                                <label for="customSpecifications">Design Blueprint & Media Specifications</label>
+                                <textarea id="customSpecifications" class="form-native-field" style="height:140px; resize:none;" placeholder="Detail specifications, size formats, custom colors, fabric preferences, flyer themes..." required></textarea>
                             </div>
                             <div class="form-input-element-group">
-                                <label for="customBudget">Allocated Capital Tier</label>
+                                <label for="customBudget">Allocated Budget Cap (USD)</label>
                                 <select id="customBudget" class="form-native-field" style="height:50px;">
+                                    <option value="$100 - $500">$100 – $500</option>
                                     <option value="$500 - $1,500">$500 – $1,500</option>
-                                    <option value="$1,500 - $5,000">$1,500 – $5,000</option>
-                                    <option value="$5,000+">$5,000+ Premium Tier</option>
+                                    <option value="$1,500+">$1,500+ Premium Master Tier</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn-luxury-action solid-gold" style="width:100%; margin-top:12px;">Transmit Atelier Directive</button>
+                            <button type="submit" class="btn-luxury-action solid-gold" style="width:100%; margin-top:12px;">Transmit WhatsApp Order Link</button>
                         </form>
                     </div>
                 </div>
@@ -1425,18 +1341,35 @@
         </section>
     </div>
 
-    <!-- OPERATIONS & MONITORING HUB PANE -->
     <div class="app-route-view" id="admin-dashboard-view">
         <section class="section-whitespace-padding">
             <div class="container">
-                <div class="admin-layout-grid-frame" id="adminCoreOperationalGridConsole">
+                <div class="editorial-section-heading-block" style="text-align:left; margin-bottom:32px;">
+                    <span class="subtitle">ATELIER OPERATIONAL OVERWATCH</span>
+                    <h2 class="main-title">Admin Management Engine</h2>
+                </div>
+
+                <div class="admin-login-shield-panel" id="adminLoginGatePanelElement">
+                    <h3 style="margin-bottom:16px; text-align:center;">Secure Gateway Authorization</h3>
+                    <div class="form-input-element-group">
+                        <label for="adminUserKeyField">Operator Identity</label>
+                        <input type="text" id="adminUserKeyField" class="form-native-field" value="admin">
+                    </div>
+                    <div class="form-input-element-group" style="margin-bottom:24px;">
+                        <label for="adminPassKeyField">Access Cipher</label>
+                        <input type="password" id="adminPassKeyField" class="form-native-field" placeholder="••••••••">
+                    </div>
+                    <button class="btn-luxury-action solid-gold" style="width:100%;" onclick="executeAdminAuthenticationCheck()">Verify Security Clearance</button>
+                    <p style="text-align:center; font-size:11px; color:var(--text-muted); margin-top:12px;">Developer Mode Note: Enter password <strong>admin</strong> to pass verification.</p>
+                </div>
+
+                <div class="admin-layout-grid-frame" id="adminCoreOperationalGridConsole" style="display:none;">
                     <aside class="admin-sidebar-menu-list">
                         <button class="admin-menu-node-item active-node" id="tabBtn-overview" onclick="switchActiveAdminWorkspacePane('overview')">Metrics Overview</button>
                         <button class="admin-menu-node-item" id="tabBtn-inventory" onclick="switchActiveAdminWorkspacePane('inventory')">Catalog Ledger</button>
                         <button class="admin-menu-node-item" id="tabBtn-orders" onclick="switchActiveAdminWorkspacePane('orders')">Order Fulfillment</button>
                         <button class="admin-menu-node-item" id="tabBtn-newsletter" onclick="switchActiveAdminWorkspacePane('newsletter')">Audience Registry</button>
                         <button class="admin-menu-node-item" id="tabBtn-custom" onclick="switchActiveAdminWorkspacePane('custom')">Bespoke Inquiries</button>
-                        <button class="admin-menu-node-item" style="color: var(--danger-red); margin-top: 16px; border-top: 1px solid var(--border-color); padding-top: 16px;" onclick="executeAdminSignout()">Sign Out</button>
                     </aside>
 
                     <section class="admin-workspace-content-canvas">
@@ -1549,13 +1482,12 @@
         </section>
     </div>
 
-    <!-- CORE BRAND FOOTER -->
     <footer class="editorial-footer-complex">
         <div class="container">
             <div class="footer-structural-split-grid">
                 <div>
                     <h3 style="color:var(--pure-white); font-family:var(--font-heading); margin-bottom:16px; text-transform:uppercase; letter-spacing:1px;">EH SAM × LITE</h3>
-                    <p style="margin-bottom:24px; max-width:320px; line-height:1.6; font-size:13px;">An architecture dedicated to elite lifestyle edits, architectural styling systems, and calculated buying models.</p>
+                    <p style="margin-bottom:24px; max-width:320px; line-height:1.6; font-size:13px;">An architecture dedicated to elite lifestyle edits, architectural styling systems, custom banners, apparel design, and calculated buying models.</p>
                     <div style="display:flex; gap:12px; margin-bottom:20px;">
                         <input type="email" id="publicNewsletterEmailInputField" placeholder="Enter secure email address" style="background:#111; color:#FFF; padding:12px; border:1px solid #222; font-size:13px; border-radius:4px; flex-grow:1;">
                         <button class="btn-luxury-action solid-gold" style="padding:0 20px; font-size:11px;" onclick="registerPublicNewsletterSubscription()">Register</button>
@@ -1578,49 +1510,29 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="footer-column-headline">Security Framework</h4>
+                    <h4 class="footer-column-headline">Secure Channels</h4>
                     <ul class="footer-navigation-link-list">
-                        <li><a href="#" onclick="triggerLuxuryToastSystemNotification('Atelier Cryptographic Architecture: Operational Verified Mode Secured.')">Encryption Metrics</a></li>
-                        <li><a href="#" onclick="triggerLuxuryToastSystemNotification('System local memory state cleared gracefully.')">Reset Local Cache</a></li>
+                        <li><a href="https://wa.me/2348147187742" target="_blank">Contact WhatsApp Secure</a></li>
+                        <li><a href="https://x.com/Ehsam209" target="_blank">Follow @Ehsam209 on X</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-disclosure-block-notice">
                 &copy; 2026 EH SAM × EH Lite Store. Engineered with Additive Design Systems. All Rights Reserved.
-                <div style="margin-top: 12px; display: flex; justify-content: center; gap: 24px;">
-                    <a id="footerSocialInstagram" href="#" target="_blank" style="color: var(--luxury-gold);">Instagram</a>
-                    <a id="footerSocialPinterest" href="#" target="_blank" style="color: var(--luxury-gold);">Pinterest</a>
-                    <a id="footerSocialX" href="#" target="_blank" style="color: var(--luxury-gold);">X.com</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT STATE ENGINE -->
     <script>
         /* ==========================================================================
-           1. SOCIAL MEDIA & BRAND HANDLES CONFIGURATION (Edit links here!)
-           ========================================================================== */
-        const SOCIAL_MEDIA_COORDINATES = {
-            instagram: "https://instagram.com/eh_sam_luxury",
-            pinterest: "https://pinterest.com/eh_sam_luxury",
-            xTwitter: "https://x.com/eh_sam_luxury"
-        };
-
-        /* ==========================================================================
-           2. GOOGLE SHEETS DATABASE ENDPOINT CONFIGURATION
-           ========================================================================== */
-        const GOOGLE_SHEETS_VALUES_ENDPOINT = "https://sheets.googleapis.com/v4/spreadsheets/1RkrxzeTEpbLXAcK_HRAWaSJ_h9yhMFBg9dvhh16iysw/values/Sheet1!A:Z?key=AIzaSyDzkI-8ycnAcXh2h5AeWugJ5sMFZhvef2c";
-
-        /* ==========================================================================
-           FALLBACK CATALOG RESERVES
+           MEME SYSTEM MOCK IN-MEMORY CENTRAL REGISTRIES (DATABASE)
            ========================================================================== */
         let runCoreInventoryArray = [
-            { id: 101, title: "Minimalist Silk Trench Coat", category: "Fashion", price: 850, description: "A beautifully tailored fluid trench coat composed of sustainable grade-A mulberry silk.", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80", specifications: { Material: "100% Mulberry Silk", Origin: "Made in Italy", Care: "Dry clean only" }, stock: 12, sales: 34, productUrl: "https://www.amazon.com" },
-            { id: 102, title: "Architectural Calfskin Boot", category: "Streetwear", price: 620, description: "Structured leather boots featuring a hand-carved stacked wooden heel and premium asymmetric zippers.", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80", specifications: { Leather: "Full-grain Calfskin", Sole: "Reinforced Wood/Rubber", Height: "6 inches" }, stock: 8, sales: 45, productUrl: "https://www.amazon.com" },
-            { id: 103, title: "Solid Brass Monolith Ring", category: "Accessories", price: 195, description: "Raw brushed heavy brass ring inspired by brutalist structural geometric layouts. Over time, it gains beautiful unique patina markings.", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80", specifications: { Composition: "100% Solid Brass", Finish: "Brushed Matte", Weight: "18g" }, stock: 25, sales: 89, productUrl: "https://www.amazon.com" },
-            { id: 104, title: "Cybernetic ANC Headphones", category: "Technology", price: 450, description: "Acoustically superior sound signature with aerospace aluminium housings and bespoke lambskin ear cups.", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", specifications: { Battery: "40 Hours Active", Driver: "40mm Beryllium", Connectivity: "Bluetooth 5.2" }, stock: 15, sales: 22, productUrl: "https://www.amazon.com" },
-            { id: 105, title: "Smoked Obsidian Incense Vessel", category: "Lifestyle", price: 140, description: "Hand-thrown crystalline ceramic dish sculpted specifically for standard and premium incense cones.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80", specifications: { Stone: "Natural Smoked Obsidian", Diameter: "12cm", Weight: "450g" }, stock: 18, sales: 61, productUrl: "https://www.amazon.com" }
+            { id: 101, title: "Minimalist Silk Trench Coat", category: "Fashion", price: 850, description: "A beautifully tailored fluid trench coat composed of sustainable grade-A mulberry silk.", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80", specifications: { Material: "100% Mulberry Silk", Origin: "Made in Italy", Care: "Dry clean only" }, stock: 12, sales: 34 },
+            { id: 102, title: "Architectural Calfskin Boot", category: "Streetwear", price: 620, description: "Structured leather boots featuring a hand-carved stacked wooden heel and premium asymmetric zippers.", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80", specifications: { Leather: "Full-grain Calfskin", Sole: "Reinforced Wood/Rubber", Height: "6 inches" }, stock: 8, sales: 45 },
+            { id: 103, title: "Solid Brass Monolith Ring", category: "Accessories", price: 195, description: "Raw brushed heavy brass ring inspired by brutalist structural geometric layouts. Over time, it gains beautiful unique patina markings.", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80", specifications: { Composition: "100% Solid Brass", Finish: "Brushed Matte", Weight: "18g" }, stock: 25, sales: 89 },
+            { id: 104, title: "Cybernetic ANC Headphones", category: "Technology", price: 450, description: "Acoustically superior sound signature with aerospace aluminium housings and bespoke lambskin ear cups.", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", specifications: { Battery: "40 Hours Active", Driver: "40mm Beryllium", Connectivity: "Bluetooth 5.2" }, stock: 15, sales: 22 },
+            { id: 105, title: "Smoked Obsidian Incense Vessel", category: "Lifestyle", price: 140, description: "Hand-thrown crystalline ceramic dish sculpted specifically for standard and premium incense cones.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80", specifications: { Stone: "Natural Smoked Obsidian", Diameter: "12cm", Weight: "450g" }, stock: 18, sales: 61 }
         ];
 
         let databaseCollectionOrders = [
@@ -1652,8 +1564,10 @@
         let isUserLoggedAsAdmin = false;
 
         /* ==========================================================================
-           GOOGLE SHEETS DYNAMIC STREAM LOADER
+           GOOGLE SHEETS DATABASE REALTIME LINKAGE CONTROLLER
            ========================================================================== */
+        const GOOGLE_SHEETS_VALUES_ENDPOINT = "https://sheets.googleapis.com/v4/spreadsheets/1RkrxzeTEpbLXAcK_HRAWaSJ_h9yhMFBg9dvhh16iysw/values/Sheet1!A:Z?key=AIzaSyDzkI-8ycnAcXh2h5AeWugJ5sMFZhvef2c";
+
         async function fetchProductsFromGoogleSheet() {
             try {
                 pushSystemLogTrackingString("[Sheets Gateway]: Handshake initialized on Google Spreadsheet values matrix endpoint...");
@@ -1669,14 +1583,21 @@
                     const rows = data.values;
                     const headers = rows[0].map(h => h.trim().toLowerCase());
                     
+                    // Dynamic Index Column Detection with fallback matching definitions
                     const titleIdx = headers.indexOf("title");
                     const priceIdx = headers.indexOf("price");
                     const sizeIdx = headers.indexOf("size");
-                    const imageIdx = headers.indexOf("image url");
-                    const productIdx = headers.indexOf("product url");
-                    const descIdx = headers.indexOf("description");
-                    const catIdx = headers.indexOf("category");
+                    const imageIdx = headers.indexOf("image url") !== -1 ? headers.indexOf("image url") : headers.indexOf("image");
+                    const productIdx = headers.indexOf("product url") !== -1 ? headers.indexOf("product url") : headers.indexOf("url");
+                    const descIdx = headers.indexOf("description") !== -1 ? headers.indexOf("description") : headers.indexOf("desc");
+                    
+                    // Intelligent fallback grouping to solve the "everything showing in lifestyle" bug
+                    let catIdx = headers.indexOf("category");
+                    if (catIdx === -1) catIdx = headers.indexOf("categories");
+                    if (catIdx === -1) catIdx = headers.indexOf("type");
+                    if (catIdx === -1) catIdx = headers.indexOf("class");
 
+                    // Validate that foundational headers exist
                     if (titleIdx === -1 || priceIdx === -1) {
                         throw new Error("Target Spreadsheet missing core header values (Title/Price columns not found).");
                     }
@@ -1684,24 +1605,23 @@
                     const parsedResultList = [];
                     for (let i = 1; i < rows.length; i++) {
                         const row = rows[i];
-                        if (!row[titleIdx]) continue;
+                        if (!row[titleIdx]) continue; // Skip completely empty layout entries
                         
                         const numericPriceVal = row[priceIdx] ? parseFloat(row[priceIdx].toString().replace(/[^0-9.]/g, '')) : 0;
-                        const productLinkVal = (productIdx !== -1 && row[productIdx]) ? row[productIdx].toString().trim() : "";
                         const specObject = {};
                         if (sizeIdx !== -1 && row[sizeIdx]) specObject["Size Dimension"] = row[sizeIdx].toString();
-                        if (productLinkVal) specObject["Link Reference"] = `<a href="${productLinkVal}" target="_blank" style="color:var(--luxury-gold); text-decoration:underline;">Product Link</a>`;
+                        if (productIdx !== -1 && row[productIdx]) specObject["Link Reference"] = `<a href="${row[productIdx]}" target="_blank" style="color:var(--luxury-gold); text-decoration:underline;">Product Link</a>`;
                         specObject["Source Verification"] = "Direct Google Sheet Ingest";
 
                         parsedResultList.push({
                             id: 1001 + i,
                             title: row[titleIdx],
-                            category: (catIdx !== -1 && row[catIdx]) ? row[catIdx].toString() : "Lifestyle",
+                            category: (catIdx !== -1 && row[catIdx]) ? row[catIdx].toString().trim() : "Lifestyle",
                             price: isNaN(numericPriceVal) ? 0.00 : numericPriceVal,
                             description: (descIdx !== -1 && row[descIdx]) ? row[descIdx].toString() : "Premium structural asset retrieved from live external databases.",
                             image: (imageIdx !== -1 && row[imageIdx]) ? row[imageIdx].toString() : "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
                             specifications: specObject,
-                            productUrl: productLinkVal,
+                            productUrl: (productIdx !== -1 && row[productIdx]) ? row[productIdx].toString() : "",
                             stock: 12,
                             sales: 0
                         });
@@ -1730,10 +1650,8 @@
             setupHeaderScrollMonitoring();
             renderPublicTestimonialsDeck();
             renderPublicFaqsAccordionDeck();
-            applySocialCoordinates();
-            setupInteractiveCustomBespokeListeners();
             
-            // Execute sheets parsing sequence
+            // Execute sheets parsing sequence, fall back seamlessly if off-grid
             fetchProductsFromGoogleSheet().then(() => {
                 setTimeout(() => {
                     terminatePremiumLoaderScreen();
@@ -1742,20 +1660,7 @@
         });
 
         /* ==========================================================================
-           APPLY SOCIAL MEDIA LINKS DYNAMICALLY
-           ========================================================================== */
-        function applySocialCoordinates() {
-            const footerInst = document.getElementById("footerSocialInstagram");
-            const footerPin = document.getElementById("footerSocialPinterest");
-            const footerX = document.getElementById("footerSocialX");
-
-            if (footerInst) footerInst.href = SOCIAL_MEDIA_COORDINATES.instagram;
-            if (footerPin) footerPin.href = SOCIAL_MEDIA_COORDINATES.pinterest;
-            if (footerX) footerX.href = SOCIAL_MEDIA_COORDINATES.xTwitter;
-        }
-
-        /* ==========================================================================
-           ROUTING AND NAVIGATION LAYOUT SYSTEMS
+           ROUTING AND HIGH-LEVEL NAVIGATION LAYOUT SYSTEMS
            ========================================================================== */
         function switchActiveAppRouteView(targetViewId) {
             const views = document.querySelectorAll('.app-route-view');
@@ -1764,6 +1669,7 @@
                 if (v.id === targetViewId) v.classList.add('active-view');
             });
 
+            // Handle active design line state adjustments on nav links
             const navLinks = document.querySelectorAll('.desktop-nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
             
@@ -1773,39 +1679,6 @@
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
             pushSystemLogTrackingString(`Client routing switched viewport view matrix to: [${targetViewId}]`);
-        }
-
-        /* ==========================================================================
-           IN-APP SEARCH BAR (Clean & on-screen!)
-           ========================================================================== */
-        function toggleOnScreenSearchBar() {
-            const inlineContainer = document.getElementById('inlineSearchWrapper');
-            const searchField = document.getElementById('inlineSearchInputField');
-            
-            if (inlineContainer) {
-                inlineContainer.classList.toggle('active-search-bar');
-                if (inlineContainer.classList.contains('active-search-bar')) {
-                    searchField.focus();
-                } else {
-                    searchField.value = '';
-                    renderPrimaryCatalogGrid(runCoreInventoryArray);
-                }
-            }
-        }
-
-        function handleInlineRealtimeSearch(searchValue) {
-            const targetPhrase = searchValue.trim().toLowerCase();
-            if (targetPhrase === '') {
-                renderPrimaryCatalogGrid(runCoreInventoryArray);
-                return;
-            }
-
-            const hits = runCoreInventoryArray.filter(item => 
-                item.title.toLowerCase().includes(targetPhrase) || 
-                item.description.toLowerCase().includes(targetPhrase) ||
-                item.category.toLowerCase().includes(targetPhrase)
-            );
-            renderPrimaryCatalogGrid(hits);
         }
 
         /* ==========================================================================
@@ -1839,7 +1712,7 @@
                             <p class="card-product-brief-snippet">${item.description}</p>
                             <div class="card-footer-pricing-row">
                                 <span class="card-price-ticker">$${item.price.toFixed(2)}</span>
-                                <button class="btn-card-conversion-gate" onclick="executeItemPurchaseOrRedirect(${item.id})">Acquire</button>
+                                <button class="btn-card-conversion-gate" onclick="executeMockPurchaseGate(${item.id})">Acquire</button>
                             </div>
                         </div>
                     </article>
@@ -1851,6 +1724,7 @@
         function filterCatalogBySelectedCategory(categoryString) {
             activeCategoryFilterState = categoryString;
             
+            // Adjust visualization parameters on filter pills
             const pills = document.querySelectorAll('.filter-pill-node');
             pills.forEach(pill => {
                 if (pill.textContent.trim().toLowerCase() === categoryString.toLowerCase() || 
@@ -1866,30 +1740,28 @@
                 : runCoreInventoryArray.filter(i => i.category.toLowerCase() === categoryString.toLowerCase());
                 
             renderPrimaryCatalogGrid(updatedSourceSet);
-            pushSystemLogTrackingString(`Catalog query view looped filter tier category: ${categoryString}`);
-        }
-
-        /* ==========================================================================
-           REWIRED BUY BUTTON (Connected to Amazon / Sheet Direct Links)
-           ========================================================================== */
-        function executeItemPurchaseOrRedirect(productId) {
-            const item = runCoreInventoryArray.find(i => i.id === productId);
-            if (!item) return;
-
-            // If there is a product URL, open it in a new tab!
-            if (item.productUrl && item.productUrl !== "") {
-                pushSystemLogTrackingString(`[Redirect]: Outbound purchase channel triggered for item URL: ${item.productUrl}`);
-                window.open(item.productUrl, '_blank');
-                return;
-            }
-
-            // Fallback: If no direct link exists, run simulated purchase & order flow
-            executeMockPurchaseGate(productId);
+            pushSystemLogTrackingString(`Catalog query view looped filter category: ${categoryString}`);
         }
 
         function executeMockPurchaseGate(productId) {
             const item = runCoreInventoryArray.find(i => i.id === productId);
             if (!item) return;
+
+            // Direct route redirect to your external checkout URL mapping from Sheet if present
+            if (item.productUrl && item.productUrl.trim() !== "" && item.productUrl.trim() !== "undefined") {
+                let targetUrl = item.productUrl.trim();
+                if (!/^https?:\/\//i.test(targetUrl)) {
+                    targetUrl = 'https://' + targetUrl;
+                }
+                window.open(targetUrl, '_blank');
+                return;
+            } else if (item.specifications && item.specifications["Link Reference"]) {
+                const linkMatch = item.specifications["Link Reference"].match(/href="([^"]+)"/);
+                if (linkMatch && linkMatch[1]) {
+                    window.open(linkMatch[1], '_blank');
+                    return;
+                }
+            }
 
             if (item.stock <= 0) {
                 triggerLuxuryToastSystemNotification("Transaction suspended: Inventory exhaust state.");
@@ -1899,6 +1771,7 @@
             item.stock--;
             item.sales++;
 
+            // Append mock invoice record
             const freshOrderId = databaseCollectionOrders.length > 0 ? databaseCollectionOrders[databaseCollectionOrders.length - 1].id + 1 : 6001;
             databaseCollectionOrders.push({
                 id: freshOrderId,
@@ -1981,9 +1854,7 @@
                     </table>
 
                     <div class="modal-action-buttons-cluster">
-                        <button class="modal-action-btn-pill" style="background:var(--matte-black); color:var(--pure-white);" onclick="executeOriginalModalCheckoutAction(${item.id})">
-                           ${(item.productUrl && item.productUrl !== '') ? 'Verify Live Store Offer ➔' : 'Secure Vault Allocation'}
-                        </button>
+                        <button class="modal-action-btn-pill" style="background:var(--matte-black); color:var(--pure-white);" onclick="executeOriginalModalCheckoutAction(${item.id})">Secure Vault Allocation</button>
                     </div>
                 </div>
             `;
@@ -2004,11 +1875,11 @@
 
         function executeOriginalModalCheckoutAction(productId) {
             closePremiumProductDetailsModal();
-            executeItemPurchaseOrRedirect(productId);
+            executeMockPurchaseGate(productId);
         }
 
         /* ==========================================================================
-           PUBLIC REVIEWS AND FAQ ACCORDION DECK
+           PUBLIC REVIEWS AND FAQ ACCORDIONS
            ========================================================================== */
         function renderPublicTestimonialsDeck() {
             const container = document.getElementById('uiPublicApprovedReviewsGridTrack');
@@ -2044,9 +1915,6 @@
             });
         }
 
-        /* ==========================================================================
-           PUBLIC FORMS TRANSMISSION SYSTEM ARCHITECTURE
-           ========================================================================== */
         function registerPublicNewsletterSubscription() {
             const inputField = document.getElementById('publicNewsletterEmailInputField');
             const targetString = inputField.value.trim();
@@ -2055,7 +1923,7 @@
 
             const isDuplicated = databaseCollectionNewsletterAudience.some(entry => entry.email.toLowerCase() === targetString.toLowerCase());
             if (isDuplicated) {
-                triggerLuxuryToastSystemNotification("This address token is already mapped inside our elite network registry tracking.");
+                alert("This address token is already mapped inside our elite network registry tracking.");
                 return;
             }
 
@@ -2079,6 +1947,7 @@
             const specs = document.getElementById('customSpecifications').value.trim();
             const budget = document.getElementById('customBudget').value;
 
+            // Formulate standard structured custom request
             databaseCollectionCustomRequests.push({
                 id: databaseCollectionCustomRequests.length + 301,
                 name: name,
@@ -2088,54 +1957,44 @@
                 specs: specs
             });
 
-            triggerLuxuryToastSystemNotification("Atelier directive transmitted successfully into administrative panel pipelines.");
-            document.getElementById('bespokeClientRequestSubmissionForm').reset();
+            // Format dynamic message payload with Emojis to launch WhatsApp seamlessly
+            const formattedMessage = `Hello, EH SAM. I would like to place a Bespoke Design Order:\n\n` +
+                                     `👑 *Client:* ${name}\n` +
+                                     `📧 *Secure Contact:* ${email}\n` +
+                                     `🎨 *Project Classification:* ${cat}\n` +
+                                     `📐 *Specifications:* ${specs}\n` +
+                                     `💵 *Allocated Budget Cap:* ${budget}\n\n` +
+                                     `Sent from EH SAM × EH Lite Store. Please confirm booking context.`;
+
+            const whatsappUrl = `https://wa.me/2348147187742?text=${encodeURIComponent(formattedMessage)}`;
             
+            triggerLuxuryToastSystemNotification("Redirecting secure booking sequence directly to WhatsApp...");
+            
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1000);
+
+            document.getElementById('bespokeClientRequestSubmissionForm').reset();
             if (isUserLoggedAsAdmin) initializeAdminFieldsDataSync();
         }
 
         /* ==========================================================================
-           SECURE ADMIN HUB ACTIONS (No Native Alerts or Sandbox prompt blocks!)
+           ADMIN SECURITY GATE & WORKSPACE CONSOLE
            ========================================================================== */
-        function switchActiveAdminLoginModal() {
-            if (isUserLoggedAsAdmin) {
-                switchActiveAppRouteView('admin-dashboard-view');
-                return;
-            }
-            const modalNode = document.getElementById('adminLoginModalOverlay');
-            if (modalNode) {
-                modalNode.classList.toggle('active-login-modal');
-            }
-        }
-
         function executeAdminAuthenticationCheck() {
             const enteredUser = document.getElementById('adminUserKeyField').value.trim();
             const enteredCipher = document.getElementById('adminPassKeyField').value.trim();
 
             if (enteredUser === 'admin' && enteredCipher === 'admin') {
                 isUserLoggedAsAdmin = true;
-                
-                // Hide authorization shield
-                document.getElementById('adminLoginModalOverlay').classList.remove('active-login-modal');
                 document.getElementById('adminLoginGatePanelElement').style.display = 'none';
-                
-                // Expose Admin workspace
                 document.getElementById('adminCoreOperationalGridConsole').style.display = 'grid';
-                switchActiveAppRouteView('admin-dashboard-view');
                 
                 triggerLuxuryToastSystemNotification("Security clearance validated. Administrative control deck open.");
                 initializeAdminFieldsDataSync();
             } else {
-                triggerLuxuryToastSystemNotification("Security Error: Authentication credentials mismatch.");
+                alert("Cryptographic access keys invalid. Sector remains locked.");
             }
-        }
-
-        function executeAdminSignout() {
-            isUserLoggedAsAdmin = false;
-            document.getElementById('adminCoreOperationalGridConsole').style.display = 'none';
-            document.getElementById('adminLoginGatePanelElement').style.display = 'block';
-            switchActiveAppRouteView('home-view');
-            triggerLuxuryToastSystemNotification("Administrative terminal session gracefully terminated.");
         }
 
         function switchActiveAdminWorkspacePane(paneIdString) {
@@ -2148,12 +2007,9 @@
             tabButtons.forEach(btn => btn.classList.remove('active-node'));
             document.getElementById(`tabBtn-${paneIdString}`).classList.add('active-node');
             
-            pushSystemLogTrackingString(`Admin environment changed active pane view matrix to: [${paneIdString}]`);
+            pushSystemLogTrackingString(`Admin workspace switched: [${paneIdString}]`);
         }
 
-        /* ==========================================================================
-           DYNAMIC KPI COMPUTATION & GRAPH SYSTEM INJECTION SYNC
-           ========================================================================== */
         function initializeAdminFieldsDataSync() {
             const grossSumValue = databaseCollectionOrders
                 .filter(o => o.status === 'completed' || o.status === 'active')
@@ -2182,7 +2038,7 @@
         }
 
         /* ==========================================================================
-           ADMIN DATA INTERACTIVE TABLE INJECTORS & CONTROL ACTIONS
+           ADMIN DATA INTERACTIVE TABLES
            ========================================================================== */
         function syncAdminCatalogLedgerTable() {
             const bodyNode = document.getElementById('adminCatalogTableBodyNode');
@@ -2270,9 +2126,6 @@
             });
         }
 
-        /* ==========================================================================
-           ADMIN LIVE ACTION PROCEDURES
-           ========================================================================== */
         function triggerInventoryAdditionModalPrompt() {
             const title = prompt("Enter Item Title Label:");
             if (!title) return;
@@ -2304,7 +2157,7 @@
         function adminExecuteInventoryPurge(productId) {
             if (confirm("Are you sure you want to remove this record from the active catalog ledger?")) {
                 runCoreInventoryArray = runCoreInventoryArray.filter(i => i.id !== productId);
-                triggerLuxuryToastSystemNotification("Item entry removed successfully from master master node.");
+                triggerLuxuryToastSystemNotification("Item entry removed successfully.");
                 renderPrimaryCatalogGrid(runCoreInventoryArray);
                 initializeAdminFieldsDataSync();
             }
@@ -2314,7 +2167,7 @@
             const orderInstance = databaseCollectionOrders.find(o => o.id === orderId);
             if (orderInstance) {
                 orderInstance.status = nextStatusString;
-                triggerLuxuryToastSystemNotification(`Order state updated: Invoice marked as [${nextStatusString.toUpperCase()}]`);
+                triggerLuxuryToastSystemNotification(`Order state updated: marked as [${nextStatusString.toUpperCase()}]`);
                 initializeAdminFieldsDataSync();
             }
         }
@@ -2335,8 +2188,81 @@
         }
 
         /* ==========================================================================
-           UTILITY INTERFACE FUNCTIONS & UX FEEDBACK
+           UTILITY INTERFACE HARDWARE CHANNELS & UX FEEDBACK
            ========================================================================== */
+        function toggleFullscreenSearchPortal(openState) {
+            const overlay = document.getElementById('premiumSearchPortalOverlay');
+            const input = document.getElementById('premiumSearchInputField');
+            
+            if (openState) {
+                overlay.style.display = 'flex';
+                setTimeout(() => {
+                    overlay.style.opacity = '1';
+                    input.focus();
+                }, 50);
+            } else {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    input.value = '';
+                    document.getElementById('liveSearchResultsGrid').innerHTML = '<p style="color: #666; grid-column: 1/-1; padding: 20px;">Enter your keyword above to fetch assets.</p>';
+                    renderPrimaryCatalogGrid(runCoreInventoryArray);
+                }, 400);
+            }
+        }
+
+        function executeInteractiveSearch(phrase) {
+            const countDisplay = document.getElementById('premiumSearchResultCount');
+            const liveGrid = document.getElementById('liveSearchResultsGrid');
+            
+            if (!phrase || phrase.trim() === '') {
+                liveGrid.innerHTML = '<p style="color: #666; grid-column: 1/-1; padding: 20px;">Enter your keyword above to fetch assets.</p>';
+                countDisplay.textContent = "Type to filter live cataloged assets instantly.";
+                return;
+            }
+            
+            const hits = runCoreInventoryArray.filter(item => 
+                (item.title && item.title.toLowerCase().includes(phrase.toLowerCase())) || 
+                (item.description && item.description.toLowerCase().includes(phrase.toLowerCase())) ||
+                (item.category && item.category.toLowerCase().includes(phrase.toLowerCase()))
+            );
+            
+            countDisplay.textContent = `Found ${hits.length} matching design assets.`;
+            liveGrid.innerHTML = '';
+            
+            if (hits.length === 0) {
+                liveGrid.innerHTML = '<p style="color: #aaa; grid-column: 1/-1; padding: 20px;">No matches found for this keyword query.</p>';
+                return;
+            }
+
+            hits.forEach(item => {
+                const searchItemMarkup = `
+                    <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; cursor: pointer; transition: var(--transition-smooth);" onclick="toggleFullscreenSearchPortal(false); openPremiumProductDetailsModal(${item.id})">
+                        <img src="${item.image}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 8px;">
+                        <span style="color: var(--luxury-gold); font-size: 9px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 4px;">${item.category}</span>
+                        <h4 style="color: #fff; font-size: 13px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${item.title}</h4>
+                        <span style="color: #fff; font-size: 13px; font-weight: 800;">$${item.price.toFixed(2)}</span>
+                    </div>
+                `;
+                liveGrid.insertAdjacentHTML('beforeend', searchItemMarkup);
+            });
+        }
+
+        function toggleBuyingGuidesModal(openState) {
+            const overlay = document.getElementById('premiumBuyingGuidesOverlayModal');
+            if (openState) {
+                overlay.style.display = 'flex';
+                setTimeout(() => {
+                    overlay.style.opacity = '1';
+                }, 50);
+            } else {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 400);
+            }
+        }
+
         function executeSystemThemeToggle() {
             const current = document.documentElement.getAttribute('data-theme');
             const target = (current === 'dark') ? 'light' : 'dark';
@@ -2405,15 +2331,6 @@
                     </div>
                 `;
                 containerNode.insertAdjacentHTML('afterbegin', cleanTraceLogElement);
-            }
-        }
-
-        function setupInteractiveCustomBespokeListeners() {
-            const guidesBtn = document.getElementById("guidesTriggerBtn");
-            if (guidesBtn) {
-                guidesBtn.addEventListener("click", () => {
-                    triggerLuxuryToastSystemNotification("Accessing Curated Buying Guides Interface Framework...");
-                });
             }
         }
         
