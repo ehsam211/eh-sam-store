@@ -1198,7 +1198,7 @@
 
     <!-- ==========================================================================
        PRIMARY HOME CATALOG VIEWPORT
-       ========================================================================== -->
+       ========================================================================== */ -->
     <main class="app-route-view active-view" id="home-view">
         <section class="hero-runway-viewport" id="uiComponentHeroSectionFrame">
             <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1920&q=85" class="hero-background-media" id="uiVarHeroBackgroundImage" alt="Luxury Runway Concept Art">
@@ -1591,12 +1591,19 @@
                     const rows = data.values;
                     const headers = rows[0].map(h => h.trim().toLowerCase());
                     
-                    // Dynamic Index Column Detection (FUZZY ADAPTIVE MATCHING to eliminate setup errors)
                     const titleIdx = headers.findIndex(h => h.includes("title") || h.includes("name") || h.includes("item") || h.includes("product"));
                     const priceIdx = headers.findIndex(h => h.includes("price") || h.includes("cost") || h.includes("val") || h.includes("amount"));
                     const sizeIdx = headers.findIndex(h => h.includes("size") || h.includes("dimension") || h.includes("measure"));
-                    const imageIdx = headers.findIndex(h => h.includes("image") || h.includes("img") || h.includes("photo") || h.includes("picture") || h.includes("pic"));
-                    const productIdx = headers.findIndex(h => h.includes("link") || h.includes("url") || h.includes("buy") || h.includes("checkout") || h.includes("acquire") || h === "href");
+                    
+                    // Distinguish strictly between Image URLs and Product Purchase Links
+                    const imageIdx = headers.findIndex(h => (h.includes("image") || h.includes("img") || h.includes("photo") || h.includes("picture") || h.includes("pic")) && !h.includes("product") && !h.includes("checkout"));
+                    
+                    // CRITICAL FIX: Ensure product url column detection ignores image column names containing "url" (e.g. "image url" or "img url")
+                    const productIdx = headers.findIndex(h => 
+                        (h.includes("link") || h.includes("url") || h.includes("buy") || h.includes("checkout") || h.includes("acquire") || h === "href" || h.includes("product")) && 
+                        !(h.includes("image") || h.includes("img") || h.includes("pic") || h.includes("photo"))
+                    );
+                    
                     const descIdx = headers.findIndex(h => h.includes("desc") || h.includes("info") || h.includes("detail") || h.includes("text") || h.includes("about"));
                     const catIdx = headers.findIndex(h => h.includes("cat") || h.includes("class") || h.includes("type") || h.includes("group"));
 
@@ -1624,7 +1631,7 @@
                             category: (catIdx !== -1 && row[catIdx]) ? row[catIdx].toString().trim() : "Lifestyle",
                             price: isNaN(numericPriceVal) ? 0.00 : numericPriceVal,
                             description: (descIdx !== -1 && row[descIdx]) ? row[descIdx].toString() : "Premium structural asset retrieved from live external databases.",
-                            image: (imageIdx !== -1 && row[imageIdx]) ? row[imageIdx].toString() : "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
+                            image: (imageIdx !== -1 && row[imageIdx]) ? row[imageIdx].toString().trim() : "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
                             specifications: specObject,
                             productUrl: (productIdx !== -1 && row[productIdx]) ? row[productIdx].toString().trim() : "",
                             stock: 12,
