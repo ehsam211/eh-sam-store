@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name='impact-site-verification' value='98b8d752-0895-4b90-a32b-83ea904eb9b5'>
+    <meta name="impact-site-verification" value="98b8d752-0895-4b90-a32b-83ea904eb9b5">
     
-    <!-- Primary Meta Tags -->
+    <!-- Primary Search Engine Meta Tags -->
     <title>EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle</title>
     <meta name="title" content="EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle">
     <meta name="description" content="Discover handpicked fashion, accessories, tech, and lifestyle items curated by EH SAM. Timeless luxury, limited curations, and bespoke designs.">
 
-    <!-- Open Graph / Facebook / WhatsApp (Ref: Screenshot_20260712-224619.jpg) -->
+    <!-- Open Graph / Facebook Metadata (Ref: Screenshot_20260712-224619_2.jpg and image-24.jpg) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ehlitestore.netlify.app/">
     <meta property="og:title" content="EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle">
     <meta property="og:description" content="Discover handpicked fashion, accessories, tech, and lifestyle items curated by EH SAM. Timeless luxury, limited curations, and bespoke designs.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image" content="https://ehlitestore.netlify.app/image-24.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:site_name" content="EH SAM × EH Lite Store">
 
-    <!-- Twitter Card Assets -->
+    <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ehlitestore.netlify.app/">
     <meta name="twitter:title" content="EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle">
     <meta name="twitter:description" content="Discover handpicked fashion, accessories, tech, and lifestyle items curated by EH SAM. Timeless luxury, limited curations, and bespoke designs.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta name="twitter:image" content="https://ehlitestore.netlify.app/image-24.jpg">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1248,7 +1249,7 @@
                     <span class="subtitle">EXHAUSTIVE CURATIONS</span>
                     <h2 class="main-title">The Master Inventory</h2>
                 </div>
-                <!-- Dynamic Category Buttons Strip matching required classifications -->
+                <!-- Dynamic Category Buttons Strip matching standard requirements -->
                 <div class="category-filter-horizontal-strip" id="horizontalCategoryStripNode">
                     <button class="filter-pill-node active" onclick="filterCatalogBySelectedCategory('All')">All Pieces</button>
                     <button class="filter-pill-node" onclick="filterCatalogBySelectedCategory('Fashion')">Fashion</button>
@@ -1563,10 +1564,6 @@
     </footer>
 
     <script>
-        /* ==========================================================================
-           MEME SYSTEM MOCK IN-MEMORY CENTRAL REGISTRIES (DATABASE)
-           Replaced all Streetwear categorization with dynamic Fashion category
-           ========================================================================== */
         let runCoreInventoryArray = [
             { id: 101, title: "Minimalist Silk Trench Coat", category: "Fashion", price: 850, description: "A beautifully tailored fluid trench coat composed of sustainable grade-A mulberry silk.", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80", specifications: { Material: "100% Mulberry Silk", Origin: "Made in Italy", Care: "Dry clean only" }, stock: 12, sales: 34 },
             { id: 102, title: "Architectural Calfskin Boot", category: "Fashion", price: 620, description: "Structured leather boots featuring a hand-carved stacked wooden heel and premium asymmetric zippers.", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80", specifications: { Leather: "Full-grain Calfskin", Sole: "Reinforced Wood/Rubber", Height: "6 inches" }, stock: 8, sales: 45 },
@@ -1632,7 +1629,7 @@
                 return "Lifestyle";
             }
             
-            // Fallback: Default unrecognized categories beautifully to the nearest supported classification or default
+            // Fallback: Default unrecognized categories to Lifestyle
             return "Lifestyle";
         }
 
@@ -2031,7 +2028,7 @@
 
             const isDuplicated = databaseCollectionNewsletterAudience.some(entry => entry.email.toLowerCase() === targetString.toLowerCase());
             if (isDuplicated) {
-                alert("This address token is already mapped inside our elite network registry tracking.");
+                triggerLuxuryToastSystemNotification("This address is already mapped into our network registry.");
                 return;
             }
 
@@ -2099,7 +2096,7 @@
                 triggerLuxuryToastSystemNotification("Security clearance validated. Administrative control deck open.");
                 initializeAdminFieldsDataSync();
             } else {
-                alert("Cryptographic access keys invalid. Sector remains locked.");
+                triggerLuxuryToastSystemNotification("Verification Failed: Cryptographic keys invalid.");
             }
         }
 
@@ -2262,12 +2259,10 @@
         }
 
         function adminExecuteInventoryPurge(productId) {
-            if (confirm("Are you sure you want to remove this record from the active catalog ledger?")) {
-                runCoreInventoryArray = runCoreInventoryArray.filter(i => i.id !== productId);
-                triggerLuxuryToastSystemNotification("Item entry removed successfully.");
-                renderPrimaryCatalogGrid(runCoreInventoryArray);
-                initializeAdminFieldsDataSync();
-            }
+            runCoreInventoryArray = runCoreInventoryArray.filter(i => i.id !== productId);
+            triggerLuxuryToastSystemNotification("Item entry removed successfully.");
+            renderPrimaryCatalogGrid(runCoreInventoryArray);
+            initializeAdminFieldsDataSync();
         }
 
         function adminUpdateOrderStatus(orderId, nextStatusString) {
