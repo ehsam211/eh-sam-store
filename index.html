@@ -142,6 +142,34 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
+        /* Floating WhatsApp Button Hook */
+        .floating-action-whatsapp-trigger {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 999;
+            background-color: #25D366;
+            color: var(--pure-white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            font-size: 28px;
+            transition: var(--transition-smooth);
+            animation: softPulsePulse 2s infinite alternate ease-in-out;
+        }
+        .floating-action-whatsapp-trigger:hover {
+            transform: scale(1.1) translateY(-4px);
+            background-color: #20BA5A;
+        }
+        @keyframes softPulsePulse {
+            0% { box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); }
+            100% { box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6); }
+        }
+
         /* ==========================================================================
            STICKY EDITORIAL NAVIGATION
            ========================================================================== */
@@ -200,10 +228,11 @@
 
         .nav-links-desktop-deck {
             display: flex;
-            gap: 32px;
+            gap: 24px;
+            align-items: center;
         }
         .desktop-nav-link {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -225,6 +254,44 @@
             width: 100%;
         }
 
+        /* Nav More Dropdown System */
+        .nav-more-dropdown-container {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-more-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            min-width: 180px;
+            padding: 12px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1010;
+        }
+        .nav-more-dropdown-container:hover .nav-more-dropdown-menu {
+            display: flex;
+        }
+        .dropdown-menu-item {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+            padding: 6px 8px;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+        .dropdown-menu-item:hover {
+            background-color: var(--bg-base);
+            color: var(--luxury-gold);
+        }
+
         .nav-utilities-cluster {
             display: flex;
             align-items: center;
@@ -244,6 +311,47 @@
         .utility-icon-trigger:hover {
             background-color: var(--border-color);
             transform: scale(1.05);
+        }
+
+        /* Hamburger Mobile Icon */
+        .mobile-hamburger-trigger {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        /* Mobile Slide Drawer Menu */
+        .mobile-navigation-side-drawer {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--bg-card);
+            border-left: 1px solid var(--border-color);
+            z-index: 5500;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: var(--shadow-lg);
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-navigation-side-drawer.drawer-open {
+            right: 0;
+        }
+        .mobile-drawer-backdrop {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            z-index: 5400;
+            display: none;
         }
 
         /* ==========================================================================
@@ -1079,6 +1187,31 @@
         }
 
         /* ==========================================================================
+           LEGAL & CORPORATE EDITORIAL WORKSPACE PANELS
+           ========================================================================== */
+        .editorial-narrative-article {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+        .editorial-narrative-article p {
+            margin-bottom: 24px;
+        }
+        .editorial-narrative-article h3 {
+            font-size: 22px;
+            margin: 36px 0 16px;
+            color: var(--text-main);
+        }
+        .editorial-grid-layout-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* ==========================================================================
            EDITORIAL FOOTER SYSTEM
            ========================================================================== */
         .editorial-footer-complex {
@@ -1130,12 +1263,14 @@
            ========================================================================== */
         @media (max-width: 1024px) {
             .nav-links-desktop-deck { display: none; }
+            .mobile-hamburger-trigger { display: flex; }
             .admin-layout-grid-frame { grid-template-columns: 1fr; }
             .footer-structural-split-grid { grid-template-columns: 1fr 1fr; }
             .custom-design-split-grid { grid-template-columns: 1fr; gap: 40px; }
             .founder-alignment-flex-container { flex-direction: column; gap: 40px; }
             .founder-imagery-viewport { width: 100%; max-width: 440px; }
             .modal-grid-layout { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
+            .editorial-grid-layout-two-col { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .footer-structural-split-grid { grid-template-columns: 1fr; }
@@ -1149,6 +1284,34 @@
     <div id="global-premium-loader">
         <div class="spinner"></div>
         <div style="color: var(--luxury-gold); font-family: var(--font-heading); letter-spacing: 4px; font-size: 10px; text-transform: uppercase; font-weight: 700;">EH SAM SYSTEM INTERFACE</div>
+    </div>
+
+    <!-- Floating Global Action Hub -->
+    <a href="https://wa.me/2348137187742?text=Hello%20EH%20SAM%2C%20I'm%20interested%20in%20one%20of%20your%20products." target="_blank" class="floating-action-whatsapp-trigger" aria-label="Open Secure WhatsApp Chat">
+        💬
+    </a>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="toggleMobileNavDrawer(false)"></div>
+    <div class="mobile-navigation-side-drawer" id="mobileNavigationDrawer">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; letter-spacing: 1px; color: var(--luxury-gold);">NAVIGATIONAL DECKS</span>
+            <button onclick="toggleMobileNavDrawer(false)" style="font-size: 24px; color: var(--text-main);">✕</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('home-view')">Home</a>
+            <a href="#catalog-runway" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Fashion')">Fashion</a>
+            <a href="#catalog-runway" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Lifestyle')">Lifestyle</a>
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('custom-design-view')">Custom Design</a>
+            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 10px 0;">
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('about-view')">About Us</a>
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('contact-view')">Contact Us</a>
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('privacy-view')">Privacy Policy</a>
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('terms-view')">Terms & Conditions</a>
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('affiliate-view')">Affiliate Disclosure</a>
+            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 10px 0;">
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('admin-dashboard-view')">Admin Suite</a>
+        </div>
     </div>
 
     <!-- Search Overlay Portal -->
@@ -1192,23 +1355,41 @@
         </div>
     </div>
 
+    <!-- MAIN HEADER -->
     <header class="header-nav-wrapper" id="masterHeaderElement">
         <div class="container nav-inner-container">
             <a href="#" class="brand-monogram" onclick="switchActiveAppRouteView('home-view')">
                 <span class="main-title" id="brandingGlblHeaderTitle">EH SAM</span>
                 <span class="sub-platform" id="brandingGlblHeaderTagline">EH Lite Store</span>
             </a>
+            
+            <!-- Desktop Nav Menu -->
             <nav class="nav-links-desktop-deck">
                 <a href="#" class="desktop-nav-link active" id="link-home" onclick="switchActiveAppRouteView('home-view')">Home</a>
                 <a href="#catalog-runway" class="desktop-nav-link" id="link-fashion" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Fashion')">Fashion</a>
                 <a href="#catalog-runway" class="desktop-nav-link" id="link-lifestyle" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Lifestyle')">Lifestyle</a>
                 <a href="#" class="desktop-nav-link" id="link-custom" onclick="switchActiveAppRouteView('custom-design-view')">Custom Design</a>
+                
+                <!-- More Dropdown -->
+                <div class="nav-more-dropdown-container">
+                    <a href="#" class="desktop-nav-link" style="display: flex; align-items: center; gap: 4px;">More <span style="font-size: 8px;">▼</span></a>
+                    <div class="nav-more-dropdown-menu">
+                        <a href="#" class="dropdown-menu-item" onclick="switchActiveAppRouteView('about-view')">About Us</a>
+                        <a href="#" class="dropdown-menu-item" onclick="switchActiveAppRouteView('contact-view')">Contact Us</a>
+                        <a href="#" class="dropdown-menu-item" onclick="switchActiveAppRouteView('privacy-view')">Privacy Policy</a>
+                        <a href="#" class="dropdown-menu-item" onclick="switchActiveAppRouteView('terms-view')">Terms & Conditions</a>
+                        <a href="#" class="dropdown-menu-item" onclick="switchActiveAppRouteView('affiliate-view')">Affiliate Info</a>
+                    </div>
+                </div>
+
                 <a href="#" class="desktop-nav-link" id="link-admin" onclick="switchActiveAppRouteView('admin-dashboard-view')">Admin Suite</a>
             </nav>
+
             <div class="nav-utilities-cluster">
                 <button class="utility-icon-trigger" onclick="toggleFullscreenSearchPortal(true)" aria-label="Search Platform">🔍</button>
                 <button class="utility-icon-trigger" onclick="executeSystemThemeToggle()" aria-label="Switch Theme">🌓</button>
                 <button class="utility-icon-trigger" onclick="switchActiveAppRouteView('admin-dashboard-view')" aria-label="Access Admin Panel">🔑</button>
+                <button class="mobile-hamburger-trigger" onclick="toggleMobileNavDrawer(true)" aria-label="Open Mobile Menu">☰</button>
             </div>
         </div>
     </header>
@@ -1321,7 +1502,7 @@
                                     <span style="font-size: 24px;">💬</span>
                                     <div>
                                         <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Direct Secure WhatsApp</h4>
-                                        <a href="https://wa.me/2348147187742" target="_blank" style="color: var(--luxury-gold); font-size: 14px; font-weight: 600;">+234 814 718 7742</a>
+                                        <a href="https://wa.me/2348137187742?text=Hello%20EH%20SAM%2C%20I'm%20interested%20in%20one%20of%20your%20products." target="_blank" style="color: var(--luxury-gold); font-size: 14px; font-weight: 600;">+234 813 718 7742</a>
                                     </div>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 12px; background: var(--bg-card); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
@@ -1380,6 +1561,148 @@
         </section>
     </div>
 
+    <!-- ==========================================================================
+       ABOUT US PANEL
+       ========================================================================== -->
+    <div class="app-route-view" id="about-view">
+        <section class="section-whitespace-padding">
+            <div class="container">
+                <div class="editorial-section-heading-block">
+                    <span class="subtitle">OUR HERITAGE & VISION</span>
+                    <h2 class="main-title">About EH SAM × EH Lite Store</h2>
+                </div>
+                <div class="editorial-narrative-article">
+                    <p>Established with an unwavering devotion to structural form and deliberate curation, <strong>EH SAM × EH Lite Store</strong> functions as an exclusive digital atelier. Guided by Chief Curation Architect EH SAM, our studio exists to cut through the noise of mass production, offering instead a calculated, minimal landscape of high-performance wardrobe pieces, design accessories, technology integrations, and lifestyle items.</p>
+                    
+                    <p>We believe that true design integrity is defined by how things look under scrutiny. Our sourcing networks span raw structural textile factories, artisanal material carvers, and vanguard tech developers to ensure everything hosted on this deck serves a precise structural, architectural, and aesthetic purpose.</p>
+
+                    <h3>The Curation Oath</h3>
+                    <p>Every single item presented on our master runway is subjected to an rigorous operational screening protocol. We review seam density, structural durability, heat signatures, and material degradation resistance. When you acquire a design piece from EH Lite Store, you secure an asset crafted for structural permanence.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==========================================================================
+       CONTACT US PANEL
+       ========================================================================== -->
+    <div class="app-route-view" id="contact-view">
+        <section class="section-whitespace-padding">
+            <div class="container">
+                <div class="editorial-section-heading-block">
+                    <span class="subtitle">DIRECT CHANNELS</span>
+                    <h2 class="main-title">Connect with the Atelier</h2>
+                </div>
+                <div class="editorial-grid-layout-two-col container" style="max-width: 1100px;">
+                    <div>
+                        <h3 style="font-size: 24px; margin-bottom: 16px;">We're Always Active</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 24px;">For urgent inventory holds, structural modifications on customized blueprints, or affiliate partnership requests, contact our centralized support lines directly via the secure links below.</p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 16px;">
+                                <span style="font-size: 24px;">💬</span>
+                                <div>
+                                    <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Direct Secure WhatsApp Support</h4>
+                                    <a href="https://wa.me/2348137187742?text=Hello%20EH%20SAM%2C%20I'm%20interested%20in%20one%20of%20your%20products." target="_blank" style="color: var(--luxury-gold); font-weight: bold; font-size: 15px;">+234 813 718 7742</a>
+                                </div>
+                            </div>
+                            <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 16px;">
+                                <span style="font-size: 24px;">📧</span>
+                                <div>
+                                    <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Official Studio Email Desk</h4>
+                                    <a href="mailto:support@ehlitestore.com" style="color: var(--luxury-gold); font-weight: bold; font-size: 15px;">support@ehlitestore.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: 12px; box-shadow: var(--shadow-sm);">
+                        <h3 style="font-size: 20px; margin-bottom: 20px; font-family: var(--font-heading);">Central Message Router</h3>
+                        <div class="form-input-element-group">
+                            <label>Sender Full Identity</label>
+                            <input type="text" id="contactFormName" class="form-native-field" placeholder="Alexander Mercer">
+                        </div>
+                        <div class="form-input-element-group">
+                            <label>Secure Message Text</label>
+                            <textarea id="contactFormMessage" class="form-native-field" style="height: 120px; resize: none;" placeholder="Provide inquiry scope context..."></textarea>
+                        </div>
+                        <button class="btn-luxury-action solid-gold" style="width: 100%;" onclick="sendDirectContactFormMessage()">Route through WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==========================================================================
+       PRIVACY POLICY PANEL
+       ========================================================================== -->
+    <div class="app-route-view" id="privacy-view">
+        <section class="section-whitespace-padding">
+            <div class="container">
+                <div class="editorial-section-heading-block">
+                    <span class="subtitle">DATA PROTECTION STATEMENT</span>
+                    <h2 class="main-title">Privacy Policy</h2>
+                </div>
+                <div class="editorial-narrative-article">
+                    <p>At <strong>EH SAM × EH Lite Store</strong>, we protect the computational integrity and cryptographic security of our patrons' digital data assets. This statement details how our store collects, processes, and safeguards information when you browse our master runway catalogs.</p>
+                    
+                    <h3>Information Gathering Protocols</h3>
+                    <p>When subscribing to our VIP curation lists or submitting design requests, we require your name, secure contact email, and design parameters. We use this information strictly to manage bespoke requests and transmit catalog alerts. No transactional credit card tokens are stored on our servers; checkout protocols are routed securely through authorized providers.</p>
+                    
+                    <h3>Cookies & Analytical Pixels</h3>
+                    <p>We deploy secure cookies to remember structural configuration preferences, items in your selection vault, and to match site lighting adjustments (Light/Dark themes). No tracking cookies are shared with unauthorized advertising networks.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==========================================================================
+       TERMS & CONDITIONS PANEL
+       ========================================================================== -->
+    <div class="app-route-view" id="terms-view">
+        <section class="section-whitespace-padding">
+            <div class="container">
+                <div class="editorial-section-heading-block">
+                    <span class="subtitle">TRANSACTIONAL LAWS</span>
+                    <h2 class="main-title">Terms & Conditions</h2>
+                </div>
+                <div class="editorial-narrative-article">
+                    <p>By entering <strong>EH SAM × EH Lite Store</strong> and accessing our digital platform, you agree to comply with our global transactional parameters. All items, custom flyers, clothes patterns, banners, and digital graphics showcased on this site remain the intellectual property of EH SAM Studio.</p>
+                    
+                    <h3>Custom Blueprint and Order Executions</h3>
+                    <p>Any custom order submitted via our bespoke atelier channel is non-refundable once design blueprint parameters are signed off and construction begins. Payments must align with initial custom pricing structures discussed during secure checkout exchanges.</p>
+                    
+                    <h3>Valuation Fluctuations</h3>
+                    <p>Prices listed across our dynamic database are subject to change without notice, in response to variations in raw materials, import duties, and global currency updates. We reserve the absolute right to cancel transactions resulting from indexing errors in Google Sheets databases.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==========================================================================
+       AFFILIATE DISCLOSURE PANEL
+       ========================================================================== -->
+    <div class="app-route-view" id="affiliate-view">
+        <section class="section-whitespace-padding">
+            <div class="container">
+                <div class="editorial-section-heading-block">
+                    <span class="subtitle">AESTHETIC PARITY DISCLOSURE</span>
+                    <h2 class="main-title">Affiliate Disclosure</h2>
+                </div>
+                <div class="editorial-narrative-article">
+                    <p>In accordance with transparency and regulatory guidelines, this disclosure serves to clarify the monetization systems driving our dynamic catalog platform.</p>
+                    
+                    <p><strong>EH SAM × EH Lite Store</strong> functions as a highly curated style review deck. To support our ongoing material research, digital hosting infrastructure, and small-batch production tests, our site may earn referral commissions from qualifying purchases routed through our secure checkout links and product paths.</p>
+                    
+                    <p>Our commitment to design excellence remains absolute. We never list, recommend, or catalog a product strictly for monetary affiliate gains. Every single wearable piece, tech utility, or accessory featured on our runway is hand-reviewed, vetted, and approved by Chief Curate Architect EH SAM for authentic craftsmanship, structural durability, and visual power.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==========================================================================
+       ADMIN CONTROL CENTER PANEL
+       ========================================================================== -->
     <div class="app-route-view" id="admin-dashboard-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1521,6 +1844,9 @@
         </section>
     </div>
 
+    <!-- ==========================================================================
+       EDITORIAL FOOTER SYSTEM
+       ========================================================================== -->
     <footer class="editorial-footer-complex">
         <div class="container">
             <div class="footer-structural-split-grid">
@@ -1535,8 +1861,10 @@
                 <div>
                     <h4 class="footer-column-headline">Store Navigation</h4>
                     <ul class="footer-navigation-link-list">
-                        <li><a href="#" onclick="switchActiveAppRouteView('home-view')">Catalog Showcase</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('home-view')">Catalog Runway</a></li>
                         <li><a href="#" onclick="switchActiveAppRouteView('custom-design-view')">Atelier Requests</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('about-view')">About Our Vision</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('contact-view')">Connect Desk</a></li>
                         <li><a href="#" onclick="switchActiveAppRouteView('admin-dashboard-view')">Operational Hub</a></li>
                     </ul>
                 </div>
@@ -1549,10 +1877,13 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="footer-column-headline">Secure Channels</h4>
+                    <h4 class="footer-column-headline">Legal & Channels</h4>
                     <ul class="footer-navigation-link-list">
-                        <li><a href="https://wa.me/2348147187742" target="_blank">Contact WhatsApp Secure</a></li>
-                        <li><a href="https://x.com/Ehsam209" target="_blank">Follow @Ehsam209 on X</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('privacy-view')">Privacy Guidelines</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('terms-view')">Terms of Use</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('affiliate-view')">Affiliate Disclosures</a></li>
+                        <li><a href="https://wa.me/2348137187742?text=Hello%20EH%20SAM%2C%20I'm%20interested%20in%20one%20of%20your%20products." target="_blank">WhatsApp Secure Link</a></li>
+                        <li><a href="https://x.com/Ehsam209" target="_blank">Atelier X Channel</a></li>
                         <li><a href="https://www.facebook.com/profile.php?id=61589388628949" target="_blank">Official Facebook Portal</a></li>
                     </ul>
                 </div>
@@ -1629,7 +1960,6 @@
                 return "Lifestyle";
             }
             
-            // Fallback: Default unrecognized categories to Lifestyle
             return "Lifestyle";
         }
 
@@ -1776,12 +2106,34 @@
             const navLinks = document.querySelectorAll('.desktop-nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
             
-            if (targetViewId === 'home-view') document.getElementById('link-home').classList.add('active');
-            if (targetViewId === 'custom-design-view') document.getElementById('link-custom').classList.add('active');
-            if (targetViewId === 'admin-dashboard-view') document.getElementById('link-admin').classList.add('active');
+            if (targetViewId === 'home-view') {
+                const targetHomeLink = document.getElementById('link-home');
+                if (targetHomeLink) targetHomeLink.classList.add('active');
+            }
+            if (targetViewId === 'custom-design-view') {
+                const targetCustomLink = document.getElementById('link-custom');
+                if (targetCustomLink) targetCustomLink.classList.add('active');
+            }
+            if (targetViewId === 'admin-dashboard-view') {
+                const targetAdminLink = document.getElementById('link-admin');
+                if (targetAdminLink) targetAdminLink.classList.add('active');
+            }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
             pushSystemLogTrackingString(`Client routing switched viewport view matrix to: [${targetViewId}]`);
+        }
+
+        // Toggles mobile side drawer layout
+        function toggleMobileNavDrawer(open) {
+            const drawer = document.getElementById('mobileNavigationDrawer');
+            const backdrop = document.getElementById('mobileDrawerBackdrop');
+            if (open) {
+                drawer.classList.add('drawer-open');
+                backdrop.style.display = 'block';
+            } else {
+                drawer.classList.remove('drawer-open');
+                backdrop.style.display = 'none';
+            }
         }
 
         /* ==========================================================================
@@ -1849,25 +2201,13 @@
             const item = runCoreInventoryArray.find(i => i.id === productId);
             if (!item) return;
 
-            pushSystemLogTrackingString(`[Checkout Initialized]: Redirecting on item ID #${productId}. Checkout Link: "${item.productUrl}"`);
+            pushSystemLogTrackingString(`[Checkout Initialized]: Redirecting on item ID #${productId}.`);
 
-            if (item.productUrl && item.productUrl.trim() !== "" && item.productUrl.trim() !== "undefined") {
-                let targetUrl = item.productUrl.trim();
-                if (!/^https?:\/\//i.test(targetUrl)) {
-                    targetUrl = 'https://' + targetUrl;
-                }
-                window.open(targetUrl, '_blank');
-                return;
-            } else if (item.specifications && item.specifications["Link Reference"]) {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = item.specifications["Link Reference"];
-                const parsedUrl = tempDiv.querySelector('a') ? tempDiv.querySelector('a').getAttribute('href') : null;
-                
-                if (parsedUrl && parsedUrl.trim() !== "" && parsedUrl !== "undefined") {
-                    window.open(parsedUrl.trim(), '_blank');
-                    return;
-                }
-            }
+            // Secure transactional WhatsApp redirection
+            const productContextText = `Hello EH SAM, I'm interested in one of your products. Specifically, the "${item.title}" (${item.category} classification, ID: #${item.id}) valued at $${item.price.toFixed(2)}. Please confirm catalog reserves and delivery coordinates.`;
+            const secureWhatsAppUrl = `https://wa.me/2348137187742?text=${encodeURIComponent(productContextText)}`;
+
+            window.open(secureWhatsAppUrl, '_blank');
 
             if (item.stock <= 0) {
                 triggerLuxuryToastSystemNotification("Transaction suspended: Inventory exhaust state.");
@@ -1886,7 +2226,7 @@
                 status: "active"
             });
 
-            triggerLuxuryToastSystemNotification(`Acquisition successful: ${item.title} reserved.`);
+            triggerLuxuryToastSystemNotification(`Acquisition successful: Redirecting secure chat connection for "${item.title}".`);
             renderPrimaryCatalogGrid(runCoreInventoryArray);
             
             if (isUserLoggedAsAdmin) {
@@ -2069,7 +2409,7 @@
                                      `💵 *Allocated Budget Cap:* ${budget}\n\n` +
                                      `Sent from EH SAM × EH Lite Store. Please confirm booking context.`;
 
-            const whatsappUrl = `https://wa.me/2348147187742?text=${encodeURIComponent(formattedMessage)}`;
+            const whatsappUrl = `https://wa.me/2348137187742?text=${encodeURIComponent(formattedMessage)}`;
             
             triggerLuxuryToastSystemNotification("Redirecting secure booking sequence directly to WhatsApp...");
             
@@ -2079,6 +2419,30 @@
 
             document.getElementById('bespokeClientRequestSubmissionForm').reset();
             if (isUserLoggedAsAdmin) initializeAdminFieldsDataSync();
+        }
+
+        // Custom Contact Form Transmitter
+        function sendDirectContactFormMessage() {
+            const name = document.getElementById('contactFormName').value.trim();
+            const message = document.getElementById('contactFormMessage').value.trim();
+
+            if (!name || !message) {
+                triggerLuxuryToastSystemNotification("Please fill in both name and secure message fields.");
+                return;
+            }
+
+            const formattedMessage = `Hello EH SAM, I'm interested in one of your products.\n\n` +
+                                     `👤 *Identity Name:* ${name}\n` +
+                                     `✉️ *Inquiry message:* ${message}`;
+
+            const secureWhatsAppUrl = `https://wa.me/2348137187742?text=${encodeURIComponent(formattedMessage)}`;
+            
+            triggerLuxuryToastSystemNotification("Mapping contact vectors to secure WhatsApp line...");
+            setTimeout(() => {
+                window.open(secureWhatsAppUrl, '_blank');
+                document.getElementById('contactFormName').value = '';
+                document.getElementById('contactFormMessage').value = '';
+            }, 1000);
         }
 
         /* ==========================================================================
