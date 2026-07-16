@@ -2,20 +2,28 @@ backend:
   name: git-gateway
   branch: main
 
-local_backend: true
-
+# This folder will store uploaded product images
 media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "products"
-    label: "Products"
-    folder: "products"
-    create: true
-    format: "json"
+    label: "Store Products"
+    folder: "products" # Saves each product inside your "products" folder
+    create: true       # Allows you to add new products
+    delete: true       # Allows you to delete products
+    slug: "{{slug}}"
+    format: "json"     # Saves data as clean, readable JSON
     fields:
-      - {label: "Product Name", name: "title", widget: "string"}
-      - {label: "Base Price (USD)", name: "price", widget: "number", value_type: "float"}
-      - {label: "Image URL or Upload", name: "image", widget: "image"}
-      - {label: "Category", name: "category", widget: "select", options: ["T-Shirts", "Hoodies", "Posters", "Cases"]}
-      - {label: "Available Sizes", name: "sizes", widget: "select", options: ["M", "L", "XL", "M and L"]}
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "Price (₦ or $)", name: "price", widget: "string" }
+      - { 
+          label: "Category", 
+          name: "category", 
+          widget: "select", 
+          options: ["Fashion", "Accessories", "Technology", "Lifestyle"] 
+        }
+      - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Affiliate Link (Optional)", name: "affiliate_link", widget: "string", required: false }
+      - { label: "In Stock", name: "in_stock", widget: "boolean", default: true }
