@@ -33,6 +33,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
     
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <style>
         :root {
             --matte-black: #000000;
@@ -142,7 +145,6 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Floating WhatsApp Button Hook */
         .floating-action-whatsapp-trigger {
             position: fixed;
             bottom: 32px;
@@ -170,9 +172,6 @@
             100% { box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6); }
         }
 
-        /* ==========================================================================
-           STICKY EDITORIAL NAVIGATION
-           ========================================================================== */
         .header-nav-wrapper {
             position: fixed;
             top: 0;
@@ -254,7 +253,6 @@
             width: 100%;
         }
 
-        /* Nav More Dropdown System */
         .nav-more-dropdown-container {
             position: relative;
             display: inline-block;
@@ -313,7 +311,6 @@
             transform: scale(1.05);
         }
 
-        /* Hamburger Mobile Icon */
         .mobile-hamburger-trigger {
             display: none;
             width: 44px;
@@ -325,7 +322,6 @@
             color: var(--text-main);
         }
 
-        /* Mobile Slide Drawer Menu */
         .mobile-navigation-side-drawer {
             position: fixed;
             top: 0;
@@ -354,9 +350,6 @@
             display: none;
         }
 
-        /* ==========================================================================
-           MULTI-VIEW CONTROL DECK SYSTEMS
-           ========================================================================== */
         .app-route-view {
             display: none;
             opacity: 0;
@@ -370,9 +363,6 @@
             transform: translateY(0);
         }
 
-        /* ==========================================================================
-           EDITORIAL HERO PRESENTATION VIEWPORT
-           ========================================================================== */
         .hero-runway-viewport {
             min-height: 95vh;
             display: flex;
@@ -442,12 +432,7 @@
             font-weight: 400;
             line-height: 1.7;
         }
-        .hero-actions-dock {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
+
         .btn-luxury-action {
             display: inline-flex;
             align-items: center;
@@ -539,9 +524,6 @@
             gap: 32px;
         }
 
-        /* ==========================================================================
-           PRODUCT CARD COMPONENT
-           ========================================================================== */
         .luxury-product-card-node {
             background-color: var(--bg-card);
             border-radius: 8px;
@@ -702,9 +684,6 @@
             color: var(--matte-black);
         }
 
-        /* ==========================================================================
-           PREMIUM PRODUCT DETAILS OVERLAY VIEW (MODAL ARCHITECTURE)
-           ========================================================================== */
         .premium-details-modal-overlay {
             position: fixed;
             inset: 0;
@@ -786,6 +765,7 @@
             height: 100%;
             object-fit: cover;
         }
+
         .gallery-thumbnails-strip {
             display: flex;
             gap: 12px;
@@ -807,6 +787,7 @@
             height: 100%;
             object-fit: cover;
         }
+
         .modal-action-buttons-cluster {
             display: flex;
             gap: 12px;
@@ -849,9 +830,6 @@
             width: 35%;
         }
 
-        /* ==========================================================================
-           FOUNDER IDENTITY EXCLUSION BLOCK SECTION
-           ========================================================================== */
         .founder-brand-section-wrapper {
             background-color: var(--matte-black);
             color: var(--pure-white);
@@ -948,160 +926,6 @@
             margin-bottom: 32px;
         }
 
-        /* ==========================================================================
-           ADMIN PROPORTIONAL INTERFACE SPECIFICATIONS
-           ========================================================================== */
-        .admin-login-shield-panel {
-            max-width: 440px;
-            width: 100%;
-            margin: 80px auto;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .admin-layout-grid-frame {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 32px;
-            margin-top: 24px;
-            align-items: start;
-        }
-
-        .admin-sidebar-menu-list {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .admin-menu-node-item {
-            padding: 12px 16px;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            border-radius: 6px;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-        .admin-menu-node-item:hover, .admin-menu-node-item.active-node {
-            background-color: var(--matte-black);
-            color: var(--pure-white);
-        }
-        [data-theme="dark"] .admin-menu-node-item:hover, [data-theme="dark"] .admin-menu-node-item.active-node {
-            background-color: var(--pure-white);
-            color: var(--matte-black);
-        }
-
-        .admin-kpi-summary-deck {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 32px;
-        }
-
-        .admin-kpi-metric-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-        }
-        .admin-kpi-metric-card .value {
-            font-size: 32px;
-            font-family: var(--font-heading);
-            font-weight: 800;
-            color: var(--luxury-gold);
-            margin-top: 4px;
-        }
-
-        .admin-workspace-pane-panel {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: var(--shadow-md);
-            display: none;
-        }
-        .admin-workspace-pane-panel.active-pane {
-            display: block;
-        }
-
-        .admin-chart-vector-strip {
-            display: flex;
-            align-items: flex-end;
-            gap: 12px;
-            height: 160px;
-            padding-top: 20px;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 32px;
-        }
-        .admin-chart-vector-pillar {
-            flex-grow: 1;
-            background-color: var(--luxury-gold);
-            border-radius: 4px 4px 0 0;
-            min-height: 10px;
-            position: relative;
-            transition: height 1s ease;
-        }
-        .admin-chart-vector-pillar:hover {
-            opacity: 0.8;
-        }
-        .admin-chart-vector-pillar::after {
-            content: attr(data-label);
-            position: absolute;
-            bottom: -24px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 9px;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-
-        .admin-tabular-data-frame {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            margin-top: 16px;
-        }
-        .admin-tabular-data-frame th, .admin-tabular-data-frame td {
-            padding: 14px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .admin-tabular-data-frame th {
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1px;
-            background-color: var(--bg-base);
-        }
-
-        .system-pill-alert-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 20px;
-        }
-        .system-pill-alert-badge.status-pending { background-color: rgba(245, 158, 11, 0.1); color: var(--warning-orange); }
-        .system-pill-alert-badge.status-active { background-color: rgba(16, 185, 129, 0.1); color: var(--success-green); }
-        .system-pill-alert-badge.status-completed { background-color: rgba(212, 175, 55, 0.1); color: var(--luxury-gold); }
-        .system-pill-alert-badge.status-cancelled { background-color: rgba(239, 68, 68, 0.1); color: var(--danger-red); }
-
         .global-system-toast-container {
             position: fixed;
             top: 32px;
@@ -1186,9 +1010,6 @@
             background-color: var(--bg-card);
         }
 
-        /* ==========================================================================
-           LEGAL & CORPORATE EDITORIAL WORKSPACE PANELS
-           ========================================================================== */
         .editorial-narrative-article {
             max-width: 800px;
             margin: 0 auto;
@@ -1211,9 +1032,6 @@
             align-items: start;
         }
 
-        /* ==========================================================================
-           EDITORIAL FOOTER SYSTEM
-           ========================================================================== */
         .editorial-footer-complex {
             background-color: var(--matte-black);
             color: #999999;
@@ -1258,13 +1076,9 @@
             color: #555555;
         }
 
-        /* ==========================================================================
-           RESPONSIVE VIEWPORT BREAKPOINTS
-           ========================================================================== */
         @media (max-width: 1024px) {
             .nav-links-desktop-deck { display: none; }
             .mobile-hamburger-trigger { display: flex; }
-            .admin-layout-grid-frame { grid-template-columns: 1fr; }
             .footer-structural-split-grid { grid-template-columns: 1fr 1fr; }
             .custom-design-split-grid { grid-template-columns: 1fr; gap: 40px; }
             .founder-alignment-flex-container { flex-direction: column; gap: 40px; }
@@ -1310,11 +1124,12 @@
             <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('terms-view')">Terms & Conditions</a>
             <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('affiliate-view')">Affiliate Disclosure</a>
             <hr style="border: none; border-top: 1px solid var(--border-color); margin: 10px 0;">
-            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('admin-dashboard-view')">Admin Suite</a>
+            <!-- Trigger Netlify Identity Widget directly for secure admin entry -->
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); triggerAdminAuthenticationModal()">Admin Suite</a>
         </div>
     </div>
 
-    <!-- Search Overlay Portal -->
+    <!-- Search Portal -->
     <div id="premiumSearchPortalOverlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.95); backdrop-filter:blur(25px); -webkit-backdrop-filter:blur(25px); z-index:5500; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
         <div style="width:90%; max-width:750px; text-align:center; position:relative; max-height: 90vh; display: flex; flex-direction: column; justify-content: center;">
             <button onclick="toggleFullscreenSearchPortal(false)" style="position:absolute; top:-60px; right:0; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.1); color:#FFF; display:flex; align-items:center; justify-content:center; font-size:20px; border:1px solid rgba(255,255,255,0.15); z-index: 10;">✕</button>
@@ -1331,7 +1146,7 @@
         </div>
     </div>
 
-    <!-- Buying Guides Modal Window -->
+    <!-- Buying Guides Overlay Modal -->
     <div id="premiumBuyingGuidesOverlayModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); z-index:5600; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
         <div style="width:90%; max-width:850px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:12px; padding:40px; position:relative; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow-lg);">
             <button onclick="toggleBuyingGuidesModal(false)" style="position:absolute; top:24px; right:24px; width:44px; height:44px; border-radius:50%; background:var(--bg-base); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--text-main);">✕</button>
@@ -1382,13 +1197,14 @@
                     </div>
                 </div>
 
-                <a href="#" class="desktop-nav-link" id="link-admin" onclick="switchActiveAppRouteView('admin-dashboard-view')">Admin Suite</a>
+                <!-- Netlify Identity Link -->
+                <a href="#" class="desktop-nav-link" id="link-admin" onclick="triggerAdminAuthenticationModal()">Admin Suite</a>
             </nav>
 
             <div class="nav-utilities-cluster">
                 <button class="utility-icon-trigger" onclick="toggleFullscreenSearchPortal(true)" aria-label="Search Platform">🔍</button>
                 <button class="utility-icon-trigger" onclick="executeSystemThemeToggle()" aria-label="Switch Theme">🌓</button>
-                <button class="utility-icon-trigger" onclick="switchActiveAppRouteView('admin-dashboard-view')" aria-label="Access Admin Panel">🔑</button>
+                <a href="#" class="utility-icon-trigger" onclick="triggerAdminAuthenticationModal()" aria-label="Access Admin Panel">🔑</a>
                 <button class="mobile-hamburger-trigger" onclick="toggleMobileNavDrawer(true)" aria-label="Open Mobile Menu">☰</button>
             </div>
         </div>
@@ -1401,9 +1217,7 @@
         </div>
     </div>
 
-    <!-- ==========================================================================
-       PRIMARY HOME CATALOG VIEWPORT
-       ========================================================================== */ -->
+    <!-- HOME VIEW -->
     <main class="app-route-view active-view" id="home-view">
         <section class="hero-runway-viewport" id="uiComponentHeroSectionFrame">
             <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1920&q=85" class="hero-background-media" id="uiVarHeroBackgroundImage" alt="Luxury Runway Concept Art">
@@ -1430,7 +1244,6 @@
                     <span class="subtitle">EXHAUSTIVE CURATIONS</span>
                     <h2 class="main-title">The Master Inventory</h2>
                 </div>
-                <!-- Dynamic Category Buttons Strip matching standard requirements -->
                 <div class="category-filter-horizontal-strip" id="horizontalCategoryStripNode">
                     <button class="filter-pill-node active" onclick="filterCatalogBySelectedCategory('All')">All Pieces</button>
                     <button class="filter-pill-node" onclick="filterCatalogBySelectedCategory('Fashion')">Fashion</button>
@@ -1484,9 +1297,7 @@
         </section>
     </main>
 
-    <!-- ==========================================================================
-       BESPOKE CLIENT REQUESTS CENTER (CUSTOM DESIGN PANEL)
-       ========================================================================== -->
+    <!-- CUSTOM DESIGN VIEW -->
     <div class="app-route-view" id="custom-design-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1561,9 +1372,7 @@
         </section>
     </div>
 
-    <!-- ==========================================================================
-       ABOUT US PANEL
-       ========================================================================== -->
+    <!-- ABOUT VIEW -->
     <div class="app-route-view" id="about-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1583,9 +1392,7 @@
         </section>
     </div>
 
-    <!-- ==========================================================================
-       CONTACT US PANEL
-       ========================================================================== -->
+    <!-- CONTACT VIEW -->
     <div class="app-route-view" id="contact-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1633,9 +1440,7 @@
         </section>
     </div>
 
-    <!-- ==========================================================================
-       PRIVACY POLICY PANEL
-       ========================================================================== -->
+    <!-- PRIVACY VIEW -->
     <div class="app-route-view" id="privacy-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1656,9 +1461,7 @@
         </section>
     </div>
 
-    <!-- ==========================================================================
-       TERMS & CONDITIONS PANEL
-       ========================================================================== -->
+    <!-- TERMS VIEW -->
     <div class="app-route-view" id="terms-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1679,9 +1482,7 @@
         </section>
     </div>
 
-    <!-- ==========================================================================
-       AFFILIATE DISCLOSURE PANEL
-       ========================================================================== -->
+    <!-- AFFILIATE VIEW -->
     <div class="app-route-view" id="affiliate-view">
         <section class="section-whitespace-padding">
             <div class="container">
@@ -1700,153 +1501,7 @@
         </section>
     </div>
 
-    <!-- ==========================================================================
-       ADMIN CONTROL CENTER PANEL
-       ========================================================================== -->
-    <div class="app-route-view" id="admin-dashboard-view">
-        <section class="section-whitespace-padding">
-            <div class="container">
-                <div class="editorial-section-heading-block" style="text-align:left; margin-bottom:32px;">
-                    <span class="subtitle">ATELIER OPERATIONAL OVERWATCH</span>
-                    <h2 class="main-title">Admin Management Engine</h2>
-                </div>
-
-                <div class="admin-login-shield-panel" id="adminLoginGatePanelElement">
-                    <h3 style="margin-bottom:16px; text-align:center;">Secure Gateway Authorization</h3>
-                    <div class="form-input-element-group">
-                        <label for="adminUserKeyField">Operator Identity</label>
-                        <input type="text" id="adminUserKeyField" class="form-native-field" value="admin">
-                    </div>
-                    <div class="form-input-element-group" style="margin-bottom:24px;">
-                        <label for="adminPassKeyField">Access Cipher</label>
-                        <input type="password" id="adminPassKeyField" class="form-native-field" placeholder="••••••••">
-                    </div>
-                    <button class="btn-luxury-action solid-gold" style="width:100%;" onclick="executeAdminAuthenticationCheck()">Verify Security Clearance</button>
-                    <p style="text-align:center; font-size:11px; color:var(--text-muted); margin-top:12px;">Developer Mode Note: Enter password <strong>admin</strong> to pass verification.</p>
-                </div>
-
-                <div class="admin-layout-grid-frame" id="adminCoreOperationalGridConsole" style="display:none;">
-                    <aside class="admin-sidebar-menu-list">
-                        <button class="admin-menu-node-item active-node" id="tabBtn-overview" onclick="switchActiveAdminWorkspacePane('overview')">Metrics Overview</button>
-                        <button class="admin-menu-node-item" id="tabBtn-inventory" onclick="switchActiveAdminWorkspacePane('inventory')">Catalog Ledger</button>
-                        <button class="admin-menu-node-item" id="tabBtn-orders" onclick="switchActiveAdminWorkspacePane('orders')">Order Fulfillment</button>
-                        <button class="admin-menu-node-item" id="tabBtn-newsletter" onclick="switchActiveAdminWorkspacePane('newsletter')">Audience Registry</button>
-                        <button class="admin-menu-node-item" id="tabBtn-custom" onclick="switchActiveAdminWorkspacePane('custom')">Bespoke Inquiries</button>
-                    </aside>
-
-                    <section class="admin-workspace-content-canvas">
-                        <div class="admin-kpi-summary-deck">
-                            <div class="admin-kpi-metric-card">
-                                <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Gross Revenue Pool</div>
-                                <div class="value" id="kpiGrossRevenuePool">$0.00</div>
-                            </div>
-                            <div class="admin-kpi-metric-card">
-                                <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Dispatched Orders</div>
-                                <div class="value" id="kpiDispatchedOrdersCount">0</div>
-                            </div>
-                            <div class="admin-kpi-metric-card">
-                                <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Atelier Blueprints</div>
-                                <div class="value" id="kpiAtelierBlueprintsCount">0</div>
-                            </div>
-                            <div class="admin-kpi-metric-card">
-                                <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Elite Subscribers</div>
-                                <div class="value" id="kpiEliteSubscribersCount">0</div>
-                            </div>
-                        </div>
-
-                        <div class="admin-workspace-pane-panel active-pane" id="pane-overview">
-                            <h3 style="margin-bottom:12px;">Strategic Velocity Loop</h3>
-                            <div class="admin-chart-vector-strip" id="vectorChartDynamicBarTrack"></div>
-                            
-                            <h3 style="margin-bottom:12px; margin-top:24px;">Recent System Telemetry Logs</h3>
-                            <div id="adminRecentActivityLoggerStack" style="font-family:monospace; font-size:11px; height:150px; overflow-y:auto; background:var(--bg-base); padding:16px; border:1px solid var(--border-color); border-radius:6px; display:flex; flex-direction:column; gap:6px;"></div>
-                        </div>
-
-                        <div class="admin-workspace-pane-panel" id="pane-inventory">
-                            <div style="display:flex; justify-content:between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
-                                <h3>Active Curated Catalog</h3>
-                                <button class="btn-luxury-action solid-gold" style="padding:8px 16px; font-size:10px;" onclick="triggerInventoryAdditionModalPrompt()">Append New Piece</button>
-                            </div>
-                            <div style="overflow-x:auto;">
-                                <table class="admin-tabular-data-frame">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Item Title</th>
-                                            <th>Category</th>
-                                            <th>Valuation</th>
-                                            <th>Stock</th>
-                                            <th>Operations</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="adminCatalogTableBodyNode"></tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="admin-workspace-pane-panel" id="pane-orders">
-                            <h3 style="margin-bottom:16px;">Order Invoices Registry</h3>
-                            <div style="overflow-x:auto;">
-                                <table class="admin-tabular-data-frame">
-                                    <thead>
-                                        <tr>
-                                            <th>Order ID</th>
-                                            <th>Client Identity</th>
-                                            <th>Date Token</th>
-                                            <th>Total Gross</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="adminOrdersTableBodyNode"></tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="admin-workspace-pane-panel" id="pane-newsletter">
-                            <h3 style="margin-bottom:16px;">Audience Network Matrix</h3>
-                            <div style="overflow-x:auto;">
-                                <table class="admin-tabular-data-frame">
-                                    <thead>
-                                        <tr>
-                                            <th>Token ID</th>
-                                            <th>Enrolled Timestamp</th>
-                                            <th>Email Location Address</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="adminNewsletterTableBodyNode"></tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="admin-workspace-pane-panel" id="pane-custom">
-                            <h3 style="margin-bottom:16px;">Atelier Project Inbound Vectors</h3>
-                            <div style="overflow-x:auto;">
-                                <table class="admin-tabular-data-frame">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Client Name</th>
-                                            <th>Classification</th>
-                                            <th>Budget Allocation</th>
-                                            <th>State</th>
-                                            <th>Management Controls</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="adminCustomRequestsTableBodyNode"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- ==========================================================================
-       EDITORIAL FOOTER SYSTEM
-       ========================================================================== -->
+    <!-- FOOTER -->
     <footer class="editorial-footer-complex">
         <div class="container">
             <div class="footer-structural-split-grid">
@@ -1854,8 +1509,9 @@
                     <h3 style="color:var(--pure-white); font-family:var(--font-heading); margin-bottom:16px; text-transform:uppercase; letter-spacing:1px;">EH SAM × LITE</h3>
                     <p style="margin-bottom:24px; max-width:320px; line-height:1.6; font-size:13px;">An architecture dedicated to elite lifestyle edits, architectural styling systems, custom banners, apparel design, and calculated buying models.</p>
                     <div style="display:flex; gap:12px; margin-bottom:20px;">
-                        <input type="email" id="publicNewsletterEmailInputField" placeholder="Enter secure email address" style="background:#111; color:#FFF; padding:12px; border:1px solid #222; font-size:13px; border-radius:4px; flex-grow:1;">
-                        <button class="btn-luxury-action solid-gold" style="padding:0 20px; font-size:11px;" onclick="registerPublicNewsletterSubscription()">Register</button>
+                        <!-- Interactive Email Registration Field with built-in Keyboard Listener -->
+                        <input type="email" id="publicNewsletterEmailInputField" placeholder="Enter secure email address" style="background:#111; color:#FFF; padding:12px; border:1px solid #222; font-size:13px; border-radius:4px; flex-grow:1;" onkeydown="handleNewsletterFieldKey(event)">
+                        <button class="btn-luxury-action solid-gold" style="padding:0 20px; font-size:11px;" id="publicNewsletterSubmitBtn" onclick="registerPublicNewsletterSubscription()">Register</button>
                     </div>
                 </div>
                 <div>
@@ -1865,7 +1521,7 @@
                         <li><a href="#" onclick="switchActiveAppRouteView('custom-design-view')">Atelier Requests</a></li>
                         <li><a href="#" onclick="switchActiveAppRouteView('about-view')">About Our Vision</a></li>
                         <li><a href="#" onclick="switchActiveAppRouteView('contact-view')">Connect Desk</a></li>
-                        <li><a href="#" onclick="switchActiveAppRouteView('admin-dashboard-view')">Operational Hub</a></li>
+                        <li><a href="#" onclick="triggerAdminAuthenticationModal()">Operational Hub</a></li>
                     </ul>
                 </div>
                 <div>
@@ -1894,6 +1550,7 @@
         </div>
     </footer>
 
+    <!-- JAVASCRIPT SYSTEM ENGINE -->
     <script>
         let runCoreInventoryArray = [
             { id: 101, title: "Minimalist Silk Trench Coat", category: "Fashion", price: 850, description: "A beautifully tailored fluid trench coat composed of sustainable grade-A mulberry silk.", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80", specifications: { Material: "100% Mulberry Silk", Origin: "Made in Italy", Care: "Dry clean only" }, stock: 12, sales: 34 },
@@ -1903,19 +1560,9 @@
             { id: 105, title: "Smoked Obsidian Incense Vessel", category: "Lifestyle", price: 140, description: "Hand-thrown crystalline ceramic dish sculpted specifically for standard and premium incense cones.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80", specifications: { Stone: "Natural Smoked Obsidian", Diameter: "12cm", Weight: "450g" }, stock: 18, sales: 61 }
         ];
 
-        let databaseCollectionOrders = [
-            { id: 5001, customer: "Marcus Vance", date: "2026-06-15", total: 1470, status: "completed" },
-            { id: 5002, customer: "Helena Rostova", date: "2026-07-02", total: 195, status: "active" },
-            { id: 5003, customer: "Julian Finch", date: "2026-07-10", total: 450, status: "pending" }
-        ];
-
         let databaseCollectionNewsletterAudience = [
             { id: 901, date: "2026-01-12", email: "vip-collector@domain.com" },
             { id: 902, date: "2026-04-30", email: "styling-studio@elite.it" }
-        ];
-
-        let databaseCollectionCustomRequests = [
-            { id: 301, name: "Dominic Thorne", category: "Bespoke Outerwear", budget: "$5,000+", status: "active", specs: "Asymmetric protective layered jacket constructed using water-repellent heavy Japanese raw canvas." }
         ];
 
         const databaseCollectionTestimonials = [
@@ -1929,18 +1576,11 @@
         ];
 
         let activeCategoryFilterState = "All";
-        let isUserLoggedAsAdmin = false;
 
-        /* ==========================================================================
-           DYNAMIC CATEGORY NORMALIZATION UTILITY
-           Maps all clothing variations from sheet (T-shirts, hoodies, pants, 
-           boots, jackets, streetwear) to "Fashion" category.
-           ========================================================================== */
         function normalizeDynamicCategory(rawCategory) {
             if (!rawCategory) return "Lifestyle";
             const cleanStr = rawCategory.trim().toLowerCase();
             
-            // Comprehensive mapping of apparel list directly to Fashion
             const apparelKeywords = [
                 "fashion", "streetwear", "clothing", "apparel", "t-shirt", "tshirt", "t-shirts", 
                 "hoodie", "hoodies", "jacket", "jackets", "pants", "shorts", "shoe", "shoes", 
@@ -1956,27 +1596,17 @@
             if (cleanStr === "technology" || cleanStr === "tech" || cleanStr === "gadget" || cleanStr === "gadgets") {
                 return "Technology";
             }
-            if (cleanStr === "lifestyle" || cleanStr === "home" || cleanStr === "interior" || cleanStr === "wellness") {
-                return "Lifestyle";
-            }
-            
             return "Lifestyle";
         }
 
-        /* ==========================================================================
-           GOOGLE SHEETS DATABASE REALTIME LINKAGE CONTROLLER (HYPER-RESILIENT)
-           ========================================================================== */
         const GOOGLE_SHEETS_VALUES_ENDPOINT = "https://sheets.googleapis.com/v4/spreadsheets/1RkrxzeTEpbLXAcK_HRAWaSJ_h9yhMFBg9dvhh16iysw/values/Sheet1!A:Z?key=AIzaSyDzkI-8ycnAcXh2h5AeWugJ5sMFZhvef2c";
 
         async function fetchProductsFromGoogleSheet() {
             try {
-                pushSystemLogTrackingString("[Sheets Gateway]: Handshake initialized on Google Spreadsheet values matrix endpoint...");
                 const response = await fetch(GOOGLE_SHEETS_VALUES_ENDPOINT);
-                
                 if (!response.ok) {
-                    throw new Error(`Sheets response validation rejected. Status coordinate: ${response.status}`);
+                    throw new Error(`Sheets API responded with status: ${response.status}`);
                 }
-                
                 const data = await response.json();
                 
                 if (data && data.values && data.values.length > 1) {
@@ -1994,17 +1624,14 @@
                     const catIdx = headers.findIndex(h => h.includes("cat") || h.includes("class") || h.includes("type") || h.includes("group") || h.includes("classification"));
 
                     const coreIndices = new Set([titleIdx, priceIdx, imageIdx, productIdx, descIdx, catIdx]);
-
                     const parsedResultList = [];
+
                     for (let i = 1; i < rows.length; i++) {
                         const row = rows[i];
                         
                         let titleVal = "Premium Curation Piece";
                         if (titleIdx !== -1 && row[titleIdx] && row[titleIdx].toString().trim() !== "") {
                             titleVal = row[titleIdx].toString().trim();
-                        } else {
-                            const fallbackCol = row.find(val => val && isNaN(val) && !val.toString().startsWith("http"));
-                            if (fallbackCol) titleVal = fallbackCol.toString().trim();
                         }
                         
                         let numericPriceVal = 0.00;
@@ -2018,7 +1645,6 @@
                             imageVal = row[imageIdx].toString().trim();
                         }
 
-                        // Parse and normalize the incoming category dynamically
                         let rawCatVal = "Lifestyle";
                         if (catIdx !== -1 && row[catIdx] && row[catIdx].toString().trim() !== "") {
                             rawCatVal = row[catIdx].toString().trim();
@@ -2043,11 +1669,6 @@
                             }
                         });
 
-                        if (productUrlVal) {
-                            specObject["Link Reference"] = `<a href="${productUrlVal}" target="_blank" style="color:var(--luxury-gold); text-decoration:underline;">Product Link</a>`;
-                        }
-                        specObject["Source Verification"] = "Direct Google Sheet Ingest";
-
                         parsedResultList.push({
                             id: 1001 + i,
                             title: titleVal,
@@ -2064,22 +1685,15 @@
 
                     if (parsedResultList.length > 0) {
                         runCoreInventoryArray = parsedResultList;
-                        pushSystemLogTrackingString(`[Data Synchronization]: Dynamic fetch pipeline resolved. ${runCoreInventoryArray.length} assets mapped successfully.`);
                     }
-                } else {
-                    throw new Error("Empty spreadsheet payload retrieved.");
                 }
             } catch (err) {
-                console.error("Database connection dropped or returned invalid headers. Fallback deployed.", err);
-                pushSystemLogTrackingString(`[Synchronization Fault]: ${err.message}. Reverting to local dataset.`);
+                console.warn("Failed to retrieve Google Sheets catalog data. Falling back to core inventory schema.");
             } finally {
                 renderPrimaryCatalogGrid(runCoreInventoryArray);
             }
         }
 
-        /* ==========================================================================
-           SYSTEM LIFE CYCLE INITIALIZATION HOOKS
-           ========================================================================== */
         window.addEventListener('DOMContentLoaded', () => {
             initializeStoredPreferences();
             setupHeaderScrollMonitoring();
@@ -2093,9 +1707,6 @@
             });
         });
 
-        /* ==========================================================================
-           ROUTING AND HIGH-LEVEL NAVIGATION LAYOUT SYSTEMS
-           ========================================================================== */
         function switchActiveAppRouteView(targetViewId) {
             const views = document.querySelectorAll('.app-route-view');
             views.forEach(v => {
@@ -2114,16 +1725,10 @@
                 const targetCustomLink = document.getElementById('link-custom');
                 if (targetCustomLink) targetCustomLink.classList.add('active');
             }
-            if (targetViewId === 'admin-dashboard-view') {
-                const targetAdminLink = document.getElementById('link-admin');
-                if (targetAdminLink) targetAdminLink.classList.add('active');
-            }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            pushSystemLogTrackingString(`Client routing switched viewport view matrix to: [${targetViewId}]`);
         }
 
-        // Toggles mobile side drawer layout
         function toggleMobileNavDrawer(open) {
             const drawer = document.getElementById('mobileNavigationDrawer');
             const backdrop = document.getElementById('mobileDrawerBackdrop');
@@ -2136,9 +1741,6 @@
             }
         }
 
-        /* ==========================================================================
-           PUBLIC STORE CATALOG RENDERING SYSTEMS
-           ========================================================================== */
         function renderPrimaryCatalogGrid(inventorySourceArray) {
             const catalogContainer = document.getElementById('mainCatalogGridInjectionNode');
             catalogContainer.innerHTML = '';
@@ -2194,44 +1796,17 @@
                 : runCoreInventoryArray.filter(i => i.category.toLowerCase() === categoryString.toLowerCase());
                 
             renderPrimaryCatalogGrid(updatedSourceSet);
-            pushSystemLogTrackingString(`Catalog query view looped filter category: ${categoryString}`);
         }
 
         function executeMockPurchaseGate(productId) {
             const item = runCoreInventoryArray.find(i => i.id === productId);
             if (!item) return;
 
-            pushSystemLogTrackingString(`[Checkout Initialized]: Redirecting on item ID #${productId}.`);
-
-            // Secure transactional WhatsApp redirection
             const productContextText = `Hello EH SAM, I'm interested in one of your products. Specifically, the "${item.title}" (${item.category} classification, ID: #${item.id}) valued at $${item.price.toFixed(2)}. Please confirm catalog reserves and delivery coordinates.`;
             const secureWhatsAppUrl = `https://wa.me/2348137187742?text=${encodeURIComponent(productContextText)}`;
 
             window.open(secureWhatsAppUrl, '_blank');
-
-            if (item.stock <= 0) {
-                triggerLuxuryToastSystemNotification("Transaction suspended: Inventory exhaust state.");
-                return;
-            }
-
-            item.stock--;
-            item.sales++;
-
-            const freshOrderId = databaseCollectionOrders.length > 0 ? databaseCollectionOrders[databaseCollectionOrders.length - 1].id + 1 : 6001;
-            databaseCollectionOrders.push({
-                id: freshOrderId,
-                customer: "Anonymous Collector",
-                date: new Date().toISOString().split('T')[0],
-                total: item.price,
-                status: "active"
-            });
-
-            triggerLuxuryToastSystemNotification(`Acquisition successful: Redirecting secure chat connection for "${item.title}".`);
-            renderPrimaryCatalogGrid(runCoreInventoryArray);
-            
-            if (isUserLoggedAsAdmin) {
-                initializeAdminFieldsDataSync();
-            }
+            triggerLuxuryToastSystemNotification(`Routing secure WhatsApp transaction pipeline for "${item.title}".`);
         }
 
         function toggleWishlistStatus(productId, event) {
@@ -2248,9 +1823,6 @@
             }
         }
 
-        /* ==========================================================================
-           PRODUCT OVERLAY VIEW (MODAL CONSOLE ARCHITECTURE)
-           ========================================================================== */
         function openPremiumProductDetailsModal(productId) {
             const item = runCoreInventoryArray.find(i => i.id === productId);
             if (!item) return;
@@ -2272,14 +1844,6 @@
                     <div class="master-gallery-frame">
                         <img id="modalPresentationMasterViewportNode" src="${item.image}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80'">
                     </div>
-                    <div class="gallery-thumbnails-strip">
-                        <div class="gallery-thumbnail-node active-thumb" onclick="changeMasterModalImage('${item.image}', this)">
-                            <img src="${item.image}" alt="Primary View" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80'">
-                        </div>
-                        <div class="gallery-thumbnail-node" onclick="changeMasterModalImage('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80', this)">
-                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" alt="Detail Macro Matrix View">
-                        </div>
-                    </div>
                 </div>
                 <div>
                     <span style="color:var(--luxury-gold); font-size:11px; text-transform:uppercase; font-weight:700; letter-spacing:2px; display:block; margin-bottom:8px;">${item.category} Spec Sheet</span>
@@ -2291,10 +1855,6 @@
                     <table class="modal-specifications-table">
                         <tbody>
                             ${technicalSpecsMarkup}
-                            <tr>
-                                <td>Available Stock Units</td>
-                                <td>${item.stock} Pieces Left</td>
-                            </tr>
                         </tbody>
                     </table>
 
@@ -2311,21 +1871,11 @@
             document.getElementById('premiumProductDetailsViewModal').classList.remove('active-modal');
         }
 
-        function changeMasterModalImage(imageUrlString, thumbnailElement) {
-            document.getElementById('modalPresentationMasterViewportNode').src = imageUrlString;
-            const thumbs = document.querySelectorAll('.gallery-thumbnail-node');
-            thumbs.forEach(t => t.classList.remove('active-thumb'));
-            thumbnailElement.classList.add('active-thumb');
-        }
-
         function executeOriginalModalCheckoutAction(productId) {
             closePremiumProductDetailsModal();
             executeMockPurchaseGate(productId);
         }
 
-        /* ==========================================================================
-           PUBLIC REVIEWS AND FAQ ACCORDIONS
-           ========================================================================== */
         function renderPublicTestimonialsDeck() {
             const container = document.getElementById('uiPublicApprovedReviewsGridTrack');
             container.innerHTML = '';
@@ -2364,11 +1914,15 @@
             const inputField = document.getElementById('publicNewsletterEmailInputField');
             const targetString = inputField.value.trim();
 
-            if (!targetString || targetString === '') return;
+            if (!targetString || targetString === '') {
+                triggerLuxuryToastSystemNotification("Please enter a valid email address first.");
+                return;
+            }
 
-            const isDuplicated = databaseCollectionNewsletterAudience.some(entry => entry.email.toLowerCase() === targetString.toLowerCase());
-            if (isDuplicated) {
-                triggerLuxuryToastSystemNotification("This address is already mapped into our network registry.");
+            // Simple robust regex validation checking the format
+            const emailValidationRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailValidationRegex.test(targetString)) {
+                triggerLuxuryToastSystemNotification("Invalid format. Please verify your email coordinates.");
                 return;
             }
 
@@ -2380,8 +1934,14 @@
 
             triggerLuxuryToastSystemNotification("Elite curation channel access granted successfully.");
             inputField.value = '';
+        }
 
-            if (isUserLoggedAsAdmin) initializeAdminFieldsDataSync();
+        // Support triggering the register function by pressing "Enter" in the field
+        function handleNewsletterFieldKey(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                registerPublicNewsletterSubscription();
+            }
         }
 
         function submitCustomDesignRequestForm(event) {
@@ -2391,15 +1951,6 @@
             const cat = document.getElementById('customItemCategory').value;
             const specs = document.getElementById('customSpecifications').value.trim();
             const budget = document.getElementById('customBudget').value;
-
-            databaseCollectionCustomRequests.push({
-                id: databaseCollectionCustomRequests.length + 301,
-                name: name,
-                category: cat,
-                budget: budget,
-                status: "pending",
-                specs: specs
-            });
 
             const formattedMessage = `Hello, EH SAM. I would like to place a Bespoke Design Order:\n\n` +
                                      `👑 *Client:* ${name}\n` +
@@ -2418,10 +1969,8 @@
             }, 1000);
 
             document.getElementById('bespokeClientRequestSubmissionForm').reset();
-            if (isUserLoggedAsAdmin) initializeAdminFieldsDataSync();
         }
 
-        // Custom Contact Form Transmitter
         function sendDirectContactFormMessage() {
             const name = document.getElementById('contactFormName').value.trim();
             const message = document.getElementById('contactFormMessage').value.trim();
@@ -2445,217 +1994,6 @@
             }, 1000);
         }
 
-        /* ==========================================================================
-           ADMIN PROPORTIONAL INTERFACE MODULES
-           ========================================================================== */
-        function executeAdminAuthenticationCheck() {
-            const enteredUser = document.getElementById('adminUserKeyField').value.trim();
-            const enteredCipher = document.getElementById('adminPassKeyField').value.trim();
-
-            if (enteredUser === 'admin' && enteredCipher === 'admin') {
-                isUserLoggedAsAdmin = true;
-                document.getElementById('adminLoginGatePanelElement').style.display = 'none';
-                document.getElementById('adminCoreOperationalGridConsole').style.display = 'grid';
-                
-                triggerLuxuryToastSystemNotification("Security clearance validated. Administrative control deck open.");
-                initializeAdminFieldsDataSync();
-            } else {
-                triggerLuxuryToastSystemNotification("Verification Failed: Cryptographic keys invalid.");
-            }
-        }
-
-        function switchActiveAdminWorkspacePane(paneIdString) {
-            const panels = document.querySelectorAll('.admin-workspace-pane-panel');
-            panels.forEach(p => p.classList.remove('active-pane'));
-            
-            document.getElementById(`pane-${paneIdString}`).classList.add('active-pane');
-            
-            const tabButtons = document.querySelectorAll('.admin-menu-node-item');
-            tabButtons.forEach(btn => btn.classList.remove('active-node'));
-            document.getElementById(`tabBtn-${paneIdString}`).classList.add('active-node');
-            
-            pushSystemLogTrackingString(`Admin workspace switched: [${paneIdString}]`);
-        }
-
-        function initializeAdminFieldsDataSync() {
-            const grossSumValue = databaseCollectionOrders
-                .filter(o => o.status === 'completed' || o.status === 'active')
-                .reduce((acc, current) => acc + current.total, 0);
-            
-            document.getElementById('kpiGrossRevenuePool').textContent = `$${grossSumValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById('kpiDispatchedOrdersCount').textContent = databaseCollectionOrders.length;
-            document.getElementById('kpiAtelierBlueprintsCount').textContent = databaseCollectionCustomRequests.length;
-            document.getElementById('kpiEliteSubscribersCount').textContent = databaseCollectionNewsletterAudience.length;
-
-            const chartTrack = document.getElementById('vectorChartDynamicBarTrack');
-            chartTrack.innerHTML = '';
-            
-            runCoreInventoryArray.forEach(item => {
-                const scaledHeightPercentage = Math.min(100, Math.max(10, item.sales * 0.9));
-                const barNodeTemplate = `
-                    <div class="admin-chart-vector-pillar" style="height: ${scaledHeightPercentage}%;" data-label="${item.category} (#${item.sales})"></div>
-                `;
-                chartTrack.insertAdjacentHTML('beforeend', barNodeTemplate);
-            });
-
-            syncAdminCatalogLedgerTable();
-            syncAdminOrdersLedgerTable();
-            syncAdminNewsletterLedgerTable();
-            syncAdminCustomRequestsLedgerTable();
-        }
-
-        /* ==========================================================================
-           ADMIN DATA INTERACTIVE TABLES
-           ========================================================================== */
-        function syncAdminCatalogLedgerTable() {
-            const bodyNode = document.getElementById('adminCatalogTableBodyNode');
-            bodyNode.innerHTML = '';
-            
-            runCoreInventoryArray.forEach(item => {
-                bodyNode.insertAdjacentHTML('beforeend', `
-                    <tr>
-                        <td><strong>#${item.id}</strong></td>
-                        <td>${item.title}</td>
-                        <td><span style="font-size:11px; text-transform:uppercase; font-weight:600;">${item.category}</span></td>
-                        <td><strong>$${item.price}</strong></td>
-                        <td>${item.stock} Units</td>
-                        <td>
-                            <button style="color:var(--danger-red); font-size:12px; font-weight:700;" onclick="adminExecuteInventoryPurge(${item.id})">Purge</button>
-                        </td>
-                    </tr>
-                `);
-            });
-        }
-
-        function syncAdminOrdersLedgerTable() {
-            const bodyNode = document.getElementById('adminOrdersTableBodyNode');
-            bodyNode.innerHTML = '';
-            
-            databaseCollectionOrders.forEach(o => {
-                bodyNode.insertAdjacentHTML('beforeend', `
-                    <tr>
-                        <td><strong>#${o.id}</strong></td>
-                        <td>${o.customer}</td>
-                        <td>${o.date}</td>
-                        <td><strong>$${o.total.toFixed(2)}</strong></td>
-                        <td><span class="system-pill-alert-badge status-${o.status}">${o.status}</span></td>
-                        <td>
-                            ${o.status === 'pending' || o.status === 'active' ? `
-                                <button style="color:var(--success-green); font-size:11px; font-weight:600; margin-right:8px;" onclick="adminUpdateOrderStatus(${o.id}, 'completed')">Complete</button>
-                                <button style="color:var(--danger-red); font-size:11px; font-weight:600;" onclick="adminUpdateOrderStatus(${o.id}, 'cancelled')">Cancel</button>
-                            ` : `<span style="color:var(--text-muted); font-size:11px;">Settled</span>`}
-                        </td>
-                    </tr>
-                `);
-            });
-        }
-
-        function syncAdminNewsletterLedgerTable() {
-            const bodyNode = document.getElementById('adminNewsletterTableBodyNode');
-            bodyNode.innerHTML = '';
-            
-            databaseCollectionNewsletterAudience.forEach(entry => {
-                bodyNode.insertAdjacentHTML('beforeend', `
-                    <tr>
-                        <td>#${entry.id}</td>
-                        <td>${entry.date}</td>
-                        <td><code>${entry.email}</code></td>
-                        <td>
-                            <button style="color:var(--danger-red); font-size:11px;" onclick="adminRevokeNewsletterAccess(${entry.id})">Remove</button>
-                        </td>
-                    </tr>
-                `);
-            });
-        }
-
-        function syncAdminCustomRequestsLedgerTable() {
-            const bodyNode = document.getElementById('adminCustomRequestsTableBodyNode');
-            bodyNode.innerHTML = '';
-            
-            databaseCollectionCustomRequests.forEach(req => {
-                bodyNode.insertAdjacentHTML('beforeend', `
-                    <tr>
-                        <td><strong>#${req.id}</strong></td>
-                        <td>
-                            <strong>${req.name}</strong><br>
-                            <small style="color:var(--text-muted); font-size:11px; display:block; max-width:260px; white-space:normal;">${req.specs}</small>
-                        </td>
-                        <td>${req.category}</td>
-                        <td><code style="color:var(--luxury-gold); font-weight:700;">${req.budget}</code></td>
-                        <td><span class="system-pill-alert-badge status-${req.status}">${req.status}</span></td>
-                        <td>
-                            ${req.status === 'pending' ? `
-                                <button style="color:var(--success-green); font-size:11px; font-weight:600;" onclick="adminModifyCustomRequestState(${req.id}, 'active')">Approve</button>
-                            ` : `<span style="color:var(--text-muted); font-size:11px;">Processed</span>`}
-                        </td>
-                    </tr>
-                `);
-            });
-        }
-
-        function triggerInventoryAdditionModalPrompt() {
-            const title = prompt("Enter Item Title Label:");
-            if (!title) return;
-            const rawCategory = prompt("Classification Category (Fashion/Accessories/Technology/Lifestyle):", "Fashion");
-            const category = normalizeDynamicCategory(rawCategory);
-            const price = parseFloat(prompt("Set Valuation Price Numeric (USD):", "250"));
-            const desc = prompt("Provide Detailed Product Snippet Narrative Statement:");
-            
-            if (title && price) {
-                const generatedId = runCoreInventoryArray.length > 0 ? runCoreInventoryArray[runCoreInventoryArray.length - 1].id + 1 : 101;
-                runCoreInventoryArray.push({
-                    id: generatedId,
-                    title: title,
-                    category: category,
-                    price: price,
-                    description: desc || "Curated limited catalog reserve listing design unit.",
-                    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
-                    specifications: { Material: "Premium Blend", Origin: "Imported Edition" },
-                    productUrl: "",
-                    stock: 10,
-                    sales: 0
-                });
-
-                triggerLuxuryToastSystemNotification("New item record cataloged onto live grid ecosystem.");
-                renderPrimaryCatalogGrid(runCoreInventoryArray);
-                initializeAdminFieldsDataSync();
-            }
-        }
-
-        function adminExecuteInventoryPurge(productId) {
-            runCoreInventoryArray = runCoreInventoryArray.filter(i => i.id !== productId);
-            triggerLuxuryToastSystemNotification("Item entry removed successfully.");
-            renderPrimaryCatalogGrid(runCoreInventoryArray);
-            initializeAdminFieldsDataSync();
-        }
-
-        function adminUpdateOrderStatus(orderId, nextStatusString) {
-            const orderInstance = databaseCollectionOrders.find(o => o.id === orderId);
-            if (orderInstance) {
-                orderInstance.status = nextStatusString;
-                triggerLuxuryToastSystemNotification(`Order state updated: marked as [${nextStatusString.toUpperCase()}]`);
-                initializeAdminFieldsDataSync();
-            }
-        }
-
-        function adminRevokeNewsletterAccess(tokenId) {
-            databaseCollectionNewsletterAudience = databaseCollectionNewsletterAudience.filter(e => e.id !== tokenId);
-            triggerLuxuryToastSystemNotification("Email subscription vector dissolved cleanly.");
-            initializeAdminFieldsDataSync();
-        }
-
-        function adminModifyCustomRequestState(requestId, updatedStateString) {
-            const requestInstance = databaseCollectionCustomRequests.find(r => r.id === requestId);
-            if (requestInstance) {
-                requestInstance.status = updatedStateString;
-                triggerLuxuryToastSystemNotification(`Atelier tracking status shifted to: [${updatedStateString.toUpperCase()}]`);
-                initializeAdminFieldsDataSync();
-            }
-        }
-
-        /* ==========================================================================
-           UTILITY INTERFACE HARDWARE CHANNELS & UX FEEDBACK (IMPROVED SEARCH)
-           ========================================================================== */
         function toggleFullscreenSearchPortal(openState) {
             const overlay = document.getElementById('premiumSearchPortalOverlay');
             const input = document.getElementById('premiumSearchInputField');
@@ -2672,7 +2010,6 @@
                     overlay.style.display = 'none';
                     input.value = '';
                     document.getElementById('liveSearchResultsGrid').innerHTML = '<p style="color: #666; grid-column: 1/-1; padding: 20px;">Enter your keyword above to fetch assets.</p>';
-                    renderPrimaryCatalogGrid(runCoreInventoryArray);
                 }, 400);
             }
         }
@@ -2783,26 +2120,40 @@
                     setTimeout(() => nativeNodeInstance.remove(), 400);
                 }
             }, 4000);
-            
-            pushSystemLogTrackingString(`[UX Toast Popup Alert Triggered]: ${messageContentText}`);
-        }
-
-        function pushSystemLogTrackingString(logStringText) {
-            const containerNode = document.getElementById('adminRecentActivityLoggerStack');
-            if (containerNode) {
-                const localizedTimestamp = new Date().toLocaleTimeString();
-                const cleanTraceLogElement = `
-                    <div style="padding:6px; background:var(--bg-card); border-left:2px solid var(--luxury-gold); border-radius:2px; color:var(--text-main);">
-                        <strong>[${localizedTimestamp}]</strong> ${logStringText}
-                    </div>
-                `;
-                containerNode.insertAdjacentHTML('afterbegin', cleanTraceLogElement);
-            }
         }
         
         function initializeStoredPreferences() {
             const savedThemePreference = localStorage.getItem('eh_storefront_theme_preference') || 'light';
             document.documentElement.setAttribute('data-theme', savedThemePreference);
+        }
+
+        function triggerAdminAuthenticationModal() {
+            if (window.netlifyIdentity) {
+                // If Netlify Identity Widget is loaded, show the login/registration popup directly
+                window.netlifyIdentity.open();
+            } else {
+                // Fail-safe redirect if widget is blocked or not loaded
+                document.location.href = "/admin/";
+            }
+        }
+    </script>
+    
+    <!-- Netlify Identity event handlers -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        // Secure redirect on login or invite accept
+                        document.location.href = "/admin/";
+                    });
+                } else {
+                    // Already authenticated users routing straight to CMS folder
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
         }
     </script>
 </body>
