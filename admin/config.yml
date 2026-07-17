@@ -6,6 +6,7 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
+  # COLLECTION 1: Your Luxury Catalog Database
   - name: "products"
     label: "Store Products"
     folder: "products"
@@ -13,7 +14,7 @@ collections:
     delete: true       
     slug: "{{slug}}"
     format: "json"     
-    extension: "json"   # <-- ADD THIS LINE to force .json files
+    extension: "json"   
     fields:
       - { label: "Product Name", name: "title", widget: "string" }
       - { label: "Price (₦ or $)", name: "price", widget: "string" }
@@ -27,3 +28,19 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Affiliate Link (Optional)", name: "affiliate_link", widget: "string", required: false }
       - { label: "In Stock", name: "in_stock", widget: "boolean", default: true }
+
+  # COLLECTION 2: Your Social Links & Brand Control
+  - name: "settings"
+    label: "Global Site Configuration"
+    delete: false 
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "Social Links & Contact Info"
+        file: "settings.json"
+        fields:
+          - { label: "WhatsApp Contact Number", name: "whatsapp", widget: "string", default: "234..." }
+          - { label: "Instagram Link URL", name: "instagram", widget: "string" }
+          - { label: "Twitter / X Link URL", name: "twitter", widget: "string", required: false }
+          - { label: "Top Notice Banner Text", name: "banner_text", widget: "string", required: false, default: "Welcome to EH SAM × EH Lite Store" }
