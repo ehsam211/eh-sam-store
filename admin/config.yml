@@ -2,18 +2,18 @@ backend:
   name: git-gateway
   branch: main
 
-# This folder will store uploaded product images
 media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "products"
     label: "Store Products"
-    folder: "products" # Saves each product inside your "products" folder
-    create: true       # Allows you to add new products
-    delete: true       # Allows you to delete products
+    folder: "products"
+    create: true       
+    delete: true       
     slug: "{{slug}}"
-    format: "json"     # Saves data as clean, readable JSON
+    format: "json"     
+    extension: "json"   # <-- ADD THIS LINE to force .json files
     fields:
       - { label: "Product Name", name: "title", widget: "string" }
       - { label: "Price (₦ or $)", name: "price", widget: "string" }
