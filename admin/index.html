@@ -1,14 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EH SAM × EH Lite Store - Admin Panel</title>
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>EH SAM × EH Lite | Atelier Control Panel</title>
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           UNIVERSAL DARK LUXURY OVERRIDES FOR DECAP CMS
+           ========================================================================== */
+        body, #nc-root {
+            background-color: #0A0A0A !important;
+            color: #F5F5F5 !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        /* Top Navigation Header */
+        header[class*="AppHeader"] {
+            background-color: #121212 !important;
+            border-bottom: 1px solid #1A1A1A !important;
+        }
+        header[class*="AppHeader"] h1, header[class*="AppHeader"] a {
+            color: #FFFFFF !important;
+            font-family: 'Sora', sans-serif !important;
+        }
+
+        /* Sidebar Navigation Container */
+        aside, div[class*="SidebarContainer"] {
+            background-color: #121212 !important;
+            border-right: 1px solid #1A1A1A !important;
+        }
+
+        /* Sidebar Collection Title Buttons */
+        a[class*="SidebarLink"], button[class*="SidebarLink"] {
+            color: #999999 !important;
+            font-family: 'Sora', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            transition: all 0.3s ease-in-out !important;
+            border-left: 3px solid transparent !important;
+        }
+        a[class*="SidebarLink"]:hover, button[class*="SidebarLink"]:hover {
+            color: #D4AF37 !important;
+            background-color: #161616 !important;
+        }
+        a[class*="SidebarLinkActive"], button[class*="SidebarLinkActive"] {
+            color: #D4AF37 !important;
+            background-color: #1A1A1A !important;
+            border-left: 3px solid #D4AF37 !important;
+            font-weight: 700 !important;
+        }
+
+        /* Main Workspace Panel */
+        main[class*="MainContainer"] {
+            background-color: #0A0A0A !important;
+        }
+
+        /* Collection cards and headers */
+        div[class*="Card"], div[class*="CollectionTop"] {
+            background-color: #121212 !important;
+            border: 1px solid #1A1A1A !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        }
+        div[class*="Card"] h2, div[class*="Card"] span {
+            color: #FFFFFF !important;
+        }
+
+        /* Active action buttons (e.g. Publish, New Product) */
+        button[class*="Button"], a[class*="Button"] {
+            background-color: #D4AF37 !important;
+            color: #000000 !important;
+            font-family: 'Sora', sans-serif !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            border-radius: 4px !important;
+            border: none !important;
+            padding: 10px 20px !important;
+            font-size: 12px !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        button[class*="Button"]:hover, a[class*="Button"]:hover {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            transform: translateY(-1px) !important;
+        }
+
+        /* Form editing inputs and elements */
+        input, textarea, select {
+            background-color: #161616 !important;
+            color: #F5F5F5 !important;
+            border: 1px solid #222222 !important;
+            border-radius: 4px !important;
+            padding: 14px !important;
+            font-size: 14px !important;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #D4AF37 !important;
+            outline: none !important;
+        }
+        label {
+            color: #D4AF37 !important;
+            font-family: 'Sora', sans-serif !important;
+            font-size: 11px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            font-weight: 700 !important;
+        }
+
+        /* Form editor layout widgets and cards */
+        div[class*="ControlContainer"] {
+            background-color: #121212 !important;
+            border: 1px solid #1A1A1A !important;
+            border-radius: 8px !important;
+            padding: 24px !important;
+            margin-bottom: 20px !important;
+        }
+
+        /* Netlify login window UI overrides */
+        .nc-identity-widget {
+            background-color: #121212 !important;
+            border: 1px solid #1A1A1A !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+            padding: 30px !important;
+        }
+        .nc-identity-widget-button {
+            background-color: #D4AF37 !important;
+            color: #000000 !important;
+        }
+    </style>
 </head>
 <body>
-  <!-- Decap CMS App CDN -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+        // Tell Decap CMS to wait for manual Javascript initialization, bypassing relative file fetches
+        window.CMS_MANUAL_INIT = true;
+    </script>
+
+    <!-- Decap CMS Core Script -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <script>
+        // Initialize CMS Programmatically using Javascript Object Notation
+        CMS.init({
+            config: {
+                backend: {
+                    name: 'git-gateway',
+                    branch: 'main'
+                },
+                media_folder: 'images',
+                public_folder: '/images',
+                collections: [
+                    // COLLECTION 1: The Product Runway Inventory
+                    {
+                        name: 'products',
+                        label: 'Store Products',
+                        folder: 'products',
+                        create: true,       
+                        delete: true,       
+                        slug: '{{slug}}',
+                        format: 'json',     
+                        extension: 'json',   
+                        fields: [
+                            { label: 'Product Name', name: 'title', widget: 'string' },
+                            { label: 'Valuation Price (USD)', name: 'price', widget: 'number', value_type: 'float' },
+                            { 
+                                label: 'Category', 
+                                name: 'category', 
+                                widget: 'select', 
+                                options: ['Fashion', 'Accessories', 'Technology', 'Lifestyle'] 
+                            },
+                            { label: 'Product Cover Image', name: 'image', widget: 'image' },
+                            { label: 'Detailed Description', name: 'description', widget: 'text' },
+                            { label: 'Direct Checkout Link URL', name: 'productUrl', widget: 'string', required: false },
+                            { label: 'Stock Units Available', name: 'stock', widget: 'number', default: 10 }
+                        ]
+                    },
+                    // COLLECTION 2: Global Configuration and Social Integrations
+                    {
+                        name: 'settings',
+                        label: 'Global Site Configuration',
+                        delete: false, 
+                        editor: {
+                            preview: false
+                        },
+                        files: [
+                            {
+                                name: 'general',
+                                label: 'Social Links & Contact Info',
+                                file: 'settings.json',
+                                fields: [
+                                    { label: 'WhatsApp Contact Number (No spaces/symbols. E.g., 2348137187742)', name: 'whatsapp', widget: 'string', default: '2348137187742' },
+                                    { label: 'Instagram Link URL', name: 'instagram', widget: 'string', default: 'https://instagram.com' },
+                                    { label: 'Twitter / X Link URL', name: 'twitter', widget: 'string', default: 'https://x.com/Ehsam209' },
+                                    { label: 'Top Notice Banner Text', name: 'banner_text', widget: 'string', default: 'Welcome to EH SAM × EH Lite Store' }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+    </script>
+
+    <script>
+        // Handle Identity authentication redirects
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
