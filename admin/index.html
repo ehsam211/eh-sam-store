@@ -15,9 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* ==========================================================================
-           UNIVERSAL DARK LUXURY OVERRIDES FOR DECAP CMS
-           ========================================================================== */
         body, #nc-root {
             background-color: #0A0A0A !important;
             color: #F5F5F5 !important;
@@ -156,6 +153,7 @@
         // Initialize CMS Programmatically using Javascript Object Notation
         CMS.init({
             config: {
+                load_config_file: false, // Bypasses the config.yml lookup completely, curing the fetch exception
                 backend: {
                     name: 'git-gateway',
                     branch: 'main'
@@ -219,7 +217,7 @@
         // Handle Identity authentication redirects
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
-                if (!user) {
+                if (!user) { 
                     window.netlifyIdentity.on("login", () => {
                         document.location.href = "/admin/";
                     });
@@ -229,3 +227,4 @@
     </script>
 </body>
 </html>
+```
