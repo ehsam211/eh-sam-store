@@ -6,15 +6,15 @@
     <meta name="impact-site-verification" value="98b8d752-0895-4b90-a32b-83ea904eb9b5">
     
     <!-- Primary Search Engine Meta Tags -->
-    <title>EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle</title>
-    <meta name="title" content="EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle">
-    <meta name="description" content="Discover handpicked fashion, accessories, tech, and lifestyle items curated by Ejeh Samuel. Timeless luxury, limited curations, and bespoke designs.">
+    <title>EH SAM × EH Lite Store | Premium Fashion & Lifestyle</title>
+    <meta name="title" content="EH SAM × EH Lite Store | Premium Fashion & Lifestyle">
+    <meta name="description" content="Shop the best fashion, accessories, gadgets, and lifestyle items handpicked by EH SAM. Quality products, great value, and timeless style.">
 
-    <!-- Open Graph / Facebook Metadata (Ref: Screenshot_20260712-224619_2.jpg and image-24.jpg) -->
+    <!-- Open Graph / Facebook Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ehlitestore.netlify.app/">
-    <meta property="og:title" content="EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle">
-    <meta property="og:description" content="Discover handpicked fashion, accessories, tech, and lifestyle items curated by Ejeh Samuel. Timeless luxury, limited curations, and bespoke designs.">
+    <meta property="og:title" content="EH SAM × EH Lite Store | Premium Fashion & Lifestyle">
+    <meta property="og:description" content="Shop the best fashion, accessories, gadgets, and lifestyle items handpicked by EH SAM. Quality products, great value, and timeless style.">
     <meta property="og:image" content="https://ehlitestore.netlify.app/image-24.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -24,8 +24,8 @@
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ehlitestore.netlify.app/">
-    <meta name="twitter:title" content="EH SAM × EH Lite Store | Curated Fashion & Elevated Lifestyle">
-    <meta name="twitter:description" content="Discover handpicked fashion, accessories, tech, and lifestyle items curated by Ejeh Samuel. Timeless luxury, limited curations, and bespoke designs.">
+    <meta name="twitter:title" content="EH SAM × EH Lite Store | Premium Fashion & Lifestyle">
+    <meta name="twitter:description" content="Shop the best fashion, accessories, gadgets, and lifestyle items handpicked by EH SAM. Quality products, great value, and timeless style.">
     <meta name="twitter:image" content="https://ehlitestore.netlify.app/image-24.jpg">
     
     <!-- Fonts -->
@@ -1100,14 +1100,16 @@
         <div style="color: var(--luxury-gold); font-family: var(--font-heading); letter-spacing: 4px; font-size: 10px; text-transform: uppercase; font-weight: 700;">EH SAM SYSTEM INTERFACE</div>
     </div>
 
+    <!-- Floating Global Action Hub -->
     <a href="https://wa.me/2348137187742?text=Hello%20EH%20SAM%2C%20I'm%20interested%20in%20one%20of%20your%20products." target="_blank" class="floating-action-whatsapp-trigger" aria-label="Open Secure WhatsApp Chat">
         💬
     </a>
 
+    <!-- Mobile Navigation Drawer -->
     <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="toggleMobileNavDrawer(false)"></div>
     <div class="mobile-navigation-side-drawer" id="mobileNavigationDrawer">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <span style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; letter-spacing: 1px; color: var(--luxury-gold);">NAVIGATIONAL DECKS</span>
+            <span style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; letter-spacing: 1px; color: var(--luxury-gold);">MENU</span>
             <button onclick="toggleMobileNavDrawer(false)" style="font-size: 24px; color: var(--text-main);">✕</button>
         </div>
         <div style="display: flex; flex-direction: column; gap: 16px;">
@@ -1122,18 +1124,20 @@
             <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('terms-view')">Terms & Conditions</a>
             <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); switchActiveAppRouteView('affiliate-view')">Affiliate Disclosure</a>
             <hr style="border: none; border-top: 1px solid var(--border-color); margin: 10px 0;">
-            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); triggerAdminAuthenticationModal()">Admin Suite</a>
+            <!-- Trigger Netlify Identity Widget directly for secure admin entry -->
+            <a href="#" class="desktop-nav-link" onclick="toggleMobileNavDrawer(false); triggerAdminAuthenticationModal()">Admin Login</a>
         </div>
     </div>
 
+    <!-- Search Portal -->
     <div id="premiumSearchPortalOverlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.95); backdrop-filter:blur(25px); -webkit-backdrop-filter:blur(25px); z-index:5500; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
         <div style="width:90%; max-width:750px; text-align:center; position:relative; max-height: 90vh; display: flex; flex-direction: column; justify-content: center;">
             <button onclick="toggleFullscreenSearchPortal(false)" style="position:absolute; top:-60px; right:0; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.1); color:#FFF; display:flex; align-items:center; justify-content:center; font-size:20px; border:1px solid rgba(255,255,255,0.15); z-index: 10;">✕</button>
             
             <div style="margin-bottom: 20px;">
-                <h3 style="color:var(--luxury-gold); font-family:var(--font-heading); font-size:12px; text-transform:uppercase; letter-spacing:4px; margin-bottom:10px;">Search Master Inventory</h3>
-                <input type="text" id="premiumSearchInputField" placeholder="Type key phrases (e.g., Silk, Boot, Case, Clothes)..." style="width:100%; background:none; border:none; border-bottom:2px solid var(--luxury-gold); color:#FFF; font-size:26px; text-align:center; padding:16px 0; outline:none; font-family:var(--font-body); font-weight:500;" oninput="executeInteractiveSearch(this.value)">
-                <p style="color:#888; font-size:13px; margin-top:10px; font-weight:500;" id="premiumSearchResultCount">Type to filter live cataloged assets instantly.</p>
+                <h3 style="color:var(--luxury-gold); font-family:var(--font-heading); font-size:12px; text-transform:uppercase; letter-spacing:4px; margin-bottom:10px;">Search Our Store</h3>
+                <input type="text" id="premiumSearchInputField" placeholder="Search for clothes, shoes, gadgets..." style="width:100%; background:none; border:none; border-bottom:2px solid var(--luxury-gold); color:#FFF; font-size:26px; text-align:center; padding:16px 0; outline:none; font-family:var(--font-body); font-weight:500;" oninput="executeInteractiveSearch(this.value)">
+                <p style="color:#888; font-size:13px; margin-top:10px; font-weight:500;" id="premiumSearchResultCount">Type to see available products instantly.</p>
             </div>
 
             <div id="liveSearchResultsGrid" style="overflow-y: auto; max-height: 50vh; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
@@ -1142,29 +1146,31 @@
         </div>
     </div>
 
+    <!-- Buying Guides Overlay Modal -->
     <div id="premiumBuyingGuidesOverlayModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); z-index:5600; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.4s ease-in-out;">
         <div style="width:90%; max-width:850px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:12px; padding:40px; position:relative; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow-lg);">
             <button onclick="toggleBuyingGuidesModal(false)" style="position:absolute; top:24px; right:24px; width:44px; height:44px; border-radius:50%; background:var(--bg-base); border:1px solid var(--border-color); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--text-main);">✕</button>
-            <span style="color:var(--luxury-gold); font-size:11px; text-transform:uppercase; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">Curated Editorial Portfolio</span>
-            <h2 style="font-size:32px; margin-bottom:24px;">Atelier Buying & Styling Guides</h2>
+            <span style="color:var(--luxury-gold); font-size:11px; text-transform:uppercase; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">Style & Shopping Guides</span>
+            <h2 style="font-size:32px; margin-bottom:24px;">Expert Styling & Buying Guides</h2>
             
             <div style="display: flex; flex-direction: column; gap: 24px;">
                 <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 01: The Art of Layering (Mulberry Silk & Wool)</h4>
-                    <p style="font-size: 14px; color: var(--text-muted);">Learn the spatial coordination logic between soft silk foundation trenches and dense wool outerwear structures. Maintain structural lines while ensuring warmth and fluid silhouettes.</p>
+                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 01: How to Layer Your Clothes for a Premium Look</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Learn how to match soft silk with warm wool jackets. Stay warm while looking stylish and sharp.</p>
                 </div>
                 <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 02: Footwear Structural Protection (Full-Grain Calfskin)</h4>
-                    <p style="font-size: 14px; color: var(--text-muted);">Preserve natural leather properties through small-batch organic oils. Protect the bespoke asymmetric zipper channels and natural wooden heel alignments from ambient degradation.</p>
+                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 02: How to Care for Your Leather Shoes</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Keep your leather boots and shoes looking brand new with organic oils. Protect the zippers and wooden heels from everyday wear and tear.</p>
                 </div>
                 <div style="padding-bottom: 10px;">
-                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 03: Minimalist Accessory Integration (Patina Brushed Brass)</h4>
-                    <p style="font-size: 14px; color: var(--text-muted);">How raw brutalist metals react with climate elements. Learn to balance heavy raw hand architecture alongside standard everyday streetwear compositions.</p>
+                    <h4 style="color: var(--luxury-gold); font-size: 16px; margin-bottom: 8px;">Guide 03: How to Style Minimalist Jewelry</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Learn how to wear bold brass rings and accessories. Balance heavy statement pieces with your everyday streetwear.</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- MAIN HEADER -->
     <header class="header-nav-wrapper" id="masterHeaderElement">
         <div class="container nav-inner-container">
             <a href="#" class="brand-monogram" onclick="switchActiveAppRouteView('home-view')">
@@ -1192,7 +1198,7 @@
                 </div>
 
                 <!-- Netlify Identity Link -->
-                <a href="#" class="desktop-nav-link" id="link-admin" onclick="triggerAdminAuthenticationModal()">Admin Suite</a>
+                <a href="#" class="desktop-nav-link" id="link-admin" onclick="triggerAdminAuthenticationModal()">Admin Login</a>
             </nav>
 
             <div class="nav-utilities-cluster">
@@ -1220,13 +1226,13 @@
                 <div class="hero-text-engine">
                     <div class="hero-editorial-badge">
                         <span class="line"></span>
-                        <span class="text" id="uiVarHeroBadgeLabel">Curated Fashion. Elevated Lifestyle.</span>
+                        <span class="text" id="uiVarHeroBadgeLabel">Premium Fashion. Everyday Lifestyle.</span>
                     </div>
-                    <h1 class="hero-main-title" id="uiVarHeroMainHeadline">Curated Fashion &<br>Lifestyle Picks You'll Love</h1>
-                    <p class="hero-supporting-subheadline" id="uiVarHeroSubHeadlineText">Discover handpicked fashion, accessories, gadgets, grooming products, home essentials, and lifestyle products selected for quality, value, and timeless style.</p>
+                    <h1 class="hero-main-title" id="uiVarHeroMainHeadline">Premium Fashion &<br>Lifestyle Products You'll Love</h1>
+                    <p class="hero-supporting-subheadline" id="uiVarHeroSubHeadlineText">Shop the best fashion, accessories, gadgets, and home essentials. Handpicked for quality, style, and great value.</p>
                     <div class="hero-actions-dock">
                         <a href="#catalog-runway" class="btn-luxury-action solid-gold" id="uiVarHeroPrimaryButton">Shop Now</a>
-                        <button class="btn-luxury-action outline-white" onclick="toggleBuyingGuidesModal(true)">Explore Buying Guides</button>
+                        <button class="btn-luxury-action outline-white" onclick="toggleBuyingGuidesModal(true)">View Buying Guides</button>
                     </div>
                 </div>
             </div>
@@ -1235,8 +1241,8 @@
         <section class="section-whitespace-padding" id="catalog-runway">
             <div class="container">
                 <div class="editorial-section-heading-block">
-                    <span class="subtitle">EXHAUSTIVE CURATIONS</span>
-                    <h2 class="main-title">The Master Inventory</h2>
+                    <span class="subtitle">OUR COLLECTIONS</span>
+                    <h2 class="main-title">Shop All Products</h2>
                 </div>
                 <div class="category-filter-horizontal-strip" id="horizontalCategoryStripNode">
                     <button class="filter-pill-node active" onclick="filterCatalogBySelectedCategory('All')">All Pieces</button>
@@ -1252,8 +1258,8 @@
         <section class="testimonials-editorial-track" style="background-color: var(--bg-card); padding: 80px 0; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
             <div class="container">
                 <div class="editorial-section-heading-block" style="margin-bottom:32px;">
-                    <span class="subtitle">COMMUNITY MANIFESTOS</span>
-                    <h2 class="main-title">Verified Endorsements</h2>
+                    <span class="subtitle">CUSTOMER REVIEWS</span>
+                    <h2 class="main-title">What People Say About Us</h2>
                 </div>
                 <div id="uiPublicApprovedReviewsGridTrack" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:24px;"></div>
             </div>
@@ -1262,7 +1268,7 @@
         <section class="section-whitespace-padding">
             <div class="container" style="max-width: 850px;">
                 <div class="editorial-section-heading-block">
-                    <span class="subtitle">FAQS PLATFORM</span>
+                    <span class="subtitle">GOT QUESTIONS?</span>
                     <h2 class="main-title">Frequently Asked Questions</h2>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 16px;" id="uiPublicFaqsContainerLayout"></div>
@@ -1273,10 +1279,8 @@
             <div class="container">
                 <div class="founder-alignment-flex-container">
                     <div class="founder-imagery-viewport">
-                        <!-- Aspbox photo framing displaying newly integrated profile image grok_1784390319535.jpg -->
                         <div class="aspect-box" id="uiComponentFounderPhotoViewport">
-                            <img src="grok_1784390319535.jpg" alt="Ejeh Samuel" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;">
-                            <div class="neutral-founder-emblem-frame" style="z-index: 1;">
+                            <div class="neutral-founder-emblem-frame">
                                 <div class="monogram-mark">EH</div>
                                 <div style="color:var(--text-muted); font-size:11px; text-transform:uppercase; letter-spacing:2px;">Studio Monogram</div>
                             </div>
@@ -1284,10 +1288,9 @@
                         <div class="founder-profile-frame-accent"></div>
                     </div>
                     <div class="founder-narrative-text-block">
-                        <!-- Corrected brand architecture to state Ejeh Samuel verbatim -->
-                        <h2 class="founder-signature-title">Ejeh Samuel</h2>
-                        <span class="founder-office-role">Chief Curation Architect</span>
-                        <p class="founder-quote-body">"True luxury is not about excess. It is about the intentional edit. We comb through hundreds of global fabric compositions, technical utilities, and lifestyle forms to bring you products that possess real value, structural integrity, and architectural grace."</p>
+                        <h2 class="founder-signature-title">EH SAM</h2>
+                        <span class="founder-office-role">Founder & Lead Designer</span>
+                        <p class="founder-quote-body">"True luxury is about quality, not just expensive price tags. We carefully select the best fabrics, tech gadgets, and lifestyle items to bring you products that look great, last long, and give you real value for your money."</p>
                     </div>
                 </div>
             </div>
@@ -1301,9 +1304,9 @@
                 <div class="custom-design-split-grid">
                     <div class="custom-design-editorial-showcase">
                         <div class="sticky-frame">
-                            <span style="color:var(--luxury-gold); text-transform:uppercase; font-size:11px; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">Atelier Request Center</span>
-                            <h2>Bespoke Custom Media & Design Pipeline</h2>
-                            <p style="color:var(--text-muted); margin-bottom:24px;">Entrust us to bring your designs to life. Order bespoke flyers, high-end clothes, customized banners, or architectural lifestyle elements. Submit your details below to directly link with us via WhatsApp, X & Facebook.</p>
+                            <span style="color:var(--luxury-gold); text-transform:uppercase; font-size:11px; font-weight:700; letter-spacing:3px; display:block; margin-bottom:12px;">Custom Design Services</span>
+                            <h2>Get Custom Designs & Outfits Made for You</h2>
+                            <p style="color:var(--text-muted); margin-bottom:24px;">Let us bring your ideas to life. You can order custom flyers, high-quality clothes, banners, and branding materials. Fill out the form below to connect with us directly on WhatsApp, X, or Facebook.</p>
                             
                             <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 16px;">
                                 <div style="display: flex; align-items: center; gap: 12px; background: var(--bg-card); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
@@ -1316,14 +1319,14 @@
                                 <div style="display: flex; align-items: center; gap: 12px; background: var(--bg-card); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
                                     <span style="font-size: 24px;">🌐</span>
                                     <div>
-                                        <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Atelier Broadcast on X</h4>
+                                        <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Twitter (X) Support</h4>
                                         <a href="https://x.com/Ehsam209" target="_blank" style="color: var(--luxury-gold); font-size: 14px; font-weight: 600;">@Ehsam209</a>
                                     </div>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 12px; background: var(--bg-card); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
                                     <span style="font-size: 24px;">👥</span>
                                     <div>
-                                        <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Atelier Hub on Facebook</h4>
+                                        <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Facebook Page</h4>
                                         <a href="https://www.facebook.com/profile.php?id=61589388628949" target="_blank" style="color: var(--luxury-gold); font-size: 14px; font-weight: 600;">Visit Facebook Page</a>
                                     </div>
                                 </div>
@@ -1337,11 +1340,11 @@
                                 <input type="text" id="customClientName" class="form-native-field" placeholder="E.g., Alexander Mercer" required>
                             </div>
                             <div class="form-input-element-group">
-                                <label for="customClientEmail">Secure Email</label>
+                                <label for="customClientEmail">Email Address</label>
                                 <input type="email" id="customClientEmail" class="form-native-field" placeholder="alex@domain.com" required>
                             </div>
                             <div class="form-input-element-group">
-                                <label for="customItemCategory">Project Classification</label>
+                                <label for="customItemCategory">What do you need?</label>
                                 <select id="customItemCategory" class="form-native-field" style="height:50px;">
                                     <option value="Bespoke Flyers & Graphics">Premium Flyers & Graphic Art</option>
                                     <option value="Custom Clothes & Apparel">Apparel & Custom Clothes Embroidery</option>
@@ -1350,18 +1353,18 @@
                                 </select>
                             </div>
                             <div class="form-input-element-group">
-                                <label for="customSpecifications">Design Blueprint & Media Specifications</label>
-                                <textarea id="customSpecifications" class="form-native-field" style="height:140px; resize:none;" placeholder="Detail specifications, size formats, custom colors, fabric preferences, flyer themes..." required></textarea>
+                                <label for="customSpecifications">Design Details & Description</label>
+                                <textarea id="customSpecifications" class="form-native-field" style="height:140px; resize:none;" placeholder="Tell us about your design, preferred colors, sizes, or fabric type..." required></textarea>
                             </div>
                             <div class="form-input-element-group">
-                                <label for="customBudget">Allocated Budget Cap (USD)</label>
+                                <label for="customBudget">Your Budget (₦ / $)</label>
                                 <select id="customBudget" class="form-native-field" style="height:50px;">
                                     <option value="$100 - $500">$100 – $500</option>
                                     <option value="$500 - $1,500">$500 – $1,500</option>
-                                    <option value="$1,500+">$1,500+ Premium Master Tier</option>
+                                    <option value="$1,500+">$1,500+ Premium Tier</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn-luxury-action solid-gold" style="width:100%; margin-top:12px;">Transmit WhatsApp Order Link</button>
+                            <button type="submit" class="btn-luxury-action solid-gold" style="width:100%; margin-top:12px;">Send Request via WhatsApp</button>
                         </form>
                     </div>
                 </div>
@@ -1369,20 +1372,21 @@
         </section>
     </div>
 
+    <!-- ABOUT VIEW -->
     <div class="app-route-view" id="about-view">
         <section class="section-whitespace-padding">
             <div class="container">
                 <div class="editorial-section-heading-block">
-                    <span class="subtitle">OUR HERITAGE & VISION</span>
+                    <span class="subtitle">WHO WE ARE</span>
                     <h2 class="main-title">About EH SAM × EH Lite Store</h2>
                 </div>
                 <div class="editorial-narrative-article">
-                    <p>Established with an unwavering devotion to structural form and deliberate curation, <strong>EH SAM × EH Lite Store</strong> functions as an exclusive digital atelier. Guided by Chief Curation Architect Ejeh Samuel, our studio exists to cut through the noise of mass production, offering instead a calculated, minimal landscape of high-performance wardrobe pieces, design accessories, technology integrations, and lifestyle items.</p>
+                    <p><strong>EH SAM × EH Lite Store</strong> is your premium online store for high-quality fashion and lifestyle products. Led by EH SAM, we focus on bringing you only the best—cutting through the low-quality items in the market to give you stylish, durable, and top-tier wardrobe pieces, tech accessories, and everyday essentials.</p>
                     
-                    <p>We believe that true design integrity is defined by how things look under scrutiny. Our sourcing networks span raw structural textile factories, artisanal material carvers, and vanguard tech developers to ensure everything hosted on this deck serves a precise structural, architectural, and aesthetic purpose.</p>
+                    <p>We believe in quality you can see and feel. From the best fabric makers to top tech brands, we make sure every single item in our store looks great and stands the test of time.</p>
 
-                    <h3>The Curation Oath</h3>
-                    <p>Every single item presented on our master runway is subjected to an rigorous operational screening protocol. We review seam density, structural durability, heat signatures, and material degradation resistance. When you acquire a design piece from EH Lite Store, you secure an asset crafted for structural permanence.</p>
+                    <h3>Our Promise to You</h3>
+                    <p>Every item in our store goes through a strict quality check. We check the stitching, durability, and materials to make sure they meet our high standards. When you buy from EH Lite Store, you are getting products made to last.</p>
                 </div>
             </div>
         </section>
@@ -1393,13 +1397,13 @@
         <section class="section-whitespace-padding">
             <div class="container">
                 <div class="editorial-section-heading-block">
-                    <span class="subtitle">DIRECT CHANNELS</span>
-                    <h2 class="main-title">Connect with the Atelier</h2>
+                    <span class="subtitle">GET IN TOUCH</span>
+                    <h2 class="main-title">Contact Us</h2>
                 </div>
                 <div class="editorial-grid-layout-two-col container" style="max-width: 1100px;">
                     <div>
-                        <h3 style="font-size: 24px; margin-bottom: 16px;">We're Always Active</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 24px;">For urgent inventory holds, structural modifications on customized blueprints, or affiliate partnership requests, contact our centralized support lines directly via the secure links below.</p>
+                        <h3 style="font-size: 24px; margin-bottom: 16px;">We Are Here to Help</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 24px;">Do you have questions about an order, need a custom design, or want to partner with us? Reach out to our support team directly through the secure links below.</p>
                         
                         <div style="display: flex; flex-direction: column; gap: 16px;">
                             <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 16px;">
@@ -1412,7 +1416,7 @@
                             <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 16px;">
                                 <span style="font-size: 24px;">📧</span>
                                 <div>
-                                    <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Official Studio Email Desk</h4>
+                                    <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Official Support Email</h4>
                                     <a href="mailto:support@ehlitestore.com" style="color: var(--luxury-gold); font-weight: bold; font-size: 15px;">support@ehlitestore.com</a>
                                 </div>
                             </div>
@@ -1420,16 +1424,16 @@
                     </div>
                     
                     <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: 12px; box-shadow: var(--shadow-sm);">
-                        <h3 style="font-size: 20px; margin-bottom: 20px; font-family: var(--font-heading);">Central Message Router</h3>
+                        <h3 style="font-size: 20px; margin-bottom: 20px; font-family: var(--font-heading);">Send Us a Message</h3>
                         <div class="form-input-element-group">
-                            <label>Sender Full Identity</label>
+                            <label>Your Full Name</label>
                             <input type="text" id="contactFormName" class="form-native-field" placeholder="Alexander Mercer">
                         </div>
                         <div class="form-input-element-group">
-                            <label>Secure Message Text</label>
+                            <label>Your Message</label>
                             <textarea id="contactFormMessage" class="form-native-field" style="height: 120px; resize: none;" placeholder="Provide inquiry scope context..."></textarea>
                         </div>
-                        <button class="btn-luxury-action solid-gold" style="width: 100%;" onclick="sendDirectContactFormMessage()">Route through WhatsApp</button>
+                        <button class="btn-luxury-action solid-gold" style="width: 100%;" onclick="sendDirectContactFormMessage()">Send Message via WhatsApp</button>
                     </div>
                 </div>
             </div>
@@ -1441,17 +1445,17 @@
         <section class="section-whitespace-padding">
             <div class="container">
                 <div class="editorial-section-heading-block">
-                    <span class="subtitle">DATA PROTECTION STATEMENT</span>
+                    <span class="subtitle">DATA PROTECTION</span>
                     <h2 class="main-title">Privacy Policy</h2>
                 </div>
                 <div class="editorial-narrative-article">
-                    <p>At <strong>EH SAM × EH Lite Store</strong>, we protect the computational integrity and cryptographic security of our patrons' digital data assets. This statement details how our store collects, processes, and safeguards information when you browse our master runway catalogs.</p>
+                    <p>At <strong>EH SAM × EH Lite Store</strong>, we take your privacy seriously. This page explains how we collect and protect your information when you shop with us.</p>
                     
-                    <h3>Information Gathering Protocols</h3>
-                    <p>When subscribing to our VIP curation lists or submitting design requests, we require your name, secure contact email, and design parameters. We use this information strictly to manage bespoke requests and transmit catalog alerts. No transactional credit card tokens are stored on our servers; checkout protocols are routed securely through authorized providers.</p>
+                    <h3>How We Collect Information</h3>
+                    <p>When you join our mailing list or request a custom design, we ask for your name and email. We only use this to send you updates and handle your requests. We do not store your payment details on our site; all payments are processed securely through trusted providers.</p>
                     
-                    <h3>Cookies & Analytical Pixels</h3>
-                    <p>We deploy secure cookies to remember structural configuration preferences, items in your selection vault, and to match site lighting adjustments (Light/Dark themes). No tracking cookies are shared with unauthorized advertising networks.</p>
+                    <h3>Cookies</h3>
+                    <p>We use cookies to remember your preferences (like Light or Dark mode) and items in your cart. We do not share your tracking info with random ad networks.</p>
                 </div>
             </div>
         </section>
@@ -1462,17 +1466,17 @@
         <section class="section-whitespace-padding">
             <div class="container">
                 <div class="editorial-section-heading-block">
-                    <span class="subtitle">TRANSACTIONAL LAWS</span>
+                    <span class="subtitle">STORE POLICIES</span>
                     <h2 class="main-title">Terms & Conditions</h2>
                 </div>
                 <div class="editorial-narrative-article">
-                    <p>By entering <strong>EH SAM × EH Lite Store</strong> and accessing our digital platform, you agree to comply with our global transactional parameters. All items, custom flyers, clothes patterns, banners, and digital graphics showcased on this site remain the intellectual property of EH SAM Studio.</p>
+                    <p>By visiting <strong>EH SAM × EH Lite Store</strong>, you agree to our simple store rules. All custom graphics, clothing designs, and banners shown here belong to EH SAM Studio.</p>
                     
-                    <h3>Custom Blueprint and Order Executions</h3>
-                    <p>Any custom order submitted via our bespoke atelier channel is non-refundable once design blueprint parameters are signed off and construction begins. Payments must align with initial custom pricing structures discussed during secure checkout exchanges.</p>
+                    <h3>Custom Orders</h3>
+                    <p>Any custom order you make is non-refundable once the design is approved and work begins. Payments must match the agreed price during our chat.</p>
                     
-                    <h3>Valuation Fluctuations</h3>
-                    <p>Prices listed across our dynamic database are subject to change without notice, in response to variations in raw materials, import duties, and global currency updates. We reserve the absolute right to cancel transactions resulting from indexing errors in Google Sheets databases.</p>
+                    <h3>Price Changes</h3>
+                    <p>Product prices may change without notice due to material costs or exchange rates. We reserve the right to cancel orders if there is a pricing error on our site.</p>
                 </div>
             </div>
         </section>
@@ -1483,74 +1487,77 @@
         <section class="section-whitespace-padding">
             <div class="container">
                 <div class="editorial-section-heading-block">
-                    <span class="subtitle">AESTHETIC PARITY DISCLOSURE</span>
+                    <span class="subtitle">TRANSPARENCY</span>
                     <h2 class="main-title">Affiliate Disclosure</h2>
                 </div>
                 <div class="editorial-narrative-article">
-                    <p>In accordance with transparency and regulatory guidelines, this disclosure serves to clarify the monetization systems driving our dynamic catalog platform.</p>
+                    <p>In accordance with transparency and regulatory guidelines, this disclosure serves to clarify how our store works behind the scenes.</p>
                     
-                    <p><strong>EH SAM × EH Lite Store</strong> functions as a highly curated style review deck. To support our ongoing material research, digital hosting infrastructure, and small-batch production tests, our site may earn referral commissions from qualifying purchases routed through our secure checkout links and product paths.</p>
+                    <p><strong>EH SAM × EH Lite Store</strong> is a curated online shop. To keep our store running and bringing you the best products, we sometimes earn a small commission when you buy through our secure links.</p>
                     
-                    <p>Our commitment to design excellence remains absolute. We never list, recommend, or catalog a product strictly for monetary affiliate gains. Every single wearable piece, tech utility, or accessory featured on our runway is hand-reviewed, vetted, and approved by Chief Curate Architect Ejeh Samuel for authentic craftsmanship, structural durability, and visual power.</p>
+                    <p>We only recommend products we truly trust and believe in. Every item in our store is handpicked and reviewed by EH SAM for quality, durability, and great style.</p>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- FOOTER -->
     <footer class="editorial-footer-complex">
         <div class="container">
             <div class="footer-structural-split-grid">
                 <div>
                     <h3 style="color:var(--pure-white); font-family:var(--font-heading); margin-bottom:16px; text-transform:uppercase; letter-spacing:1px;">EH SAM × LITE</h3>
-                    <p style="margin-bottom:24px; max-width:320px; line-height:1.6; font-size:13px;">An architecture dedicated to elite lifestyle edits, architectural styling systems, custom banners, apparel design, and calculated buying models.</p>
+                    <p style="margin-bottom:24px; max-width:320px; line-height:1.6; font-size:13px;">Your premium store for top-tier fashion, lifestyle products, custom graphics, and apparel design.</p>
                     <div style="display:flex; gap:12px; margin-bottom:20px;">
-                        <input type="email" id="publicNewsletterEmailInputField" placeholder="Enter secure email address" style="background:#111; color:#FFF; padding:12px; border:1px solid #222; font-size:13px; border-radius:4px; flex-grow:1;" onkeydown="handleNewsletterFieldKey(event)">
-                        <button class="btn-luxury-action solid-gold" style="padding:0 20px; font-size:11px;" id="publicNewsletterSubmitBtn" onclick="registerPublicNewsletterSubscription()">Register</button>
+                        <!-- Interactive Email Registration Field with built-in Keyboard Listener -->
+                        <input type="email" id="publicNewsletterEmailInputField" placeholder="Enter your email address" style="background:#111; color:#FFF; padding:12px; border:1px solid #222; font-size:13px; border-radius:4px; flex-grow:1;" onkeydown="handleNewsletterFieldKey(event)">
+                        <button class="btn-luxury-action solid-gold" style="padding:0 20px; font-size:11px;" id="publicNewsletterSubmitBtn" onclick="registerPublicNewsletterSubscription()">Subscribe</button>
                     </div>
                 </div>
                 <div>
-                    <h4 class="footer-column-headline">Store Navigation</h4>
+                    <h4 class="footer-column-headline">Quick Links</h4>
                     <ul class="footer-navigation-link-list">
-                        <li><a href="#" onclick="switchActiveAppRouteView('home-view')">Catalog Runway</a></li>
-                        <li><a href="#" onclick="switchActiveAppRouteView('custom-design-view')">Atelier Requests</a></li>
-                        <li><a href="#" onclick="switchActiveAppRouteView('about-view')">About Our Vision</a></li>
-                        <li><a href="#" onclick="switchActiveAppRouteView('contact-view')">Connect Desk</a></li>
-                        <li><a href="#" onclick="triggerAdminAuthenticationModal()">Operational Hub</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('home-view')">Shop Catalog</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('custom-design-view')">Custom Designs</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('about-view')">About Us</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('contact-view')">Contact Us</a></li>
+                        <li><a href="#" onclick="triggerAdminAuthenticationModal()">Admin Login</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="footer-column-headline">Selected Categories</h4>
+                    <h4 class="footer-column-headline">Shop Categories</h4>
                     <ul class="footer-navigation-link-list">
-                        <li><a href="#catalog-runway" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Fashion')">Fashion Design</a></li>
-                        <li><a href="#catalog-runway" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Technology')">Technology Systems</a></li>
-                        <li><a href="#catalog-runway" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Lifestyle')">Lifestyle Solutions</a></li>
+                        <li><a href="#catalog-runway" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Fashion')">Fashion</a></li>
+                        <li><a href="#catalog-runway" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Technology')">Tech & Gadgets</a></li>
+                        <li><a href="#catalog-runway" onclick="switchActiveAppRouteView('home-view'); filterCatalogBySelectedCategory('Lifestyle')">Lifestyle</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="footer-column-headline">Legal & Channels</h4>
+                    <h4 class="footer-column-headline">Legal & Socials</h4>
                     <ul class="footer-navigation-link-list">
-                        <li><a href="#" onclick="switchActiveAppRouteView('privacy-view')">Privacy Guidelines</a></li>
+                        <li><a href="#" onclick="switchActiveAppRouteView('privacy-view')">Privacy Policy</a></li>
                         <li><a href="#" onclick="switchActiveAppRouteView('terms-view')">Terms of Use</a></li>
                         <li><a href="#" onclick="switchActiveAppRouteView('affiliate-view')">Affiliate Disclosures</a></li>
-                        <li><a href="https://wa.me/2348137187742?text=Hello%20EH%20SAM%2C%20I'm%20interested%20in%20one%20of%20your%20products." target="_blank">WhatsApp Secure Link</a></li>
-                        <li><a href="https://x.com/Ehsam209" target="_blank">Atelier X Channel</a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61589388628949" target="_blank">Official Facebook Portal</a></li>
+                        <li><a href="https://wa.me/2348137187742?text=Hello%20EH%20SAM%2C%20I'm%20interested%20in%20one%20of%20your%20products." target="_blank">WhatsApp Support</a></li>
+                        <li><a href="https://x.com/Ehsam209" target="_blank">Twitter (X)</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61589388628949" target="_blank">Facebook Page</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-disclosure-block-notice">
-                &copy; 2026 EH SAM × EH Lite Store. Engineered with Additive Design Systems. All Rights Reserved.
+                &copy; 2026 EH SAM × EH Lite Store. Designed for Premium Living. All Rights Reserved.
             </div>
         </div>
     </footer>
 
+    <!-- JAVASCRIPT SYSTEM ENGINE -->
     <script>
         let runCoreInventoryArray = [
-            { id: 101, title: "Minimalist Silk Trench Coat", category: "Fashion", price: 850, description: "A beautifully tailored fluid trench coat composed of sustainable grade-A mulberry silk.", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80", specifications: { Material: "100% Mulberry Silk", Origin: "Made in Italy", Care: "Dry clean only" }, productUrl: "https://wa.me/2348137187742", stock: 12, sales: 34 },
-            { id: 102, title: "Architectural Calfskin Boot", category: "Fashion", price: 620, description: "Structured leather boots featuring a hand-carved stacked wooden heel and premium asymmetric zippers.", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80", specifications: { Leather: "Full-grain Calfskin", Sole: "Reinforced Wood/Rubber", Height: "6 inches" }, productUrl: "https://wa.me/2348137187742", stock: 8, sales: 45 },
-            { id: 103, title: "Solid Brass Monolith Ring", category: "Accessories", price: 195, description: "Raw brushed heavy brass ring inspired by brutalist structural geometric layouts. Over time, it gains beautiful unique patina markings.", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80", specifications: { Composition: "100% Solid Brass", Finish: "Brushed Matte", Weight: "18g" }, productUrl: "https://wa.me/2348137187742", stock: 25, sales: 89 },
-            { id: 104, title: "Cybernetic ANC Headphones", category: "Technology", price: 450, description: "Acoustically superior sound signature with aerospace aluminium housings and bespoke lambskin ear cups.", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", specifications: { Battery: "40 Hours Active", Driver: "40mm Beryllium", Connectivity: "Bluetooth 5.2" }, productUrl: "https://wa.me/2348137187742", stock: 15, sales: 22 },
-            { id: 105, title: "Smoked Obsidian Incense Vessel", category: "Lifestyle", price: 140, description: "Hand-thrown crystalline ceramic dish sculpted specifically for standard and premium incense cones.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80", specifications: { Stone: "Natural Smoked Obsidian", Diameter: "12cm", Weight: "450g" }, productUrl: "https://wa.me/2348137187742", stock: 18, sales: 61 }
+            { id: 101, title: "Minimalist Silk Trench Coat", category: "Fashion", price: 850, description: "A beautifully tailored fluid trench coat composed of sustainable grade-A mulberry silk.", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80", specifications: { Material: "100% Mulberry Silk", Origin: "Made in Italy", Care: "Dry clean only" }, stock: 12, sales: 34 },
+            { id: 102, title: "Architectural Calfskin Boot", category: "Fashion", price: 620, description: "Structured leather boots featuring a hand-carved stacked wooden heel and premium asymmetric zippers.", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80", specifications: { Leather: "Full-grain Calfskin", Sole: "Reinforced Wood/Rubber", Height: "6 inches" }, stock: 8, sales: 45 },
+            { id: 103, title: "Solid Brass Monolith Ring", category: "Accessories", price: 195, description: "Raw brushed heavy brass ring inspired by brutalist structural geometric layouts. Over time, it gains beautiful unique patina markings.", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80", specifications: { Composition: "100% Solid Brass", Finish: "Brushed Matte", Weight: "18g" }, stock: 25, sales: 89 },
+            { id: 104, title: "Cybernetic ANC Headphones", category: "Technology", price: 450, description: "Acoustically superior sound signature with aerospace aluminium housings and bespoke lambskin ear cups.", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", specifications: { Battery: "40 Hours Active", Driver: "40mm Beryllium", Connectivity: "Bluetooth 5.2" }, stock: 15, sales: 22 },
+            { id: 105, title: "Smoked Obsidian Incense Vessel", category: "Lifestyle", price: 140, description: "Hand-thrown crystalline ceramic dish sculpted specifically for standard and premium incense cones.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80", specifications: { Stone: "Natural Smoked Obsidian", Diameter: "12cm", Weight: "450g" }, stock: 18, sales: 61 }
         ];
 
         let databaseCollectionNewsletterAudience = [
@@ -1559,13 +1566,13 @@
         ];
 
         const databaseCollectionTestimonials = [
-            { id: 1, user: "Lucas V.", quote: "The edited selections are flawless. The Calfskin boot structure matches my precise spatial design outlook.", rating: 5 },
-            { id: 2, user: "Sienna M.", quote: "The Monolith ring is heavy, authentic brass architecture for the hand. Remarkable shipping speed.", rating: 5 }
+            { id: 1, user: "Lucas V. — Verified Buyer", quote: "The selected items are flawless. The boots perfectly match my style.", rating: 5 },
+            { id: 2, user: "Sienna M. — Verified Buyer", quote: "The ring is heavy and authentic. Fast delivery too.", rating: 5 }
         ];
 
         const databaseCollectionFaqs = [
-            { question: "How does the Bespoke Custom Design flow operate?", answer: "Once submitted, your architectural design parameters enter our atelier verification loop. We contact you via secure email inside a 24-hour cycle to approve budget tokens, material samples, and dimensional blueprints." },
-            { question: "What is your stance on sustainable production systems?", answer: "We enforce small-batch manufacturing schedules. By limiting stock reserves to double digits, we eliminate planetary footprint waste patterns entirely." }
+            { question: "How does the Custom Design process work?", answer: "Once you submit your design request, we will review your details. We will contact you via email or WhatsApp within 24 hours to confirm your budget, materials, and design ideas." },
+            { question: "Do you offer quality guarantees?", answer: "Yes, we focus on high-quality, small-batch production. Every item is carefully inspected to make sure it lasts a long time and gives you the best value." }
         ];
 
         let activeCategoryFilterState = "All";
@@ -1650,16 +1657,7 @@
                         }
 
                         let productUrlVal = "";
-                        if (productIdx !== -1 && row[productUrlVal]) {
-                            productUrlVal = row[productIdx].toString().trim();
-                        } else if (productIdx !== -1 && row[productIdx] === undefined) {
-                            // Check alternative indices inside the row context
-                            if(row[productIdx] !== undefined) {
-                                productUrlVal = row[productIdx].toString().trim();
-                            }
-                        }
-                        // Secondary robust check for valid URL references inside row
-                        if (productIdx !== -1 && row[productIdx] !== undefined) {
+                        if (productIdx !== -1 && row[productIdx]) {
                             productUrlVal = row[productIdx].toString().trim();
                         }
 
@@ -1753,17 +1751,12 @@
             }
 
             inventorySourceArray.forEach(item => {
-                // Dynamically verify if a valid external Product URL exists
-                const hasUrl = item.productUrl && item.productUrl.trim() !== "" && item.productUrl.startsWith("http");
-                const btnText = hasUrl ? "Buy Now" : "Unavailable";
-                const btnDisabledAttribute = hasUrl ? "" : "disabled style='opacity: 0.5; cursor: not-allowed; pointer-events: none;'";
-
                 const cardMarkup = `
                     <article class="luxury-product-card-node">
                         <div class="card-visual-viewframe" onclick="openPremiumProductDetailsModal(${item.id})">
                             <img src="${item.image}" class="card-hero-media-asset" alt="${item.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80'">
                             <div class="card-badge-layer-stack">
-                                ${item.stock <= 8 ? `<span class="editorial-micro-badge" style="background:var(--warning-orange); color:#000;">Scarcity Low</span>` : ''}
+                                ${item.stock <= 8 ? `<span class="editorial-micro-badge" style="background:var(--warning-orange); color:#000;">Low Stock</span>` : ''}
                                 <span class="editorial-micro-badge">${item.category}</span>
                             </div>
                         </div>
@@ -1776,7 +1769,7 @@
                             <p class="card-product-brief-snippet">${item.description}</p>
                             <div class="card-footer-pricing-row">
                                 <span class="card-price-ticker">$${item.price.toFixed(2)}</span>
-                                <button class="btn-card-conversion-gate" ${btnDisabledAttribute} onclick="event.stopPropagation(); executeMockPurchaseGate(${item.id})">${btnText}</button>
+                                <button class="btn-card-conversion-gate" onclick="event.stopPropagation(); executeMockPurchaseGate(${item.id})">Buy</button>
                             </div>
                         </div>
                     </article>
@@ -1809,13 +1802,20 @@
             const item = runCoreInventoryArray.find(i => i.id === productId);
             if (!item) return;
 
-            // Updated behavior: directly open the Product URL stored in Google Sheets rather than triggering WhatsApp
-            if (item.productUrl && item.productUrl.trim() !== "" && item.productUrl.startsWith("http")) {
-                window.open(item.productUrl, '_blank');
-                triggerLuxuryToastSystemNotification(`Opening external destination link for "${item.title}".`);
-            } else {
-                triggerLuxuryToastSystemNotification("Product link unavailable.");
+            // Direct product link capability from the source spreadsheet
+            if (item.productUrl && item.productUrl.trim() !== "") {
+                triggerLuxuryToastSystemNotification(`Redirecting to product page for "${item.title}".`);
+                setTimeout(() => {
+                    window.open(item.productUrl, '_blank');
+                }, 500);
+                return;
             }
+
+            const productContextText = `Hello EH SAM, I'm interested in one of your products. Specifically, the "${item.title}" (${item.category}, ID: #${item.id}) valued at $${item.price.toFixed(2)}. Please confirm availability and delivery details.`;
+            const secureWhatsAppUrl = `https://wa.me/2348137187742?text=${encodeURIComponent(productContextText)}`;
+
+            window.open(secureWhatsAppUrl, '_blank');
+            triggerLuxuryToastSystemNotification(`Redirecting to WhatsApp to order "${item.title}".`);
         }
 
         function toggleWishlistStatus(productId, event) {
@@ -1825,10 +1825,10 @@
             
             if (triggerBtn.classList.contains('saved')) {
                 triggerBtn.textContent = '★';
-                triggerLuxuryToastSystemNotification("Item reference mapped into private collection vault.");
+                triggerLuxuryToastSystemNotification("Item saved to your wishlist.");
             } else {
                 triggerBtn.textContent = '✦';
-                triggerLuxuryToastSystemNotification("Item reference detached from private vault.");
+                triggerLuxuryToastSystemNotification("Item removed from your wishlist.");
             }
         }
 
@@ -1848,11 +1848,6 @@
                 `;
             }
 
-            // Verify URL existence inside individual item parameters
-            const hasUrl = item.productUrl && item.productUrl.trim() !== "" && item.productUrl.startsWith("http");
-            const btnText = hasUrl ? "Buy Now" : "Product link unavailable";
-            const btnDisabledAttribute = hasUrl ? "" : "disabled style='opacity: 0.5; cursor: not-allowed; background-color: #555; color: #aaa; pointer-events: none;'";
-
             modalContentTrack.innerHTML = `
                 <div class="gallery-viewport-master">
                     <div class="master-gallery-frame">
@@ -1860,12 +1855,12 @@
                     </div>
                 </div>
                 <div>
-                    <span style="color:var(--luxury-gold); font-size:11px; text-transform:uppercase; font-weight:700; letter-spacing:2px; display:block; margin-bottom:8px;">${item.category} Spec Sheet</span>
+                    <span style="color:var(--luxury-gold); font-size:11px; text-transform:uppercase; font-weight:700; letter-spacing:2px; display:block; margin-bottom:8px;">${item.category} Product Info</span>
                     <h2 style="font-size:28px; margin-bottom:12px;">${item.title}</h2>
                     <div style="font-family:var(--font-heading); font-size:24px; font-weight:800; color:var(--text-main); margin-bottom:16px;">$${item.price.toFixed(2)}</div>
                     <p style="color:var(--text-muted); font-size:14px; margin-bottom:24px; line-height:1.6;">${item.description}</p>
                     
-                    <h4 style="text-transform:uppercase; font-size:11px; letter-spacing:1px; margin-bottom:8px;">Atelier Blueprint Parameters</h4>
+                    <h4 style="text-transform:uppercase; font-size:11px; letter-spacing:1px; margin-bottom:8px;">Product Details & Specs</h4>
                     <table class="modal-specifications-table">
                         <tbody>
                             ${technicalSpecsMarkup}
@@ -1873,7 +1868,7 @@
                     </table>
 
                     <div class="modal-action-buttons-cluster">
-                        <button class="modal-action-btn-pill" ${btnDisabledAttribute} style="background:var(--matte-black); color:var(--pure-white);" onclick="executeOriginalModalCheckoutAction(${item.id})">${btnText}</button>
+                        <button class="modal-action-btn-pill" style="background:var(--matte-black); color:var(--pure-white);" onclick="executeOriginalModalCheckoutAction(${item.id})">Buy Now</button>
                     </div>
                 </div>
             `;
@@ -1900,7 +1895,7 @@
                     <div style="background:var(--bg-base); border:1px solid var(--border-color); padding:24px; border-radius:8px; box-shadow:var(--shadow-sm);">
                         <div style="color:var(--luxury-gold); margin-bottom:8px; font-size:12px;">${stars}</div>
                         <p style="font-size:13.5px; font-style:italic; margin-bottom:16px; color:var(--text-main);">"${t.quote}"</p>
-                        <strong style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);">${t.user} — Verified Patron</strong>
+                        <strong style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);">${t.user}</strong>
                     </div>
                 `);
             });
@@ -1933,9 +1928,10 @@
                 return;
             }
 
+            // Simple robust regex validation checking the format
             const emailValidationRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailValidationRegex.test(targetString)) {
-                triggerLuxuryToastSystemNotification("Invalid format. Please verify your email coordinates.");
+                triggerLuxuryToastSystemNotification("Invalid format. Please verify your email.");
                 return;
             }
 
@@ -1945,10 +1941,11 @@
                 email: targetString
             });
 
-            triggerLuxuryToastSystemNotification("Elite curation channel access granted successfully.");
+            triggerLuxuryToastSystemNotification("You have been successfully subscribed.");
             inputField.value = '';
         }
 
+        // Support triggering the register function by pressing "Enter" in the field
         function handleNewsletterFieldKey(event) {
             if (event.key === "Enter") {
                 event.preventDefault();
@@ -1964,17 +1961,17 @@
             const specs = document.getElementById('customSpecifications').value.trim();
             const budget = document.getElementById('customBudget').value;
 
-            const formattedMessage = `Hello, EH SAM. I would like to place a Bespoke Design Order:\n\n` +
+            const formattedMessage = `Hello, EH SAM. I would like to place a Custom Design Order:\n\n` +
                                      `👑 *Client:* ${name}\n` +
-                                     `📧 *Secure Contact:* ${email}\n` +
-                                     `🎨 *Project Classification:* ${cat}\n` +
-                                     `📐 *Specifications:* ${specs}\n` +
-                                     `💵 *Allocated Budget Cap:* ${budget}\n\n` +
-                                     `Sent from EH SAM × EH Lite Store. Please confirm booking context.`;
+                                     `📧 *Email Address:* ${email}\n` +
+                                     `🎨 *Project Need:* ${cat}\n` +
+                                     `📐 *Design Details:* ${specs}\n` +
+                                     `💵 *Your Budget:* ${budget}\n\n` +
+                                     `Sent from EH SAM × EH Lite Store. Please confirm my request.`;
 
             const whatsappUrl = `https://wa.me/2348137187742?text=${encodeURIComponent(formattedMessage)}`;
             
-            triggerLuxuryToastSystemNotification("Redirecting secure booking sequence directly to WhatsApp...");
+            triggerLuxuryToastSystemNotification("Redirecting you to WhatsApp...");
             
             setTimeout(() => {
                 window.open(whatsappUrl, '_blank');
@@ -1988,17 +1985,17 @@
             const message = document.getElementById('contactFormMessage').value.trim();
 
             if (!name || !message) {
-                triggerLuxuryToastSystemNotification("Please fill in both name and secure message fields.");
+                triggerLuxuryToastSystemNotification("Please fill in both name and message fields.");
                 return;
             }
 
-            const formattedMessage = `Hello EH SAM, I'm interested in one of your products.\n\n` +
-                                     `👤 *Identity Name:* ${name}\n` +
-                                     `✉️ *Inquiry message:* ${message}`;
+            const formattedMessage = `Hello EH SAM, I have a quick question from the store.\n\n` +
+                                     `👤 *Name:* ${name}\n` +
+                                     `✉️ *Message:* ${message}`;
 
             const secureWhatsAppUrl = `https://wa.me/2348137187742?text=${encodeURIComponent(formattedMessage)}`;
             
-            triggerLuxuryToastSystemNotification("Mapping contact vectors to secure WhatsApp line...");
+            triggerLuxuryToastSystemNotification("Redirecting you to WhatsApp...");
             setTimeout(() => {
                 window.open(secureWhatsAppUrl, '_blank');
                 document.getElementById('contactFormName').value = '';
@@ -2032,7 +2029,7 @@
             
             if (!phrase || phrase.trim() === '') {
                 liveGrid.innerHTML = '<p style="color: #666; grid-column: 1/-1; padding: 20px;">Enter your keyword above to fetch assets.</p>';
-                countDisplay.textContent = "Type to filter live cataloged assets instantly.";
+                countDisplay.textContent = "Type to see available products instantly.";
                 return;
             }
             
@@ -2042,11 +2039,11 @@
                 (item.category && item.category.toLowerCase().includes(phrase.toLowerCase()))
             );
             
-            countDisplay.textContent = `Found ${hits.length} matching design assets.`;
+            countDisplay.textContent = `Found ${hits.length} matching products.`;
             liveGrid.innerHTML = '';
             
             if (hits.length === 0) {
-                liveGrid.innerHTML = '<p style="color: #aaa; grid-column: 1/-1; padding: 20px;">No matches found for this keyword query.</p>';
+                liveGrid.innerHTML = '<p style="color: #aaa; grid-column: 1/-1; padding: 20px;">No matches found for your search.</p>';
                 return;
             }
 
@@ -2084,7 +2081,7 @@
             
             document.documentElement.setAttribute('data-theme', target);
             localStorage.setItem('eh_storefront_theme_preference', target);
-            triggerLuxuryToastSystemNotification(`Design system illumination inverted to ${target.toUpperCase()} layout.`);
+            triggerLuxuryToastSystemNotification(`Switched to ${target.toUpperCase()} mode.`);
         }
 
         function setupHeaderScrollMonitoring() {
@@ -2141,8 +2138,10 @@
 
         function triggerAdminAuthenticationModal() {
             if (window.netlifyIdentity) {
+                // If Netlify Identity Widget is loaded, show the login/registration popup directly
                 window.netlifyIdentity.open();
             } else {
+                // Fail-safe redirect if widget is blocked or not loaded
                 document.location.href = "/admin/";
             }
         }
@@ -2154,9 +2153,11 @@
             window.netlifyIdentity.on("init", user => {
                 if (!user) {
                     window.netlifyIdentity.on("login", () => {
+                        // Secure redirect on login or invite accept
                         document.location.href = "/admin/";
                     });
                 } else {
+                    // Already authenticated users routing straight to CMS folder
                     window.netlifyIdentity.on("login", () => {
                         document.location.href = "/admin/";
                     });
