@@ -2,5 +2,7 @@
   "image": "/images/1000070090.jpg",
   "title": "Shirt",
   "price": 12,
-  "category": "T-Shirts"
+  "category": "Fashion",
+  "description": "The very best of best ",
+  "stock": 12
 }
