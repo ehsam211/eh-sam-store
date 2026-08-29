@@ -1737,7 +1737,7 @@
             const titleIdx = headers.findIndex(h => h.includes("title") || h.includes("name"));
             const priceIdx = headers.findIndex(h => h.includes("price"));
             const imageIdx = headers.findIndex(h => h.includes("image") || h.includes("img"));
-            const productIdx = headers.findIndex(h => h.includes("product") || h.includes("url") || h.includes("link"));
+            const productIdx = headers.findIndex(h => (h.includes("product") || h.includes("buy") || h.includes("checkout")) && !h.includes("image") && !h.includes("img"));
             const descIdx = headers.findIndex(h => h.includes("desc"));
             const catIdx = headers.findIndex(h => h.includes("cat") || h.includes("type"));
 
